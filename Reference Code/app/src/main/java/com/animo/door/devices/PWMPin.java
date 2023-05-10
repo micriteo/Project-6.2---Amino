@@ -1,7 +1,5 @@
 package com.animo.door.devices;
 
-import android.util.Log;
-
 import java.io.File;
 import java.io.FileWriter;
 import java.io.IOException;
@@ -44,17 +42,7 @@ public class PWMPin
     }
 
     public void setValue(Integer value) {
-        if (fileWriter == null) {
-            Log.e("PWMPin", "FileWriter is null");
-            return;
-        }
-
-        try {
-            fileWriter.write(Integer.toString(value));
-            fileWriter.flush();
-        } catch (IOException e) {
-            Log.e("PWMPin", "Error writing to file", e);
-        }
+        writeToFile(Integer.toString(100 - value));
     }
 
     /**
