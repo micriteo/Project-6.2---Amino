@@ -9,7 +9,7 @@ import android.widget.TextView;
 /**
  * Standard TextView, capable of swapping between 2 given strings.
  */
-public class CustomTextViewALSLight extends TextView {
+public class CustomTextViewALSLight extends android.support.v7.widget.AppCompatTextView {
     private String mText1 = "";
     private String mText2 = "";
     private boolean mFirstLine = true;
