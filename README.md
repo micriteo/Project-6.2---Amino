@@ -34,3 +34,11 @@ The application incorporates a diverse range of languages and frameworks, includ
 * Andrei Khoudiakov
 * Nathan Mills
 * Kiaser Aftab
+
+
+    
+* Mathew Shardin
+* Alin Costache
+* Teodor Folea
+* Martin Radoychev
+* Nathan Pais D'Costa
