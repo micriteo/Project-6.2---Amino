@@ -28,7 +28,7 @@ The application incorporates a diverse range of languages and frameworks, includ
 
 
 <h3> Authors </h3>
-* Miroslav Penchev
+*Miroslav Penchev
 * Alin Costache
 * Teodor Folea
 * Andrei Khoudiakov
