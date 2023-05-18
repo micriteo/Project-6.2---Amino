@@ -1,10 +1,10 @@
 'use strict';
-getLocalStream();
+let log = console.log.bind(console), id = val => document.getElementById(val),
+    label = id('label'),
+    recordButton = id('recordButton'),
+    stream, recorder, chunks, media;
 
-const recordButton = document.getElementById('recordButton');
-let recorder, chunks;
-
-recordButton.onclick = (e) => {
+recordButton.onmousedown = (e) => {
     let recType = {
         audio: {
             tag: 'audio',
@@ -13,62 +13,25 @@ recordButton.onclick = (e) => {
             gUM: { audio: true }
         }
     };
-    const media = recType.audio;
+    media = recType.audio;
     navigator.mediaDevices.getUserMedia(media.gUM)
         .then(_stream => {
-            const stream = _stream;
+            stream = _stream;
             recorder = new MediaRecorder(stream);
             chunks = [];
+            recorder.start();
             recorder.ondataavailable = (e) => {
                 chunks.push(e.data);
                 if (recorder.state === 'inactive') {
                     makeLink();
                 }
             };
-            recorder.start();
-        })
-        .catch(log);
+        }).catch(log);
 };
 
-class ClickAndHold {
-    constructor(target, callback) {
-        this.target = target;
-        this.callback = callback;
-        this.isHeld = false;
-        this.activeHoldTimeoutId = null;
-
-        // So it works with desktop and mobile
-        ['mousedown', 'touchstart'].forEach(type => {
-            this.target.addEventListener(type, this._onHoldStart.bind(this));
-        });
-
-        ['mouseup', 'mouseleave', 'mouseout', 'touchend', 'touchcancel'].forEach(type => {
-            this.target.addEventListener(type, this._onHoldEnd.bind(this));
-        });
-    }
-
-    _onHoldStart() {
-        this.isHeld = true;
-        chunks = [];
-        recorder.start();
-
-        this.activeHoldTimeoutId = setTimeout(() => {
-            if (this.isHeld) {
-                this.callback();
-            }
-        }, 1000);
-    }
-
-    _onHoldEnd() {
-        this.isHeld = false;
-        recorder.stop();
-        clearTimeout(this.activeHoldTimeoutId);
-    }
+recordButton.onmouseup = (e) => {
+    recorder.stop();
 }
-
-let log = console.log.bind(console),
-    id = val => document.getElementById(val),
-    label = id('label');
 
 function makeLink() {
     let blob = new Blob(chunks, { type: 'audio/wav' });
@@ -84,23 +47,5 @@ function makeLink() {
         } else {
             console.log('HTTP-Error: ' + response.status);
         }
-    });
-}
-
-new ClickAndHold(recordButton, () => {
-    console.log('Press and hold button action');
-});
-
-//Permissions on page load
-function getLocalStream() {
-  navigator.mediaDevices
-    .getUserMedia({ video: false, audio: true })
-    .then((stream) => {
-      window.localStream = stream;
-      window.localAudio.srcObject = stream;
-      window.localAudio.autoplay = true;
-    })
-    .catch((err) => {
-      console.error(`you got an error: ${err}`);
     });
 }
