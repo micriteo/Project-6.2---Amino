@@ -49,15 +49,19 @@ class ClickAndHold {
 
     _onHoldStart() {
         this.isHeld = true;
+        chunks = [];
+        recorder.start();
+
         this.activeHoldTimeoutId = setTimeout(() => {
             if (this.isHeld) {
                 this.callback();
             }
-        }, 100);
+        }, 1000);
     }
 
     _onHoldEnd() {
         this.isHeld = false;
+        recorder.stop();
         clearTimeout(this.activeHoldTimeoutId);
     }
 }
@@ -87,13 +91,14 @@ new ClickAndHold(recordButton, () => {
     console.log('Press and hold button action');
 });
 
+//Permissions on page load
 function getLocalStream() {
   navigator.mediaDevices
     .getUserMedia({ video: false, audio: true })
     .then((stream) => {
-      window.localStream = stream; // A
-      window.localAudio.srcObject = stream; // B
-      window.localAudio.autoplay = true; // C
+      window.localStream = stream;
+      window.localAudio.srcObject = stream;
+      window.localAudio.autoplay = true;
     })
     .catch((err) => {
       console.error(`you got an error: ${err}`);
