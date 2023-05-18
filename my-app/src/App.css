@@ -11,14 +11,7 @@ body {
   background-attachment: fixed;
 }
 
-.header_campaign
-{
-  font-family: 'Lato', sans-serif;
-  font-style: normal;
-  font-size: 18px;
-  text-align: center;
-  color: #FFFFFF;
-}
+
 
 .App {
   text-align: center;
@@ -55,8 +48,28 @@ body {
 .logo-img
 {
   border-radius: 50%;
-  width: 50%;
-  height: 50%;
+  width: 100px;
+  height: 100px;
+}
+
+.header_campaign
+{
+  font-family: 'Lato', sans-serif;
+  font-style: normal;
+  font-size: 18px;
+  text-align: center;
+  color: #FFFFFF;
+}
+
+main {
+  padding: 10px;
+  
+}
+
+
+.rounded-rectangle-wrapper {
+  display: flex;
+  justify-content: space-between;
 }
 
 .rounded-rectangle 
@@ -72,9 +85,10 @@ body {
   margin-right: 15px;
 }
 
-main {
-  padding: 10px;
-  
+.capuccino-img {
+  width: 20px;
+  height: 20px;
+  margin-bottom: 5px;
 }
 
 .capucino-text {
@@ -88,11 +102,6 @@ main {
   margin-left: 10px;
 }
 
-.capuccino-img {
-  width: 20px;
-  height: 20px;
-  margin-bottom: 5px;
-}
 
 .coffee-selection {
   width: 143px;
@@ -116,36 +125,6 @@ main {
   background-size: cover; /* Cover the entire div with the background image */
   border-radius: 15px;
 }
-
-.capucino-image {
-  position: absolute;
-  width: 129px;
-  height: 99px;
-  left: 5px;
-  top: 5px;
-  background: url(chocolate.png) no-repeat center; /* Placeholder image URL */;
-  background-size: cover; /* Cover the entire div with the background image */
-  border-radius: 15px;
-}
-
-.hot_chocolate-image {
-  position: absolute;
-  width: 129px;
-  height: 99px;
-  left: 5px;
-  top: 5px;
-  background: url(./capucino.png) no-repeat center; /* Placeholder image URL */;
-  background-size: cover; /* Cover the entire div with the background image */
-  border-radius: 15px;
-}
-
-
-
-/* @media (max-width: 600px) {
-  .App-header {
-    background-color: #61dafb;
-  }
-} */
 
 .coffe-text {
   width: 83px;
@@ -191,8 +170,221 @@ main {
   margin-top: -10px;
 }
 
-.rounded-rectangle-wrapper {
-  display: flex;
-  justify-content: space-between;
+.capucino-image {
+  position: absolute;
+  width: 129px;
+  height: 99px;
+  left: 5px;
+  top: 5px;
+  background: url(chocolate.png) no-repeat center; /* Placeholder image URL */;
+  background-size: cover; /* Cover the entire div with the background image */
+  border-radius: 15px;
 }
+
+.hot_chocolate-image {
+  position: absolute;
+  width: 129px;
+  height: 99px;
+  left: 5px;
+  top: 5px;
+  background: url(./capucino.png) no-repeat center; /* Placeholder image URL */;
+  background-size: cover; /* Cover the entire div with the background image */
+  border-radius: 15px;
+}
+
+
+
+
+
+/**************** Desktop version **************/
+ @media (min-width: 600px) {
+  .App {
+    text-align: center;
+   
+  
+    /* Set the height to 100vh (100% of the viewport height) */
+    height: 100vh;
+  
+    /* Set the width to 100% */
+    width: 100%;
+  
+    /* Positioning context for absolute positioned children (if any) */
+    position: relative;
+  }
+
+  .App-header h1 {
+    text-align: center;
+    margin-top: -10vh;
+  }
+  
+  .App-header {
+  
+    padding: 20px;
+    color: white;
+    height: 200px;
+    display: flex;
+    justify-content: center;
+    align-items: center;      /* Add this line */
+    margin-bottom: -10vh;
+  
+  }
+  
+  .header-content
+  {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+  
+  .logo-img
+  {
+    border-radius: 50%;
+    width: 100px;
+    height: 100px;
+    position: absolute;
+    right: 20px;
+    top: 20px;
+  }
+  
+  .header_campaign
+  {
+    font-family: 'Lato', sans-serif;
+    font-style: normal;
+    font-size: 18px;
+    text-align: center;
+    color: #FFFFFF;
+  }
+
+  
+  
+  main {
+    padding: 10px;
+    
+  }
+  
+  .rounded-rectangle-wrapper {
+    display: flex;
+    justify-content: space-between;
+  }
+  
+  .rounded-rectangle 
+  {
+    width: 150px;
+    height: 30px;
+    background: #000000;
+    border-radius: 33px;
+    margin-top: 10px;
+    display: flex; /* this will align the child elements in a row */
+    align-items: center; /* this will center the child elements vertically */
+    justify-content: center; /* this will center the child elements horizontally */
+    margin-right: 15px;
+  }
+  
+  .capuccino-img {
+    width: 20px;
+    height: 20px;
+    margin-bottom: 5px;
+  }
+  
+  .capucino-text {
+    font-family: 'Lato', sans-serif;
+    font-style: normal;
+    font-weight: 800;
+    font-size: 12px;
+    line-height: 16px;
+    text-align: center;
+    color: #FFFFFF;
+    margin-left: 10px;
+  }
+  
+  
+  .coffee-selection {
+    width: 143px;
+    height: 165px;
+    border: 1px solid #FFFFFF;
+    filter: drop-shadow(2px 1px 7px rgba(0, 0, 0, 0.25));
+    border-radius: 15px;
+    box-sizing: border-box;
+    background-color: rgba(255, 255, 255, 0.5); /* 50% transparent white */
+    
+    margin-top: 20px; /* Add some space between the rounded-rectangle and coffee-selection divs */
+  }
+  
+  .coffee-image {
+    position: absolute;
+    width: 129px;
+    height: 99px;
+    left: 5px;
+    top: 5px;
+    background: url(./normal_coffee.png) no-repeat center; /* Placeholder image URL */;
+    background-size: cover; /* Cover the entire div with the background image */
+    border-radius: 15px;
+  }
+  
+  .coffe-text {
+    width: 83px;
+    height: 24px;
+    font-family: 'Lato';
+    font-style: normal;
+    font-size: 16px;
+    text-align: center;
+    margin-top: 110px;
+    color: #000000;
+  
+  }
+  
+  .ellipse {
+    position: absolute;
+    width: 30px;
+    height: 30px;
+    left: 106px;
+    top: 125px;
+    background: #000000;
+    border-radius: 50%; /* Makes the div an ellipse */
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+  
+  .plus {
+    color: #ffffff;
+    font-size: 24px;
+    line-height: 0; /* Adjusts the vertical alignment of the "+" */
+    margin-top: 20px;  
+  } 
+  
+  
+  .coffe-price
+  {
+    font-family: 'Lato';
+    font-style: normal;
+    font-size: 16px;
+    text-align: center;
+    color: #000000;
+    margin-right: 80px;
+    margin-top: -10px;
+  }
+  
+  .capucino-image {
+    position: absolute;
+    width: 129px;
+    height: 99px;
+    left: 5px;
+    top: 5px;
+    background: url(chocolate.png) no-repeat center; /* Placeholder image URL */;
+    background-size: cover; /* Cover the entire div with the background image */
+    border-radius: 15px;
+  }
+  
+  .hot_chocolate-image {
+    position: absolute;
+    width: 129px;
+    height: 99px;
+    left: 5px;
+    top: 5px;
+    background: url(./capucino.png) no-repeat center; /* Placeholder image URL */;
+    background-size: cover; /* Cover the entire div with the background image */
+    border-radius: 15px;
+  }
+} 
 
