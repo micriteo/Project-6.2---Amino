@@ -1,15 +1,7 @@
 @import url('https://fonts.googleapis.com/css2?family=Lato&display=swap');
 
 .home-container {
-    position: relative;
     text-align: center;
-    height: 100vh;
-    overflow: hidden;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
-    background-size: cover;
     background-position: center;
 }
 
@@ -24,18 +16,26 @@
     z-index: -1;
 }
 
+.logo-title-container {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    height: 13rem;
+    padding-bottom: 10rem;
+}
+
 .title {
     margin-top: 30px;
     font-family: 'Lato', sans-serif;
-    font-size: 1.5em;
-    color: #FFFFFF;
+    color: #CBCBD4;
 }
 
 .logo {
     width: 50px;
     height: 50px;
-    margin-top: 10px;
+    margin-right: 1rem;
 }
+
 
 .button-container {
     margin-top: 20px;
@@ -67,8 +67,14 @@
 }
 
 @media screen and (min-width: 600px) {
+    .logo-title-container {
+        flex-direction: row;
+        justify-content: center;
+    }
     .button-container {
         flex-direction: row;
         justify-content: center;
+        gap: 20px;
+        width: auto;
     }
 }
