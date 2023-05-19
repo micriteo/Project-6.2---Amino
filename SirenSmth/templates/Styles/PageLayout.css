@@ -1,0 +1,29 @@
+#recordButton {
+    transition-duration: 0.2s;
+    margin: 10px 150px;
+    word-wrap: normal;
+    padding: 10px;
+    border-radius: 50%;
+    height: 100px;
+    border:2px solid black; /*Black*/
+    box-shadow: 0 9px #999;
+}
+#recordButton:hover{
+    background-color: darkgray;
+}
+#recordButton:active{
+    background-color: gray;
+    box-shadow:0 5px #666;
+    transform: translateY(4px);
+}
+li {
+    margin: 10px;
+}
+body{
+    width: 90%;
+    max-width: 960px;
+    margin: 0px auto;
+}
+h1 {
+    margin: 100px;
+}

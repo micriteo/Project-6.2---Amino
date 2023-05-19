@@ -1,61 +1,51 @@
-'use strict'
-
+'use strict';
 let log = console.log.bind(console), id = val => document.getElementById(val),
-    ul = id('ul'), gUMbtn = id('gUMbtn'),
-    start = id('start'),
-    stop = id('stop'),
     label = id('label'),
-    stream, recorder, counter = 1, chunks, media;
+    recordButton = id('recordButton'),
+    stream, recorder, chunks, media;
 
-
-gUMbtn.onclick = e => {
-    console.log('gUMbtn clicked');
+recordButton.onmousedown = (e) => {
     let recType = {
         audio: {
-            tag: 'audio', type: 'audio/wav', ext: '.wav', gUM: {audio: true}
+            tag: 'audio',
+            type: 'audio/wav',
+            ext: '.wav',
+            gUM: { audio: true }
         }
     };
     media = recType.audio;
-    navigator.mediaDevices.getUserMedia(media.gUM).then(_stream => {
-        stream = _stream;
-        id('gUMArea').style.display = 'none';
-        id('btns').style.display = 'inherit';
-        start.removeAttribute('disabled');
-        recorder = new MediaRecorder(stream);
-        recorder.ondataavailable = e => {
-            chunks.push(e.data);
-            if (recorder.state === 'inactive') makeLink();
-        };
-    }).catch(log);
-}
+    navigator.mediaDevices.getUserMedia(media.gUM)
+        .then(_stream => {
+            stream = _stream;
+            recorder = new MediaRecorder(stream);
+            chunks = [];
+            recorder.start();
+            recorder.ondataavailable = (e) => {
+                chunks.push(e.data);
+                if (recorder.state === 'inactive') {
+                    makeLink();
+                }
+            };
+        }).catch(log);
+};
 
-start.onclick = e => {
-    start.disabled = true;
-    stop.removeAttribute('disabled');
-    chunks = [];
-    recorder.start();
-}
-
-stop.onclick = e => {
-    stop.disabled = true;
+recordButton.onmouseup = (e) => {
     recorder.stop();
-    start.removeAttribute('disabled');
 }
 
 function makeLink() {
-    let blob = new Blob(chunks, {type: media.type})
+    let blob = new Blob(chunks, { type: 'audio/wav' });
     const formData = new FormData();
-    formData.append('audio_file', blob, `sound${media.ext}`);
+    formData.append('audio_file', blob, 'sound.wav');
 
     fetch('/converter', {
         method: 'POST',
         body: formData
-    })
-        .then(async response => {
-            if (response.ok) {
-                label.innerHTML = await response.text();
-            } else {
-                console.log("HTTP-Error: " + response.status);
-            }
-        })
+    }).then(async response => {
+        if (response.ok) {
+            label.innerHTML = await response.text();
+        } else {
+            console.log('HTTP-Error: ' + response.status);
+        }
+    });
 }

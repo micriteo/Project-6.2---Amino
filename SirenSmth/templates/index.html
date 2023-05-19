@@ -1,42 +1,17 @@
 <!DOCTYPE html>
-<html>
+<html lang="English">
 <head>
     <title>MediaRecorder API - Sample</title>
     <meta charset="utf-8">
     <link type="text/css" rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css">
-    <style>
-        button{
-            margin: 10px 5px;
-        }
-        li{
-            margin: 10px;
-        }
-        body{
-            width: 90%;
-            max-width: 960px;
-            margin: 0px auto;
-        }
-        #btns{
-            display: none;
-        }
-        h1{
-            margin: 100px;
-        }
-    </style>
+    <link type="text/css" rel="stylesheet" href="Styles/PageLayout.css">
 </head>
+
+
 <body>
 <h1 id="label"> Voice to Text</h1>
 
-<div id='gUMArea'>
-    <button class="btn btn-default"  id='gUMbtn'>Request Stream</button>
-</div>
-<div id='btns'>
-    <button  class="btn btn-default" id='start'>Start</button>
-    <button  class="btn btn-default" id='stop'>Stop</button>
-</div>
-<div>
-    <ul  class="list-unstyled" id='ul'></ul>
-</div>
+<Button id="recordButton"> Order a coffee </Button>
 <script src="https://code.jquery.com/jquery-2.2.0.min.js"></script>
 <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js"></script>
 <script src="../static/script.js"></script>
