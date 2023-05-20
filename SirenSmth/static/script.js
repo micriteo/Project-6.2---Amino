@@ -32,6 +32,9 @@ recordButton.onmousedown = (e) => {
 recordButton.onmouseup = (e) => {
     recorder.stop();
 }
+let turn = 0; //0 for choosing a coffee, 1 for confirming
+let currentCoffee = null;
+const coffeeTypes = ["cappuccino", "expresso", "wiener melange", "hot chocolate"]
 
 function makeLink() {
     let blob = new Blob(chunks, { type: 'audio/wav' });
@@ -43,7 +46,38 @@ function makeLink() {
         body: formData
     }).then(async response => {
         if (response.ok) {
-            label.innerHTML = await response.text();
+            let voiceText = await response.text();
+            if (turn == 0) {
+                label.innerHTML = voiceText;
+                coffeeTypes.forEach((coffee) => {
+                    if (voiceText.includes(coffee)) {
+                        currentCoffee = coffee
+                    }
+                })
+                if (currentCoffee != null) {
+                    label.innerHTML = "You have requested a " + currentCoffee +", is this correct?";
+                    turn = 1
+                }
+                else {
+                    label.innerHTML = "I'm sorry, I could not understand you. What coffee would you like?"
+                }
+            } else if (turn == 1) {
+                if (voiceText.includes("yes") || voiceText.includes("sounds good") || voiceText.includes("sure")) {
+                    label.innerHTML = "Brewing " + currentCoffee + " now!";
+                    //Code to make the coffee here
+                    turn = 0
+                    currentCoffee = null
+                }
+                else if (voiceText.includes("no") || voiceText.includes("nope") || voiceText.includes("cancel"))
+                {
+                    label.innerHTML = "What coffee would you like instead?"
+                    turn = 0
+                    currentCoffee = null
+                }
+                else {
+                    label.innerHTML = "I'm sorry, I could not understand you. Would you like a " + currentCoffee + "? Please say Yes or No"
+                }
+            }
         } else {
             console.log('HTTP-Error: ' + response.status);
         }

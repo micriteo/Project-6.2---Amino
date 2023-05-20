@@ -36,9 +36,9 @@ async def convert_to_text():
 
 
 def convert_to_wav():
-    input_path = "new_voice.webm"
-    output_path = "new_voice.wav"
-    ffmpeg_path = r"C:\MainStuff\ffmpeg-6.0\bin\ffmpeg.exe"
+    input_path = r"C:\Users\Nathan\OneDrive - NHL Stenden\NHL Uni work\GitHub\Project-6.2---Amino\SirenSmth\new_voice.webm"
+    output_path = r"C:\Users\Nathan\OneDrive - NHL Stenden\NHL Uni work\GitHub\Project-6.2---Amino\SirenSmth\new_voice.wav"
+    ffmpeg_path = r"C:\Users\Nathan\OneDrive - NHL Stenden\NHL Uni work\GitHub\Project-6.2---Amino\ffmpeg-6.0-essentials_build\bin\ffmpeg.exe"
     subprocess.call([ffmpeg_path, '-i', input_path, output_path])
 
 
@@ -50,4 +50,4 @@ def remove_files():
 
 
 if __name__ == '__main__':
-    app.run(host='0.0.0.0', port=122, ssl_context='adhoc')
+    app.run(host='0.0.0.0', port=122)
