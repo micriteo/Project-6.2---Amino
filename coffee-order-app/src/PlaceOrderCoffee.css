@@ -1,0 +1,116 @@
+.order-coffee {
+  background: url('./Images/cappucino.jpg') no-repeat center center fixed; 
+    -webkit-background-size: cover;
+    -moz-background-size: cover;
+    -o-background-size: cover;
+    background-size: cover;
+
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+  color: white;
+}
+
+.header-image {
+  position: absolute;
+  top: 10px;  /* adjust as needed */
+  left: 480px;  /* adjust as needed */
+  width: 4%;  /* adjust as needed */
+  height: auto;
+}
+
+.header {
+  text-align: center;
+  color: white;
+  background-color: rgba(0, 0, 0, 0.5);
+  margin-bottom: 0;
+}
+
+.order-coffee .header {
+  margin-top: 0;
+  background-color: rgba(0, 0, 0, 0.8);
+  text-align: center;
+  color: #fff;
+  border-radius: 30px;
+  padding: 10px;
+}
+
+.order-coffee .container {
+  background-color: #fff;
+  padding: 20px;
+  margin: 20px;
+  border-radius: 50px;
+  margin-bottom: -250px;
+}
+
+.order-coffee .container .label,
+.order-coffee .container .paragraph {
+  color: #000;
+  text-align: center;
+}
+
+.order-coffee .container .button-group {
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+}
+
+.order-coffee .container .button-group .button {
+  margin: 10px;
+}
+
+.order-coffee .container .button-group .button.black {
+  background-color: white;
+  color: black;
+  border: 1px solid black;
+  border-radius: 40px;
+}
+
+.order-coffee .container .button-group .button.black:hover{
+  color: white;
+  background-color: #000;
+}
+
+.order-coffee .container .button-group .button.white {
+  background-color: #fff;
+  color: #000;
+  border: 1px solid black;
+  border-radius: 40px;
+}
+
+.order-coffee .container .button-group .button.white:hover{
+  color: white;
+  background-color: #000;
+}
+
+.order-coffee .container .brew-button {
+  display: block;
+  margin: 20px auto;
+  color: white;
+  background-color: black;
+  width: 30%;
+  padding: 10px;
+  text-align: center;
+  border-radius: 40px;
+}
+
+.order-coffee .container .brew-button:hover{
+  cursor: pointer;
+}
+
+/* Media queries for mobile responsiveness */
+@media (max-width: 600px) {
+  .order-coffee .container .button-group {
+      flex-direction: column;
+  }
+
+  .order-coffee .container .button-group .button {
+      flex: 0 0 auto;
+  }
+
+  .order-coffee .container .brew-button {
+      width: 100%;
+  }
+}
