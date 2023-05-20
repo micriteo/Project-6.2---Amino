@@ -1,0 +1,53 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:id="@+id/activityBrewing"
+    android:layout_width="480px"
+    android:layout_height="800px"
+    android:background="#000000">
+
+    <ImageView
+        android:id="@+id/imgInfoBackground"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="10px"
+        android:layout_marginTop="0px"
+        android:visibility="visible" />
+
+    <com.animo.door.view.CustomProgressCircle
+        android:id="@+id/circle"
+        android:layout_width="310px"
+        android:layout_height="310px"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="260px"
+        android:visibility="visible" />
+
+    <ImageView
+        android:id="@+id/foregroundImg"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="290px"
+        android:visibility="visible" />
+
+    <com.animo.door.view.CustomTextViewALSLight
+        android:id="@+id/text_description1"
+        android:layout_width="600px"
+        android:layout_height="wrap_content"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="100px"
+        android:gravity="center_horizontal"
+        android:text="YOUR DRINK IS BEING PREPARED"
+        android:textColor="#ffffffff"
+        android:textSize="28px" />
+
+    <com.animo.door.view.CustomTextViewALSLight
+        android:id="@+id/text_description2"
+        android:layout_width="600px"
+        android:layout_height="wrap_content"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="620px"
+        android:gravity="center_horizontal"
+        android:text="DRINK_NAME"
+        android:textColor="#ffffffff"
+        android:textSize="44px" />
+</RelativeLayout>

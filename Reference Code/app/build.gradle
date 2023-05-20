@@ -1,0 +1,70 @@
+apply plugin: 'com.android.application'
+
+android {
+    signingConfigs {
+        config {
+            keyAlias 'key'
+            keyPassword 'animokey'
+            storeFile file('C:/Checkouts/Animo/AN2999755 ANIDROID OM/Project/keystore/animokey.jks')
+            storePassword 'animokey'
+        }
+        debug {
+            keyAlias 'androiddebugkey'
+            keyPassword 'android'
+            storeFile file('C:/Checkouts/Animo/AN2999755 ANIDROID OM/Project/keystore/debug.keystore')
+            storePassword 'android'
+        }
+    }
+    compileSdkVersion 24
+    buildToolsVersion '28.0.3'
+    defaultConfig {
+        applicationId "com.animo.optiline"
+        minSdkVersion 21
+        targetSdkVersion 24
+        versionCode 1
+
+        manifestPlaceholders = [appversion: "${version}"]
+    }
+    compileOptions {
+        sourceCompatibility JavaVersion.VERSION_1_8
+        targetCompatibility JavaVersion.VERSION_1_8
+    }
+    buildTypes {
+        beta {
+            lintOptions {
+                disable 'MissingTranslation'
+            }
+            minifyEnabled false
+            proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
+            signingConfig signingConfigs.config
+            buildConfigField("String", "BUILD_VERSION", "\"" + version + ' Beta' + "\"")
+        }
+        release {
+            lintOptions {
+                disable 'MissingTranslation'
+            }
+            minifyEnabled false
+            proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
+            signingConfig signingConfigs.config
+            buildConfigField("String", "BUILD_VERSION", "\"" + version + "\"")
+        }
+        debug {
+            signingConfig signingConfigs.debug
+            buildConfigField("String", "BUILD_VERSION", "\"" + version + "\"")
+        }
+    }
+    productFlavors {
+    }
+}
+
+dependencies {
+    implementation 'com.android.support.constraint:constraint-layout:1.1.3'
+    implementation fileTree(include: ['*.jar'], dir: 'libs')
+    testImplementation 'junit:junit:4.12'
+    implementation 'com.android.support:appcompat-v7:23.4.0'
+    implementation 'com.android.support:design:23.4.0'
+    implementation 'com.google.android.gms:play-services-appindexing:9.8.0'
+    implementation group: 'net.lingala.zip4j', name: 'zip4j', version: '1.3.2'
+    implementation('com.journeyapps:zxing-android-embedded:3.6.0') { transitive = false }
+    implementation 'com.google.zxing:core:3.3.0'
+}

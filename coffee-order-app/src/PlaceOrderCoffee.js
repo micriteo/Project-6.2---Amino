@@ -6,7 +6,7 @@ import headerImage from './Images/Left.png'; // path to your header image
 const OrderCoffee = () => {
     return (
         <div className="order-coffee">
-            <img src={headerImage} className="header-image" alt="header" />
+            <a href="./order_coffee"><img src={headerImage} className="header-image" alt="header" /></a>
             <div className="header">Cappuccino</div>
             <div className="container">
                 <label className="label">Sugar</label>
