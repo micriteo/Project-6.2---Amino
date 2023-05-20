@@ -2,8 +2,17 @@ import React from 'react';
 import './HomePage.css';
 import backgroundImage from './Assets/background.jpg';
 import logo from './Assets/Logo.png';
+import { useNavigate } from 'react-router-dom';
+
 
 function HomePage() {
+
+    const navigate = useNavigate();
+
+    const handleSelectOrderButtonClick = () => {
+      navigate('/select-order');
+    };
+    
     return (
         <div className="home-container">
             <header className="App-header">
@@ -14,7 +23,7 @@ function HomePage() {
                 </div>
                 <div className="button-container">
                     <button className="voice-button">Order via voice</button>
-                    <button className="select-button">Order via selecting</button>
+                    <button className="select-button" onClick={handleSelectOrderButtonClick} >Order via selecting</button>
                 </div>
             </header>
         </div>

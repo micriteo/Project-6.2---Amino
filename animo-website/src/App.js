@@ -1,11 +1,18 @@
 import React from 'react';
-import HomePage from './HomePage';
+import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
+
+import HomePage from './HomePage.js';
+import SelectOrder from './SelectOrder.js';
+
 
 function App() {
     return (
-        <div>
-            <HomePage />
-        </div>
+        <Router>
+        <Routes>
+          <Route path="/" element={<HomePage />} />
+          <Route path="/select-order" element={<SelectOrder />} />
+        </Routes>
+      </Router>
     );
 }
 
