@@ -34,7 +34,7 @@ recordButton.onmouseup = (e) => {
 }
 let turn = 0; //0 for choosing a coffee, 1 for confirming
 let currentCoffee = null;
-const coffeeTypes = ["cappuccino", "expresso", "wiener melange", "hot chocolate"]
+const coffeeTypes = ["cappuccino", "expresso", "wiener melange", "hot chocolate"] //Coffees that are available
 
 function makeLink() {
     let blob = new Blob(chunks, { type: 'audio/wav' });
