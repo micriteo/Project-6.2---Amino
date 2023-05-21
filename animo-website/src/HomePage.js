@@ -9,13 +9,17 @@ function HomePage() {
 
     const navigate = useNavigate();
 
-    const handleSelectOrderButtonClick = () => {
+    const handleSelectOrderButtonClick = () => 
+    {
       navigate('/select-order');
     };
 
-    const handleVoiceButton = () => {
+    const handleVoiceButton = () => 
+    {
         navigate('/voice_order');
-      };
+    };
+
+    
     
     return (
         <div className="home-container">

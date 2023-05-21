@@ -4,6 +4,7 @@ import coffe_vector from './Assets/Select_Order_Assets/capucino_vector.svg';
 import tea_vector from './Assets/Select_Order_Assets/tea_vector.svg';
 import hot_water_vector from './Assets/Select_Order_Assets/hot_water_vector.svg';
 import background from './Assets/Select_Order_Assets/background_animo.jpeg';
+import { useNavigate } from 'react-router-dom';
 
 
 function SelectOrder() 
@@ -14,14 +15,23 @@ function SelectOrder()
     alert("Button clicked!");
   }
 
+  const navigate = useNavigate();
+
+
+  const handleBrewCoffe = () => 
+    {
+        navigate('/brew_coffee');
+    };
+
   return (
+    <div className='select-container'>
     <div className="App">
       <header className="Select_Order_Header">
         <h1>Welcome to your Animo!</h1>
         <img src= {animo_logo} alt="Animo" className="logo-img" />
       </header>
 
-      <main>
+      <div className = 'main'>
         <p className = "header_campaign">The new way of ordering in safety! </p>
         <div className="rounded-rectangle-wrapper"> 
           <div className="rounded-rectangle" onClick={handleButtonClick}>
@@ -41,7 +51,7 @@ function SelectOrder()
           <div className="coffee-image"></div> { /* background added via CSS */}
           <p className = "coffe-text">Capucino</p>
           <p className = "coffe-price"> Free</p>
-          <div className="ellipse" onClick={handleButtonClick}>
+          <div className="ellipse2" onClick={handleBrewCoffe}>
             <p className="plus">+</p> {/* New "+" text inside the ellipse */}
           </div>
         </div>
@@ -49,7 +59,7 @@ function SelectOrder()
         <div className="hot_chocolate-image"></div> {/* The background image will be added via CSS */}
         <p className = "coffe-text">Capucino</p>
         <p className = "coffe-price"> Free</p>
-        <div className="ellipse" onClick={handleButtonClick}>
+        <div className="ellipse2" onClick={handleButtonClick}>
           <p className="plus">+</p> {/* New "+" text inside the ellipse */}
         </div>
       </div>
@@ -57,11 +67,12 @@ function SelectOrder()
         <div className="capucino-image"></div> {/* The background image will be added via CSS */}
         <p className = "coffe-text">Capucino</p>
         <p className = "coffe-price"> Free</p>
-        <div className="ellipse" onClick={handleButtonClick}>
+        <div className="ellipse2" onClick={handleButtonClick}>
           <p className="plus">+</p> {/* New "+" text inside the ellipse */}
         </div>
       </div>
-    </main> 
+    </div> 
+  </div>
   </div>
   );
 }

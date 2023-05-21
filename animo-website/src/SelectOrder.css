@@ -1,30 +1,33 @@
-html,body
-{
-  margin: 0;
-  padding: 0;
-  height: 100%;
-}
 
-body {
-  background: url(./Assets/Select_Order_Assets/background_animo.jpeg) no-repeat center;
-  background-size: cover;
-  background-attachment: fixed;
-}
+ html
+  { 
+    margin: 0 auto;
+    padding: 0;
+    
+  }
 
-
+  body
+  { 
+    margin: 0 auto;
+    padding: 0;
+  }
 
 .App {
   text-align: center;
  
 
   /* Set the height to 100vh (100% of the viewport height) */
-  height: 100vh;
+  height: 100%;
 
   /* Set the width to 100% */
   width: 100%;
 
   /* Positioning context for absolute positioned children (if any) */
   position: relative;
+  background: url(./Assets/Select_Order_Assets/background_animo.jpeg) no-repeat center;
+  background-size: cover;
+  background-attachment: fixed;
+  padding: 10px;
 }
 
 .Select_Order_Header {
@@ -61,10 +64,7 @@ body {
   color: #CBCBD4;
 }
 
-main {
-  padding: 10px;
-  
-}
+
 
 
 .rounded-rectangle-wrapper {
@@ -138,7 +138,7 @@ main {
 
 }
 
-.ellipse {
+.ellipse2 {
   position: absolute;
   width: 30px;
   height: 30px;
@@ -197,22 +197,42 @@ main {
 
 
 /**************** Desktop version **************/
- @media (min-width: 600px) {
-  .App {
-    text-align: center;
-   
+ @media (min-width: 400px) {
   
-    /* Set the height to 100vh (100% of the viewport height) */
-    height: 100vh;
-  
-    /* Set the width to 100% */
-    width: 100%;
-  
-    /* Positioning context for absolute positioned children (if any) */
-    position: relative;
+  /* html
+  { 
+    margin: 0;
+    padding: 0;
+    height: 100%;
   }
 
-  .Select_Order_Header h1 {
+  body 
+  {
+    background: url(./Assets/Select_Order_Assets/background_animo.jpeg) no-repeat center;
+    background-size: cover;
+    background-attachment: fixed;
+  } */
+
+  .select-container
+   {    
+    width: 100%;
+    height: 100vh;
+    background: url(./Assets/Select_Order_Assets/background_animo.jpeg) no-repeat center;
+    background-size: cover;
+    background-attachment: fixed;
+    
+   }
+
+  .App 
+  {
+    text-align: center;
+    width: 100vh;
+    padding: 0;   
+    margin: 0 auto;
+  }
+
+  .Select_Order_Header h1 
+  {
     text-align: center;
     margin-top: -10vh;
   }
@@ -220,7 +240,7 @@ main {
   .Select_Order_Header {
   
     padding: 20px;
-    color: white;
+    color: #CBCBD4;
     height: 200px;
     display: flex;
     justify-content: center;
@@ -242,7 +262,7 @@ main {
     width: 100px;
     height: 100px;
     position: absolute;
-    right: 20px;
+    right: 10%;
     top: 20px;
   }
   
@@ -252,14 +272,13 @@ main {
     font-style: normal;
     font-size: 18px;
     text-align: center;
-    color: #FFFFFF;
+    color: #CBCBD4;
   }
 
-  
-  
-  main {
-    padding: 10px;
-    
+  .main
+  {
+    padding: 0;   
+    margin: 0 auto;
   }
   
   .rounded-rectangle-wrapper {
@@ -277,7 +296,7 @@ main {
     display: flex; /* this will align the child elements in a row */
     align-items: center; /* this will center the child elements vertically */
     justify-content: center; /* this will center the child elements horizontally */
-    margin-right: 15px;
+    margin-right: 10px;
   }
   
   .capuccino-img {
@@ -333,7 +352,7 @@ main {
   
   }
   
-  .ellipse {
+  .ellipse2 {
     position: absolute;
     width: 30px;
     height: 30px;
