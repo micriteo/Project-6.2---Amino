@@ -30,11 +30,13 @@ html,body
   .coffee_background 
   {
     position: relative;
-    width: 100%; 
+    width: 100%;
     height: 45vh;
     background-image: url('./capucino.png');
     background-repeat: no-repeat;
     background-size: cover;
+    background-position: center center;
+    
   }
 
   .ellipse {
