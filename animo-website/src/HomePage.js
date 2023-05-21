@@ -12,6 +12,10 @@ function HomePage() {
     const handleSelectOrderButtonClick = () => {
       navigate('/select-order');
     };
+
+    const handleVoiceButton = () => {
+        navigate('/voice_order');
+      };
     
     return (
         <div className="home-container">
@@ -22,7 +26,7 @@ function HomePage() {
                     <img className="logo" src={logo} alt="Logo"/>
                 </div>
                 <div className="button-container">
-                    <button className="voice-button">Order via voice</button>
+                    <button className="voice-button" onClick={handleVoiceButton}>Order via voice</button>
                     <button className="select-button" onClick={handleSelectOrderButtonClick} >Order via selecting</button>
                 </div>
             </header>

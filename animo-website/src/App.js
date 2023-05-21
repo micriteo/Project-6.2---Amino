@@ -3,6 +3,7 @@ import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
 
 import HomePage from './HomePage.js';
 import SelectOrder from './SelectOrder.js';
+import VoiceOrder from './VoiceOrder.js';
 
 
 function App() {
@@ -11,6 +12,7 @@ function App() {
         <Routes>
           <Route path="/" element={<HomePage />} />
           <Route path="/select-order" element={<SelectOrder />} />
+          <Route path="/voice_order" element={<VoiceOrder />} />
         </Routes>
       </Router>
     );
