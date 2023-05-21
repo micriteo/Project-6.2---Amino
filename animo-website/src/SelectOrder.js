@@ -30,8 +30,7 @@ function SelectOrder()
         <h1>Welcome to your Animo!</h1>
         <img src= {animo_logo} alt="Animo" className="logo-img" />
       </header>
-
-      <div className = 'main'>
+      <div className = 'main2'>
         <p className = "header_campaign">The new way of ordering in safety! </p>
         <div className="rounded-rectangle-wrapper"> 
           <div className="rounded-rectangle" onClick={handleButtonClick}>
@@ -47,28 +46,30 @@ function SelectOrder()
             <p className = "capucino-text">Hot water </p>
           </div>
         </div>
-        <div className="coffee-selection">
-          <div className="coffee-image"></div> { /* background added via CSS */}
+        <div className='coffe_selection_container'>
+          <div className="coffee-selection1">
+            <div className="coffee-image"></div> { /* background added via CSS */}
+            <p className = "coffe-text">Capucino</p>
+            <p className = "coffe-price"> Free</p>
+            <div className="ellipse2" onClick={handleBrewCoffe}>
+              <p className="plus">+</p> {/* New "+" text inside the ellipse */}
+            </div>
+          </div>
+          <div className="coffee-selection2">
+          <div className="hot_chocolate-image"></div> {/* The background image will be added via CSS */}
           <p className = "coffe-text">Capucino</p>
           <p className = "coffe-price"> Free</p>
-          <div className="ellipse2" onClick={handleBrewCoffe}>
+          <div className="ellipse2" onClick={handleButtonClick}>
             <p className="plus">+</p> {/* New "+" text inside the ellipse */}
           </div>
-        </div>
-      <div className="coffee-selection">
-        <div className="hot_chocolate-image"></div> {/* The background image will be added via CSS */}
-        <p className = "coffe-text">Capucino</p>
-        <p className = "coffe-price"> Free</p>
-        <div className="ellipse2" onClick={handleButtonClick}>
-          <p className="plus">+</p> {/* New "+" text inside the ellipse */}
-        </div>
-      </div>
-      <div className="coffee-selection">
-        <div className="capucino-image"></div> {/* The background image will be added via CSS */}
-        <p className = "coffe-text">Capucino</p>
-        <p className = "coffe-price"> Free</p>
-        <div className="ellipse2" onClick={handleButtonClick}>
-          <p className="plus">+</p> {/* New "+" text inside the ellipse */}
+         </div>
+        <div className="coffee-selection3">
+          <div className="capucino-image"></div> {/* The background image will be added via CSS */}
+          <p className = "coffe-text">Capucino</p>
+          <p className = "coffe-price"> Free</p>
+          <div className="ellipse2" onClick={handleButtonClick}>
+            <p className="plus">+</p> {/* New "+" text inside the ellipse */}
+          </div>
         </div>
       </div>
     </div> 

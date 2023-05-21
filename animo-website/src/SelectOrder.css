@@ -1,43 +1,41 @@
-
- html
-  { 
-    margin: 0 auto;
-    padding: 0;
-    
-  }
-
+@media screen and (max-width: 600px) {
+ 
   body
   { 
     margin: 0 auto;
     padding: 0;
   }
 
+  .select-container
+  {    
+  
+   height: 100vh;
+   width: 100vw;
+   background: url(./Assets/Select_Order_Assets/background_animo.jpeg) no-repeat center;
+   background-size: cover;
+   background-attachment: fixed;
+   margin: 0;
+   padding: 0;
+
+  }
+
 .App {
   text-align: center;
- 
-
-  /* Set the height to 100vh (100% of the viewport height) */
-  height: 100%;
-
-  /* Set the width to 100% */
-  width: 100%;
-
-  /* Positioning context for absolute positioned children (if any) */
+  height: 100vh;
+  width: 100vw;
   position: relative;
-  background: url(./Assets/Select_Order_Assets/background_animo.jpeg) no-repeat center;
-  background-size: cover;
-  background-attachment: fixed;
-  padding: 10px;
+  
 }
 
 .Select_Order_Header {
 
-  padding: 20px;
+  position: relative;
   color: #CBCBD4;
-  height: 200px;
+  height: 15%;
   display: flex;
   justify-content: space-between;
   align-items: center;      /* Add this line */
+  top: 10px;
 
 }
 
@@ -57,6 +55,9 @@
 
 .header_campaign
 {
+  position: relative;
+  height: 10vh;
+  top: 2vh;
   font-family: 'Lato', sans-serif;
   font-style: normal;
   font-size: 18px;
@@ -65,20 +66,20 @@
 }
 
 
-
-
-.rounded-rectangle-wrapper {
+.rounded-rectangle-wrapper 
+{
   display: flex;
   justify-content: space-between;
 }
 
 .rounded-rectangle 
 {
+  position: relative;
   width: 150px;
   height: 30px;
   background: #000000;
   border-radius: 33px;
-  margin-top: 10px;
+  top: 10%;
   display: flex; /* this will align the child elements in a row */
   align-items: center; /* this will center the child elements vertically */
   justify-content: center; /* this will center the child elements horizontally */
@@ -86,9 +87,10 @@
 }
 
 .capuccino-img {
+  position: relative ;
   width: 20px;
   height: 20px;
-  margin-bottom: 5px;
+  bottom: 5%;
 }
 
 .capucino-text {
@@ -102,8 +104,18 @@
   margin-left: 10px;
 }
 
+.main2
+{
+    width: 100%;
+}
+.coffe_selection_container
+{
+  height: 20%;
+}
 
-.coffee-selection {
+.coffee-selection1
+{
+  position: relative;
   width: 143px;
   height: 165px;
   border: 1px solid #FFFFFF;
@@ -111,8 +123,33 @@
   border-radius: 15px;
   box-sizing: border-box;
   background-color: rgba(255, 255, 255, 0.5); /* 50% transparent white */
-  
-  margin-top: 20px; /* Add some space between the rounded-rectangle and coffee-selection divs */
+  top: 1vh;
+}
+.coffee-selection2
+{
+  position: relative;
+  width: 143px;
+  height: 165px;
+  border: 1px solid #FFFFFF;
+  filter: drop-shadow(2px 1px 7px rgba(0, 0, 0, 0.25));
+  border-radius: 15px;
+  box-sizing: border-box;
+  background-color: rgba(255, 255, 255, 0.5); /* 50% transparent white */
+  top: 3vh;
+
+}
+.coffee-selection3
+{
+  position: relative;
+  width: 143px;
+  height: 165px;
+  border: 1px solid #FFFFFF;
+  filter: drop-shadow(2px 1px 7px rgba(0, 0, 0, 0.25));
+  border-radius: 15px;
+  box-sizing: border-box;
+  background-color: rgba(255, 255, 255, 0.5); /* 50% transparent white */
+  top: 5vh;
+
 }
 
 .coffee-image {
@@ -127,13 +164,14 @@
 }
 
 .coffe-text {
+  position: relative;
   width: 83px;
   height: 24px;
   font-family: 'Lato';
   font-style: normal;
   font-size: 16px;
   text-align: center;
-  margin-top: 110px;
+  top:116px;
   color: #000000;
 
 }
@@ -152,22 +190,23 @@
 }
 
 .plus {
+  position: relative;
   color: #ffffff;
   font-size: 24px;
   line-height: 0; /* Adjusts the vertical alignment of the "+" */
-  margin-top: 20px;  
 } 
 
 
 .coffe-price
 {
+  position: relative;
   font-family: 'Lato';
   font-style: normal;
   font-size: 16px;
   text-align: center;
   color: #000000;
-  margin-right: 80px;
-  margin-top: -10px;
+  right: 30%;
+  top: 30%;
 }
 
 .capucino-image {
@@ -191,13 +230,12 @@
   background-size: cover; /* Cover the entire div with the background image */
   border-radius: 15px;
 }
-
-
+}
 
 
 
 /**************** Desktop version **************/
- @media (min-width: 400px) {
+ @media screen and (min-width: 600px) {
   
   /* html
   { 
@@ -213,22 +251,32 @@
     background-attachment: fixed;
   } */
 
+  body
+  { 
+    margin: 0 auto;
+    padding: 0;
+  }
+
   .select-container
    {    
-    width: 100%;
+    /* width: 100%;
+    height: 100vh; */
     height: 100vh;
+    width: 100vw;
     background: url(./Assets/Select_Order_Assets/background_animo.jpeg) no-repeat center;
     background-size: cover;
     background-attachment: fixed;
-    
+    margin: 0;
+    padding: 0;
+
    }
 
   .App 
   {
     text-align: center;
-    width: 100vh;
-    padding: 0;   
-    margin: 0 auto;
+    width: 100%;
+    height: 50%;
+    
   }
 
   .Select_Order_Header h1 
@@ -275,8 +323,10 @@
     color: #CBCBD4;
   }
 
-  .main
+  .main2
   {
+    width: 50%;
+    height: 100%;
     padding: 0;   
     margin: 0 auto;
   }
@@ -317,7 +367,31 @@
   }
   
   
-  .coffee-selection {
+  .coffee-selection1 {
+    width: 143px;
+    height: 165px;
+    border: 1px solid #FFFFFF;
+    filter: drop-shadow(2px 1px 7px rgba(0, 0, 0, 0.25));
+    border-radius: 15px;
+    box-sizing: border-box;
+    background-color: rgba(255, 255, 255, 0.5); /* 50% transparent white */
+    
+    margin-top: 20px; /* Add some space between the rounded-rectangle and coffee-selection divs */
+  }
+
+  .coffee-selection2 {
+    width: 143px;
+    height: 165px;
+    border: 1px solid #FFFFFF;
+    filter: drop-shadow(2px 1px 7px rgba(0, 0, 0, 0.25));
+    border-radius: 15px;
+    box-sizing: border-box;
+    background-color: rgba(255, 255, 255, 0.5); /* 50% transparent white */
+    
+    margin-top: 20px; /* Add some space between the rounded-rectangle and coffee-selection divs */
+  }
+
+  .coffee-selection3 {
     width: 143px;
     height: 165px;
     border: 1px solid #FFFFFF;
