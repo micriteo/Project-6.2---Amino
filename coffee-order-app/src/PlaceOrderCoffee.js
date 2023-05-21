@@ -9,9 +9,9 @@ function PlaceOrderCoffee()
   return (
     <div className = "Place_Order_App">
         <header className = "coffee_background" >
-            <div className="ellipse">
+            <button className="ellipse">
                 <p className="back">&lt;</p> 
-            </div> 
+            </button> 
             <div className="drink_name">
                 <p className="drink_type">Capuccino</p> 
             </div>
@@ -33,11 +33,11 @@ function PlaceOrderCoffee()
                     </div>
 
                 <div className='about_text'> 
-                    <h2>About</h2>
-                        Lorem ipsum dolor sit amet, consectetur adipiscing elit. 
+                    <h2 className ="about"> About </h2>
+                        <p className ="info">Lorem ipsum dolor sit amet, consectetur adipiscing elit. 
                         Id ipsum vivamus velit lorem amet. Tincidunt cras volutpat aliquam porttitor molestie. 
                         Netus neque, habitasse id vulputate proin cras. Neque, vel duis sit vel pellentesque tempor.
-                        A commodo arcu tortor arcu, elit.
+                        A commodo arcu tortor arcu, elit.</p>
                  </div>
                 <button className="brew_Order">Brew</button> 
   
