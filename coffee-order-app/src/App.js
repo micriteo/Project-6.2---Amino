@@ -5,7 +5,7 @@ import PlaceOrderCoffee from './PlaceOrderCoffee';
 function App() {
     return (
         <div>
-            <OrderCoffee />
+            <PlaceOrderCoffee />
         </div>
     );
 }

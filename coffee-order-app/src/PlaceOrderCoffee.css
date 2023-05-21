@@ -1,116 +1,258 @@
-.order-coffee {
-  background: url('./Images/cappucino.jpg') no-repeat center center fixed; 
-    -webkit-background-size: cover;
-    -moz-background-size: cover;
-    -o-background-size: cover;
-    background-size: cover;
-
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
-  height: 100vh;
-  color: white;
+html,body
+{
+  margin: 0;
+  padding: 0;
+  height: 100%;
 }
 
-.header-image {
-  position: absolute;
-  top: 10px;  /* adjust as needed */
-  left: 480px;  /* adjust as needed */
-  width: 4%;  /* adjust as needed */
-  height: auto;
-}
 
-.header {
-  text-align: center;
-  color: white;
-  background-color: rgba(0, 0, 0, 0.5);
-  margin-bottom: 0;
-}
-
-.order-coffee .header {
-  margin-top: 0;
-  background-color: rgba(0, 0, 0, 0.8);
-  text-align: center;
-  color: #fff;
-  border-radius: 30px;
-  padding: 10px;
-}
-
-.order-coffee .container {
-  background-color: #fff;
-  padding: 20px;
-  margin: 20px;
-  border-radius: 50px;
-  margin-bottom: -250px;
-}
-
-.order-coffee .container .label,
-.order-coffee .container .paragraph {
-  color: #000;
-  text-align: center;
-}
-
-.order-coffee .container .button-group {
-  display: flex;
-  justify-content: center;
-  flex-wrap: wrap;
-}
-
-.order-coffee .container .button-group .button {
-  margin: 10px;
-}
-
-.order-coffee .container .button-group .button.black {
-  background-color: white;
-  color: black;
-  border: 1px solid black;
-  border-radius: 40px;
-}
-
-.order-coffee .container .button-group .button.black:hover{
-  color: white;
-  background-color: #000;
-}
-
-.order-coffee .container .button-group .button.white {
-  background-color: #fff;
-  color: #000;
-  border: 1px solid black;
-  border-radius: 40px;
-}
-
-.order-coffee .container .button-group .button.white:hover{
-  color: white;
-  background-color: #000;
-}
-
-.order-coffee .container .brew-button {
-  display: block;
-  margin: 20px auto;
-  color: white;
-  background-color: black;
-  width: 30%;
-  padding: 10px;
-  text-align: center;
-  border-radius: 40px;
-}
-
-.order-coffee .container .brew-button:hover{
-  cursor: pointer;
-}
-
-/* Media queries for mobile responsiveness */
 @media (max-width: 600px) {
-  .order-coffee .container .button-group {
-      flex-direction: column;
+
+  html,body
+  {
+    margin: 0;
+    padding: 0;
+    height: 80vh;
+  }
+  
+  main 
+  {
+    height: 10vh;
+    width: 100%;
   }
 
-  .order-coffee .container .button-group .button {
-      flex: 0 0 auto;
+  .Place_Order_App
+  {
+    width: 100%;
+    height: 100vh;
   }
 
-  .order-coffee .container .brew-button {
-      width: 100%;
+  .coffee_background 
+  {
+    position: relative;
+    width: 100%; 
+    height: 45vh;
+    background-image: url('./capucino.png');
+    background-repeat: no-repeat;
+    background-size: cover;
+  }
+
+  .ellipse {
+    position: relative;
+    width: 10%;
+    height: 10%;
+    background: #000000;
+    border-radius: 50%;
+    color: white;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 3vh;
+    top: 5%;
+    left: 5%;
+  }
+
+  .back
+  { 
+    position: relative;
+    bottom: 8%;
+    right: 4%;
+  }
+
+  .drink_name
+   {
+    position: relative;
+    width: 100%;
+    height: 15vh;
+    background: rgba(0, 0, 0, 0.3);
+    color: white;
+    font-size: 3vh; /* adjust as needed */
+    top: 22vh;
+  }
+
+  .drink_type
+  {
+    position: relative;
+    text-align: center;
+    top: 30%;
+    right: 30%;
+    
+  }
+  .order_Detail_Sugar {
+    position: relative;
+    width: 100%;
+    height: 80vh;
+    left: 0;
+    background: white;
+    border-radius: 40px;
+    bottom: 1vh;
+    
+  }
+
+  .sugar_Text {
+    position: relative;
+    width: 100%; /* adjusted */
+    top: 3vh; /* adjusted */
+    left: 10%;
+    font-family: 'Lato', sans-serif;
+    font-style: normal;
+    font-weight: 700;
+    font-size: 1.6em; /* adjusted */
+    color: #000000;
+  }
+
+  .sugar_Container {
+    position: relative;
+    width: 80%;
+    height: 10vh;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin-left: 10%;
+  }
+
+  .no_Sugar_Button {
+    position: relative;
+    width: 50%; 
+    height: 40%; 
+    background: #000000;
+    border-radius: 5vh;
+    color: white;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 1.5vh; 
+    margin-top: 2vh;
+    margin-right: 5%;
+
+  }
+
+  .normal_Sugar_Button
+  {
+    position: relative;
+    width: 50%; 
+    height: 40%; 
+    background: #000000;
+    border-radius: 5vh;
+    color: white;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 1.5vh; 
+    margin-top: 2vh;
+    margin-right: 5%;
+
+  }
+
+  .sweet_Sugar_Button
+  {
+    position: relative;
+    width: 50%; 
+    height: 40%; 
+    background: #000000;
+    border-radius: 5vh;
+    color: white;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 1.5vh; 
+    margin-top: 2vh;
+  }
+
+  .milk_Text {
+    position: relative;
+    width: 100%; /* adjusted */
+    left: 10%;
+    font-family: 'Lato', sans-serif;
+    font-style: normal;
+    font-weight: 700;
+    font-size: 1.6em; /* adjusted */
+    color: #000000;
+  }
+
+  .milk_Container
+  {
+    position: relative;
+    width: 80%;
+    height: 10vh;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin-left: 10%;
+    
+  }
+
+  .no_Milk_Button {
+    position: relative;
+    width: 50%; 
+    height: 40%; 
+    background: #000000;
+    border-radius: 5vh;
+    color: white;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 1.5vh; 
+    margin-right: 5%;
+
+  }
+
+  .normal_Milk_Button
+  {
+    position: relative;
+    width: 50%; 
+    height: 40%; 
+    background: #000000;
+    border-radius: 5vh;
+    color: white;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 1.5vh; 
+    margin-right: 5%;
+
+  }
+
+  .milk_Button
+  {
+    position: relative;
+    width: 50%; 
+    height: 40%; 
+    background: #000000;
+    border-radius: 5vh;
+    color: white;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 1.5vh; 
+    margin-right: 5%;
+
+  }
+
+  .about_text {
+    position: relative;
+    width: 90%; 
+    min-height: 151px;
+    margin: 20px 5%; 
+    background: #F8F7FA;
+    border-radius: 15px;
+  
+  }
+
+  .brew_Order {
+    position: relative;
+    width: 50%;
+    height: 10%;display: flex;
+    justify-content: center;
+    align-items: center;
+    background: #000000;
+    border-radius: 34px;
+    color: white;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 2.5vh; /* adjust as needed */
+    left: 25%;
+    top : 10%;
   }
 }

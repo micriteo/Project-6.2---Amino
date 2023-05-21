@@ -1,32 +1,50 @@
 import React from 'react';
 import './PlaceOrderCoffee.css'; // This is where your CSS will go
-import headerImage from './Images/Left.png'; // path to your header image
 
 
-const OrderCoffee = () => {
-    return (
-        <div className="order-coffee">
-            <a href="./order_coffee"><img src={headerImage} className="header-image" alt="header" /></a>
-            <div className="header">Cappuccino</div>
-            <div className="container">
-                <label className="label">Sugar</label>
-                <div className="button-group">
-                    <button className="button black">No Sugar</button>
-                    <button className="button white">Normal</button>
-                    <button className="button white">Sweet</button>
-                </div>
-                <label className="label">Milk</label>
-                <div className="button-group">
-                    <button className="button black">No Milk</button>
-                    <button className="button white">Normal</button>
-                    <button className="button white">Sweet</button>
-                </div>
-                <label className="label">About</label>
-                <p className="paragraph">Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
-                <button className="brew-button">Brew</button>
+function PlaceOrderCoffee() 
+{ 
+  //Define what should happen when the div is clicked
+  
+  return (
+    <div className = "Place_Order_App">
+        <header className = "coffee_background" >
+            <div className="ellipse">
+                <p className="back">&lt;</p> 
+            </div> 
+            <div className="drink_name">
+                <p className="drink_type">Capuccino</p> 
             </div>
-        </div>
-    );
-};
+        </header>
+        <main>
+            <div className='order_Detail_Sugar'>
+                    <h1 className='sugar_Text'>Sugar</h1>
+                     <div className='sugar_Container'>
+                        <button className="no_Sugar_Button">No sugar</button>
+                        <button className="normal_Sugar_Button">Normal</button>
+                        <button className="sweet_Sugar_Button">Sweet</button>
+                    </div>
 
-export default OrderCoffee;
+                    <h1 className='milk_Text'>Milk </h1>
+                    <div className='milk_Container'>
+                        <button className="no_Milk_Button">No Milk</button>
+                        <button className="normal_Milk_Button">Normal</button>
+                        <button className="milk_Button">MILK!</button>
+                    </div>
+
+                <div className='about_text'> 
+                    <h2>About</h2>
+                        Lorem ipsum dolor sit amet, consectetur adipiscing elit. 
+                        Id ipsum vivamus velit lorem amet. Tincidunt cras volutpat aliquam porttitor molestie. 
+                        Netus neque, habitasse id vulputate proin cras. Neque, vel duis sit vel pellentesque tempor.
+                        A commodo arcu tortor arcu, elit.
+                 </div>
+                <button className="brew_Order">Brew</button> 
+  
+            </div>
+        </main>
+    </div>
+  );
+}
+
+export default PlaceOrderCoffee;
