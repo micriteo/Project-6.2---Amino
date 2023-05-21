@@ -30,8 +30,9 @@ function SelectOrder()
         <h1>Welcome to your Animo!</h1>
         <img src= {animo_logo} alt="Animo" className="logo-img" />
       </header>
-      <div className = 'main2'>
+      
         <p className = "header_campaign">The new way of ordering in safety! </p>
+        <div className = 'main2'>
         <div className="rounded-rectangle-wrapper"> 
           <div className="rounded-rectangle" onClick={handleButtonClick}>
             <img src={coffe_vector} alt="Capuccino" className="capuccino-img" />
@@ -63,7 +64,7 @@ function SelectOrder()
             <p className="plus">+</p> {/* New "+" text inside the ellipse */}
           </div>
          </div>
-        <div className="coffee-selection3">
+          <div className="coffee-selection3">
           <div className="capucino-image"></div> {/* The background image will be added via CSS */}
           <p className = "coffe-text">Capucino</p>
           <p className = "coffe-price"> Free</p>

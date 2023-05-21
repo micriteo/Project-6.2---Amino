@@ -9,7 +9,6 @@
   .select-container
   {    
   
-   height: 100vh;
    width: 100vw;
    background: url(./Assets/Select_Order_Assets/background_animo.jpeg) no-repeat center;
    background-size: cover;
@@ -21,7 +20,6 @@
 
 .App {
   text-align: center;
-  height: 100vh;
   width: 100vw;
   position: relative;
   
@@ -106,7 +104,11 @@
 
 .main2
 {
-    width: 100%;
+  position: relative;
+    width: 90%;
+    height: 100vh;
+    left:5% ;
+
 }
 .coffe_selection_container
 {
