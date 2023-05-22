@@ -32,6 +32,7 @@ recordButton.onmousedown = (e) => {
 recordButton.onmouseup = (e) => {
     recorder.stop();
 }
+
 let turn = 0; //0 for choosing a coffee, 1 for confirming
 let currentCoffee = null;
 const coffeeTypes = ["cappuccino", "expresso", "wiener melange", "hot chocolate"] //Coffees that are available
@@ -62,7 +63,7 @@ function makeLink() {
                     label.innerHTML = "I'm sorry, I could not understand you. What coffee would you like?"
                 }
             } else if (turn == 1) {
-                if (voiceText.includes("yes") || voiceText.includes("sounds good") || voiceText.includes("sure")) {
+                if (voiceText.includes("yes") || voiceText.includes("sounds good") || voiceText.includes("sure" || voiceText.includes("ja"))) {
                     label.innerHTML = "Brewing " + currentCoffee + " now!";
                     //Code to make the coffee here
                     turn = 0
