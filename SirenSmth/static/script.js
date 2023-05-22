@@ -34,9 +34,11 @@ recordButton.onmouseup = (e) => {
 }
 
 let turn = 0; //0 for choosing a coffee, 1 for confirming
-let currentCoffee = null;
-const coffeeTypes = ["cappuccino", "expresso", "wiener melange", "hot chocolate"] //Coffees that are available
-
+let currentCoffee = null;//coffee to brew
+const coffeeTypes = ["coffee", "koffie", "expresso", "espresso", "milk coffee", "koffie melk", "cappuccino",
+    "koffie chocolate", "chocolate koffie", "chocolate milk", "chocolade melk", "hot chocolate", "hot water",
+    "heet water", "double expresso", "dubbele espresso", "latte macchiato", "wiener melange", ] //Coffees that are available
+//DOES NOT INCLUDE X2 COFFEE/X2 KOFFIE
 function makeLink() {
     let blob = new Blob(chunks, { type: 'audio/wav' });
     const formData = new FormData();
@@ -47,8 +49,9 @@ function makeLink() {
         body: formData
     }).then(async response => {
         if (response.ok) {
-            let voiceText = await response.text();
+            let voiceText = (await response.text()).toLowerCase();
             if (turn == 0) {
+                console.log(voiceText)
                 label.innerHTML = voiceText;
                 coffeeTypes.forEach((coffee) => {
                     if (voiceText.includes(coffee)) {
