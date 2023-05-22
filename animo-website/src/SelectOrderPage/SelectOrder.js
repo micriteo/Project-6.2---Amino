@@ -1,9 +1,9 @@
 import './SelectOrder.css';
-import animo_logo from './Assets/Select_Order_Assets/animo_logo.jpg';
-import coffe_vector from './Assets/Select_Order_Assets/capucino_vector.svg';
-import tea_vector from './Assets/Select_Order_Assets/tea_vector.svg';
-import hot_water_vector from './Assets/Select_Order_Assets/hot_water_vector.svg';
-import background from './Assets/Select_Order_Assets/background_animo.jpeg';
+import animo_logo from '../Assets/Select_Order_Assets/animo_logo.jpg';
+import coffe_vector from '../Assets/Select_Order_Assets/capucino_vector.svg';
+import tea_vector from '../Assets/Select_Order_Assets/tea_vector.svg';
+import hot_water_vector from '../Assets/Select_Order_Assets/hot_water_vector.svg';
+import background from '../Assets/Select_Order_Assets/background_animo.jpeg';
 import { useNavigate } from 'react-router-dom';
 
 
