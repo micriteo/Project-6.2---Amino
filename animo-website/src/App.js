@@ -1,7 +1,7 @@
 import React from 'react';
 import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
 
-import HomePage from './HomePage.js';
+import HomePage from './HomePage/HomePage.js';
 import SelectOrder from './SelectOrderPage/SelectOrder.js';
 import VoiceOrder from './VoiceOrder.js';
 import BrewCoffe from './BrewCofeePage/BrewCoffe.js';

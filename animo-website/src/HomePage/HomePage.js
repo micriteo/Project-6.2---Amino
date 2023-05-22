@@ -1,7 +1,7 @@
 import React from 'react';
 import './HomePage.css';
-import backgroundImage from './Assets/background.jpg';
-import logo from './Assets/Logo.png';
+import backgroundImage from '../Assets/background.jpg';
+import logo from '../Assets/Logo.png';
 import { useNavigate } from 'react-router-dom';
 
 
