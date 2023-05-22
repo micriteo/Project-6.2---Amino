@@ -50,7 +50,7 @@ function SelectOrder()
         <div className='coffe_selection_container'>
           <div className="coffee-selection1">
             <div className="coffee-image"></div> { /* background added via CSS */}
-            <p className = "coffe-text">Capucino</p>
+            <p className = "coffe-text">Coffee</p>
             <p className = "coffe-price"> Free</p>
             <div className="ellipse2" onClick={handleBrewCoffe}>
               <p className="plus">+</p> {/* New "+" text inside the ellipse */}
@@ -66,7 +66,7 @@ function SelectOrder()
          </div>
           <div className="coffee-selection3">
           <div className="capucino-image"></div> {/* The background image will be added via CSS */}
-          <p className = "coffe-text">Capucino</p>
+          <p className = "coffe-text">Late Machiato</p>
           <p className = "coffe-price"> Free</p>
           <div className="ellipse2" onClick={handleButtonClick}>
             <p className="plus">+</p> {/* New "+" text inside the ellipse */}
