@@ -263,8 +263,6 @@
    {    
     /* width: 100%;
     height: 100vh; */
-    height: 100vh;
-    width: 100vw;
     background: url(./Assets/Select_Order_Assets/background_animo.jpeg) no-repeat center;
     background-size: cover;
     background-attachment: fixed;
@@ -277,7 +275,6 @@
   {
     text-align: center;
     width: 100%;
-    height: 50%;
     
   }
 
@@ -328,7 +325,6 @@
   .main2
   {
     width: 50%;
-    height: 100%;
     padding: 0;   
     margin: 0 auto;
   }
