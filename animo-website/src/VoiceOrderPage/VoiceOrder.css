@@ -1,5 +1,5 @@
 .OrderCoffee {
-    background-image: url('./Assets/Voice_Order_Assets/Background.jpg');
+    background-image: url('../Assets/Voice_Order_Assets/Background.jpg');
     background-position: center;
     background-repeat: no-repeat;
     background-size: cover;
@@ -47,7 +47,7 @@
   }
   
   .logo {
-    background-image: url('./Assets/Voice_Order_Assets/logo.png');
+    background-image: url('../Assets/Voice_Order_Assets/logo.png');
     background-position: center;
     background-repeat: no-repeat;
     background-size: contain;

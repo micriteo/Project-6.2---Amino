@@ -1,8 +1,8 @@
 import React from 'react';
-import './BrewCoffe.css'; // This is where your CSS will go
+import './BrewLate.css'; // This is where your CSS will go
 
 
-function BrewCoffe() 
+function BrewLate() 
 { 
   //Define what should happen when the div is clicked
   
@@ -14,7 +14,7 @@ function BrewCoffe()
                     <p className="back">&lt;</p> 
                 </button> 
                 <div className="drink_name">
-                    <p className="drink_type">Capuccino</p> 
+                    <p className="drink_type">Late Machiato</p> 
                 </div>
             </header>
             <div className='main'>
@@ -48,4 +48,4 @@ function BrewCoffe()
   );
 }
 
-export default BrewCoffe;
+export default BrewLate;

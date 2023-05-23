@@ -160,7 +160,7 @@
   height: 99px;
   left: 5px;
   top: 5px;
-  background: url(../Assets/Select_Order_Assets/normal_coffee.png) no-repeat center; /* Placeholder image URL */;
+  background: url(../Assets/Select_Order_Assets/chocolate.png) no-repeat center; /* Placeholder image URL */;
   background-size: cover; /* Cover the entire div with the background image */
   border-radius: 15px;
 }
@@ -217,7 +217,7 @@
   height: 99px;
   left: 5px;
   top: 5px;
-  background: url(../Assets/Select_Order_Assets/chocolate.png) no-repeat center; /* Placeholder image URL */;
+  background: url(../Assets/Select_Order_Assets/normal_coffee.png) no-repeat center; /* Placeholder image URL */;
   background-size: cover; /* Cover the entire div with the background image */
   border-radius: 15px;
 }
@@ -407,7 +407,7 @@
     height: 99px;
     left: 5px;
     top: 5px;
-    background: url(../Assets/Select_Order_Assets/normal_coffee.png) no-repeat center; /* Placeholder image URL */;
+    background: url(../Assets/Select_Order_Assets/chocolate.png) no-repeat center; /* Placeholder image URL */;
     background-size: cover; /* Cover the entire div with the background image */
     border-radius: 15px;
   }
@@ -462,7 +462,7 @@
     height: 99px;
     left: 5px;
     top: 5px;
-    background: url(../Assets/Select_Order_Assets/chocolate.png) no-repeat center; /* Placeholder image URL */;
+    background: url(../Assets/Select_Order_Assets/normal_coffee.png ) no-repeat center; /* Placeholder image URL */;
     background-size: cover; /* Cover the entire div with the background image */
     border-radius: 15px;
   }
