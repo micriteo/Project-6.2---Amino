@@ -23,7 +23,6 @@
     position: relative;
     width: 100vw;
     height: 40vh;
-    background-image: url(../Assets/Select_Order_Assets/chocolate.png);
     background-repeat: no-repeat;
     background-size: cover;
     background-position: center center;
@@ -289,7 +288,6 @@
     position: relative;
     width: 100%;
     height: 40vh;
-    background-image: url(../Assets/Select_Order_Assets/chocolate.png);
     background-repeat: no-repeat;
     background-size: cover;
     background-position: center center;

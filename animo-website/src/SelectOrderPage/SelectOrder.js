@@ -58,6 +58,7 @@ function SelectOrder()
           </div>
         </div>
         <div className='coffe_selection_container'>
+          
           <div className="coffee-selection1">
             <div className="coffee-image"></div> { /* background added via CSS */}
             <p className = "coffe-text">Coffee</p>

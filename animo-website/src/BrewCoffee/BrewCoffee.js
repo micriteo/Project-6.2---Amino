@@ -2,7 +2,7 @@ import React, {useState} from 'react';
 import './BrewCoffee.css'; // This is where your CSS will go
 
 
-function BrewCoffe()
+function BrewCoffe({backgroundImg, info})
 {
     const [order, setOrder] = useState({
         coffee: 'Regular',
@@ -36,9 +36,9 @@ function BrewCoffe()
     };
 
     return (
-        <div className='brew_Container'>
+        <div className='brew_Container' >
             <div className = "Place_Order_App">
-                <header className = "coffee_background" >
+                <header className = "coffee_background" style={{backgroundImage: `url(${backgroundImg})`}} >
                     <button className="ellipse">
                         <p className="back">&lt;</p>
                     </button>
@@ -64,10 +64,7 @@ function BrewCoffe()
 
                         <div className='about_text'>
                             <h2 className ="about"> About </h2>
-                            <p className ="info">Lorem ipsum dolor sit amet, consectetur adipiscing elit.
-                                Id ipsum vivamus velit lorem amet. Tincidunt cras volutpat aliquam porttitor molestie.
-                                Netus neque, habitasse id vulputate proin cras. Neque, vel duis sit vel pellentesque tempor.
-                                A commodo arcu tortor arcu, elit.</p>
+                            <p className ="info">{info}</p>
                         </div>
                         <button onClick={handleSubmit} className="brew_Order">Brew</button>
                     </div>
