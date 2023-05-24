@@ -2,7 +2,7 @@ import React, {useState} from 'react';
 import './BrewCoffee.css'; // This is where your CSS will go
 
 
-function BrewCoffe({backgroundImg, info})
+function BrewCoffe({backgroundImg, info,name})
 {
     const [order, setOrder] = useState({
         coffee: 'Regular',
@@ -43,7 +43,7 @@ function BrewCoffe({backgroundImg, info})
                         <p className="back">&lt;</p>
                     </button>
                     <div className="drink_name">
-                        <p className="drink_type">Coffee</p>
+                        <p className="drink_type">{name}</p>
                     </div>
                 </header>
                 <div className='main'>

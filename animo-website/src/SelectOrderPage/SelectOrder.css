@@ -22,6 +22,8 @@
   text-align: center;
   width: 100vw;
   position: relative;
+  font-family: 'Lato';
+  font-style: normal;
   
 }
 
@@ -64,126 +66,82 @@
 }
 
 
-.rounded-rectangle-wrapper 
-{
-  display: flex;
-  justify-content: space-between;
-}
-
-.rounded-rectangle 
-{
-  position: relative;
-  width: 150px;
-  height: 30px;
-  background: #000000;
-  border-radius: 33px;
-  top: 10%;
-  display: flex; /* this will align the child elements in a row */
-  align-items: center; /* this will center the child elements vertically */
-  justify-content: center; /* this will center the child elements horizontally */
-  margin-right: 15px;
-}
-
-.capuccino-img {
-  position: relative ;
-  width: 20px;
-  height: 20px;
-  bottom: 5%;
-}
-
-.capucino-text {
-  font-family: 'Lato', sans-serif;
-  font-style: normal;
-  font-weight: 800;
-  font-size: 12px;
-  line-height: 16px;
-  text-align: center;
-  color: #FFFFFF;
-  margin-left: 10px;
-}
-
 .main2
 {
   position: relative;
     width: 90%;
-    height: 100vh;
+    
     left:5% ;
 
 }
 .coffe_selection_container
 {
-  height: 20%;
+    display: flex;
+    flex-direction: row;  /* Add this line */
+    flex-wrap: wrap;
+    justify-content: center;
+    align-items: center;
+    gap: 5vh;
+    background-color: rgba(255, 255, 255, 0.5); /* White background with 50% transparency */
+    border-radius: 40px;
+    width: 100%;
 }
 
-.coffee-selection1
-{
-  position: relative;
-  width: 143px;
-  height: 165px;
-  border: 1px solid #FFFFFF;
-  filter: drop-shadow(2px 1px 7px rgba(0, 0, 0, 0.25));
-  border-radius: 15px;
-  box-sizing: border-box;
-  background-color: rgba(255, 255, 255, 0.5); /* 50% transparent white */
-  top: 1vh;
-}
-.coffee-selection2
-{
-  position: relative;
-  width: 143px;
-  height: 165px;
-  border: 1px solid #FFFFFF;
-  filter: drop-shadow(2px 1px 7px rgba(0, 0, 0, 0.25));
-  border-radius: 15px;
-  box-sizing: border-box;
-  background-color: rgba(255, 255, 255, 0.5); /* 50% transparent white */
-  top: 3vh;
+.coffee-item, .capucino-item,.espresso-item, .milk_coffee-item, .chocolate_milk-item, .chocolate_coffee-item, .double_espresso-item, .wiener_melange-item, .late_machiato-item
+  {
+    width: 40%;
+    height: 40%;
+    border: 1px solid #FFFFFF;
+    filter: drop-shadow(2px 1px 7px rgba(0, 0, 0, 0.25));
+    border-radius: 15px;
+    box-sizing: border-box;
+    background-color: rgba(255, 255, 255, 0.5); /* 50% transparent white */
+    margin-top: 20px; /* Add some space between the rounded-rectangle and coffee-selection divs */
+    
+  }
 
-}
-.coffee-selection3
-{
-  position: relative;
-  width: 143px;
-  height: 165px;
-  border: 1px solid #FFFFFF;
-  filter: drop-shadow(2px 1px 7px rgba(0, 0, 0, 0.25));
-  border-radius: 15px;
-  box-sizing: border-box;
-  background-color: rgba(255, 255, 255, 0.5); /* 50% transparent white */
-  top: 5vh;
+  .item-image {
+    position: absolute;
+    width: 90%;
+    height: 99px;
+    left: 5px;
+    top: 5px;
+    background: url(../Assets/Select_Order_Assets/chocolate.png) no-repeat center; /* Placeholder image URL */;
+    background-size: cover; /* Cover the entire div with the background image */
+    border-radius: 15px;
+  }
+  
+  .item-text {
+    position: relative;
+    height: 24px;
+    font-family: 'Lato';
+    font-style: normal;
+    font-size: 16px;
+    text-align: cen;
+    margin-top: 110px;
+    color: #000000;
+  
+  }
 
-}
-
-.coffee-image {
-  position: absolute;
-  width: 129px;
-  height: 99px;
-  left: 5px;
-  top: 5px;
-  background: url(../Assets/Select_Order_Assets/chocolate.png) no-repeat center; /* Placeholder image URL */;
-  background-size: cover; /* Cover the entire div with the background image */
-  border-radius: 15px;
-}
-
-.coffe-text {
-  position: relative;
-  width: 15vh;
-  height: 24px;
-  font-family: 'Lato';
-  font-style: normal;
-  font-size: 16px;
-  text-align: center;
-  top:116px;
-  color: #000000;
-
-}
+  .item-price
+  {
+    position: relative;
+  
+    font-family: 'Lato';
+    font-style: normal;
+    font-size: 16px;
+    text-align: left;
+    color: #000000;
+    margin-left: 10%;
+  }
 
 .ellipse2 {
-  position: absolute;
+  position: relative;
   width: 30px;
   height: 30px;
-  left: 106px;
-  top: 125px;
+  left: 70%;
+  margin-top: -20% ;
+  margin-bottom: 5%;
   background: #000000;
   border-radius: 50%; /* Makes the div an ellipse */
   display: flex;
@@ -199,59 +157,17 @@
 } 
 
 
-.coffe-price
-{
-  position: relative;
-  font-family: 'Lato';
-  font-style: normal;
-  font-size: 16px;
-  text-align: center;
-  color: #000000;
-  right: 30%;
-  top: 30%;
-}
 
-.capucino-image {
-  position: absolute;
-  width: 129px;
-  height: 99px;
-  left: 5px;
-  top: 5px;
-  background: url(../Assets/Select_Order_Assets/normal_coffee.png) no-repeat center; /* Placeholder image URL */;
-  background-size: cover; /* Cover the entire div with the background image */
-  border-radius: 15px;
-}
 
-.hot_chocolate-image {
-  position: absolute;
-  width: 129px;
-  height: 99px;
-  left: 5px;
-  top: 5px;
-  background: url(../Assets/Select_Order_Assets/capucino.png) no-repeat center; /* Placeholder image URL */;
-  background-size: cover; /* Cover the entire div with the background image */
-  border-radius: 15px;
-}
+
+
+
 }
 
 
 
 /**************** Desktop version **************/
- @media screen and (min-width: 600px) {
-  
-  /* html
-  { 
-    margin: 0;
-    padding: 0;
-    height: 100%;
-  }
-
-  body 
-  {
-    background: url(./Assets/Select_Order_Assets/background_animo.jpeg) no-repeat center;
-    background-size: cover;
-    background-attachment: fixed;
-  } */
+ @media screen and (min-width: 700px) {
 
   body
   { 
@@ -261,8 +177,7 @@
 
   .select-container
    {    
-    /* width: 100%;
-    height: 100vh; */
+   
     background: url(../Assets/Select_Order_Assets/background_animo.jpeg) no-repeat center;
     background-size: cover;
     background-attachment: fixed;
@@ -275,6 +190,8 @@
   {
     text-align: center;
     width: 100%;
+    font-family: 'Lato';
+    font-style: normal;
     
   }
 
@@ -329,79 +246,47 @@
     margin: 0 auto;
   }
   
-  .rounded-rectangle-wrapper {
-    display: flex;
-    justify-content: space-between;
+  .coffee-item {
+    width: 143px;
+    height: 165px;
+    border: 1px solid #FFFFFF;
+    filter: drop-shadow(2px 1px 7px rgba(0, 0, 0, 0.25));
+    border-radius: 15px;
+    box-sizing: border-box;
+    background-color: rgba(255, 255, 255, 0.5); /* 50% transparent white */
+    
+    margin-top: 20px; /* Add some space between the rounded-rectangle and coffee-selection divs */
   }
-  
-  .rounded-rectangle 
+
+  .coffe_selection_container
   {
-    width: 150px;
-    height: 30px;
-    background: #000000;
-    border-radius: 33px;
-    margin-top: 10px;
-    display: flex; /* this will align the child elements in a row */
-    align-items: center; /* this will center the child elements vertically */
-    justify-content: center; /* this will center the child elements horizontally */
-    margin-right: 10px;
-  }
-  
-  .capuccino-img {
-    width: 20px;
-    height: 20px;
-    margin-bottom: 5px;
-  }
-  
-  .capucino-text {
-    font-family: 'Lato', sans-serif;
-    font-style: normal;
-    font-weight: 800;
-    font-size: 12px;
-    line-height: 16px;
-    text-align: center;
-    color: #FFFFFF;
-    margin-left: 10px;
-  }
-  
-  
-  .coffee-selection1 {
-    width: 143px;
-    height: 165px;
-    border: 1px solid #FFFFFF;
-    filter: drop-shadow(2px 1px 7px rgba(0, 0, 0, 0.25));
-    border-radius: 15px;
-    box-sizing: border-box;
-    background-color: rgba(255, 255, 255, 0.5); /* 50% transparent white */
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    align-items: center;
+    gap: 10vh;  /* Add gap here */
+    background-color: rgba(255, 255, 255, 0.5); /* White background with 50% transparency */
+    border-radius: 40px;
+    width: 100%;
     
-    margin-top: 20px; /* Add some space between the rounded-rectangle and coffee-selection divs */
   }
 
-  .coffee-selection2 {
-    width: 143px;
-    height: 165px;
+  .coffee-item, .capucino-item,.espresso-item, .milk_coffee-item, .chocolate_milk-item, .chocolate_coffee-item, .double_espresso-item, .wiener_melange-item, .late_machiato-item
+  {
+    width: 15vh;
+    height: 20vh;
     border: 1px solid #FFFFFF;
     filter: drop-shadow(2px 1px 7px rgba(0, 0, 0, 0.25));
     border-radius: 15px;
     box-sizing: border-box;
     background-color: rgba(255, 255, 255, 0.5); /* 50% transparent white */
-    
     margin-top: 20px; /* Add some space between the rounded-rectangle and coffee-selection divs */
+
+    
   }
 
-  .coffee-selection3 {
-    width: 143px;
-    height: 165px;
-    border: 1px solid #FFFFFF;
-    filter: drop-shadow(2px 1px 7px rgba(0, 0, 0, 0.25));
-    border-radius: 15px;
-    box-sizing: border-box;
-    background-color: rgba(255, 255, 255, 0.5); /* 50% transparent white */
-    
-    margin-top: 20px; /* Add some space between the rounded-rectangle and coffee-selection divs */
-  }
   
-  .coffee-image {
+  .item-image {
     position: absolute;
     width: 129px;
     height: 99px;
@@ -412,8 +297,8 @@
     border-radius: 15px;
   }
   
-  .coffe-text {
-    width: 83px;
+  .item-text {
+    width: 15vh;
     height: 24px;
     font-family: 'Lato';
     font-style: normal;
@@ -429,7 +314,7 @@
     width: 30px;
     height: 30px;
     left: 106px;
-    top: 125px;
+    top: 150px;
     background: #000000;
     border-radius: 50%; /* Makes the div an ellipse */
     display: flex;
@@ -445,7 +330,7 @@
   } 
   
   
-  .coffe-price
+  .item-price
   {
     font-family: 'Lato';
     font-style: normal;
@@ -456,25 +341,4 @@
     margin-top: -10px;
   }
   
-  .capucino-image {
-    position: absolute;
-    width: 129px;
-    height: 99px;
-    left: 5px;
-    top: 5px;
-    background: url(../Assets/Select_Order_Assets/normal_coffee.png ) no-repeat center; /* Placeholder image URL */;
-    background-size: cover; /* Cover the entire div with the background image */
-    border-radius: 15px;
-  }
-  
-  .hot_chocolate-image {
-    position: absolute;
-    width: 129px;
-    height: 99px;
-    left: 5px;
-    top: 5px;
-    background: url(../Assets/Select_Order_Assets/capucino.png) no-repeat center; /* Placeholder image URL */;
-    background-size: cover; /* Cover the entire div with the background image */
-    border-radius: 15px;
-  }
 } 
