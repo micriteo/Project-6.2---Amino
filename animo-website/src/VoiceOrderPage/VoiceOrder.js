@@ -1,7 +1,18 @@
 import React from 'react'
 import './VoiceOrder.css'
+import { useNavigate } from 'react-router-dom';
+
 
 function VoiceOrder() {
+
+  const navigate = useNavigate();
+
+
+    const handleBack = () => 
+    {
+        navigate('/select-order');
+    };
+
     return (
       <div className="OrderCoffee">
         <h2>Order a coffee or try one of these:</h2>
@@ -11,7 +22,7 @@ function VoiceOrder() {
           <button className="button">Hot Chocolate</button>
         </div>
         <div className="dialog-box">
-        <a href="/place_order_coffee"><button className="button1">Do you want to place an order?</button></a>
+          <button className="button1" onClick={handleBack} >Do you want to place an order?</button>
         </div>
         <div className="logo" />
       </div>

@@ -1,9 +1,21 @@
 import React, {useState} from 'react';
 import './BrewCoffee.css'; // This is where your CSS will go
+import { useNavigate } from 'react-router-dom';
+
 
 
 function BrewCoffe({backgroundImg, info,name})
 {
+    
+
+    const navigate = useNavigate();
+
+
+    const handleBack = () => 
+    {
+        navigate('/select-order');
+    };
+
     const [order, setOrder] = useState({
         coffee: 'Regular',
         sugar: 'No Sugar',
@@ -39,7 +51,7 @@ function BrewCoffe({backgroundImg, info,name})
         <div className='brew_Container' >
             <div className = "Place_Order_App">
                 <header className = "coffee_background" style={{backgroundImage: `url(${backgroundImg})`}} >
-                    <button className="ellipse">
+                    <button className="ellipse" onClick={handleBack}>
                         <p className="back">&lt;</p>
                     </button>
                     <div className="drink_name">

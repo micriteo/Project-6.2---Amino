@@ -277,11 +277,14 @@
     background-attachment: fixed;
     margin: 0;
     padding: 0;
+    font-family: 'Lato', sans-serif;
+    font-style: normal;
   }
   
   .Place_Order_App
   {
-    width: 90%;
+    width: 50%;
+    height: 100vh;
     margin: 0 auto;
     padding: 0;
     
@@ -391,6 +394,8 @@
     margin-right: 5%;
   }
 
+  
+
   .normal_Sugar_Button
   {
     position: relative;
@@ -405,6 +410,10 @@
     font-size: 1.5vh; 
     margin-top: 2vh;
     margin-right: 5%;
+  }
+
+  .clicked {
+    background-color: red;
   }
 
   .main
@@ -552,3 +561,4 @@
     bottom: 1vh;
   }
 }
+

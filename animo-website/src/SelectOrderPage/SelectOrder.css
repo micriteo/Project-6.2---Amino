@@ -25,6 +25,7 @@
   font-family: 'Lato';
   font-style: normal;
   
+  
 }
 
 .Select_Order_Header {
@@ -69,9 +70,8 @@
 .main2
 {
   position: relative;
-    width: 90%;
-    
-    left:5% ;
+  width: 90%;
+  left:5% ;
 
 }
 .coffe_selection_container
@@ -246,17 +246,7 @@
     margin: 0 auto;
   }
   
-  .coffee-item {
-    width: 143px;
-    height: 165px;
-    border: 1px solid #FFFFFF;
-    filter: drop-shadow(2px 1px 7px rgba(0, 0, 0, 0.25));
-    border-radius: 15px;
-    box-sizing: border-box;
-    background-color: rgba(255, 255, 255, 0.5); /* 50% transparent white */
-    
-    margin-top: 20px; /* Add some space between the rounded-rectangle and coffee-selection divs */
-  }
+  
 
   .coffe_selection_container
   {
@@ -288,8 +278,8 @@
   
   .item-image {
     position: absolute;
-    width: 129px;
-    height: 99px;
+    width: 90%;
+    height: 50%;
     left: 5px;
     top: 5px;
     background: url(../Assets/Select_Order_Assets/chocolate.png) no-repeat center; /* Placeholder image URL */;
