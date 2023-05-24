@@ -1,0 +1,334 @@
+@media screen and (max-width: 600px) {
+ 
+  body
+  { 
+    margin: 0 auto;
+    padding: 0;
+  }
+
+  .select-container
+  {    
+  
+   width: 100vw;
+   background: url(../Assets/Select_Order_Assets/background_animo.jpeg) no-repeat center;
+   background-size: cover;
+   background-attachment: fixed;
+   margin: 0;
+   padding: 0;
+
+  }
+
+.App {
+  text-align: center;
+  width: 100vw;
+  position: relative;
+  font-family: 'Lato';
+  font-style: normal;
+  
+  
+}
+
+.Select_Order_Header {
+
+  position: relative;
+  color: #CBCBD4;
+  height: 15%;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;      /* Add this line */
+  top: 10px;
+
+}
+
+.header-content
+{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.logo-img
+{
+  border-radius: 50%;
+  width: 100px;
+  height: 100px;
+}
+
+.header_campaign
+{
+  position: relative;
+  height: 10vh;
+  top: 2vh;
+  font-family: 'Lato', sans-serif;
+  font-style: normal;
+  font-size: 18px;
+  text-align: center;
+  color: #CBCBD4;
+}
+
+
+.main2
+{
+  position: relative;
+  width: 90%;
+  left:5% ;
+
+}
+.coffe_selection_container
+{
+    display: flex;
+    flex-direction: row;  /* Add this line */
+    flex-wrap: wrap;
+    justify-content: center;
+    align-items: center;
+    gap: 5vh;
+    background-color: rgba(255, 255, 255, 0.5); /* White background with 50% transparency */
+    border-radius: 40px;
+    width: 100%;
+}
+
+.coffee-item, .capucino-item,.espresso-item, .milk_coffee-item, .chocolate_milk-item, .chocolate_coffee-item, .double_espresso-item, .wiener_melange-item, .late_machiato-item
+  {
+    width: 40%;
+    height: 40%;
+    border: 1px solid #FFFFFF;
+    filter: drop-shadow(2px 1px 7px rgba(0, 0, 0, 0.25));
+    border-radius: 15px;
+    box-sizing: border-box;
+    background-color: rgba(255, 255, 255, 0.5); /* 50% transparent white */
+    margin-top: 20px; /* Add some space between the rounded-rectangle and coffee-selection divs */
+    
+  }
+
+  .item-image {
+    position: absolute;
+    width: 90%;
+    height: 99px;
+    left: 5px;
+    top: 5px;
+    background: url(../Assets/Select_Order_Assets/chocolate.png) no-repeat center; /* Placeholder image URL */;
+    background-size: cover; /* Cover the entire div with the background image */
+    border-radius: 15px;
+  }
+  
+  .item-text {
+    position: relative;
+    height: 24px;
+    font-family: 'Lato';
+    font-style: normal;
+    font-size: 16px;
+    text-align: cen;
+    margin-top: 110px;
+    color: #000000;
+  
+  }
+
+  .item-price
+  {
+    position: relative;
+  
+    font-family: 'Lato';
+    font-style: normal;
+    font-size: 16px;
+    text-align: left;
+    color: #000000;
+    margin-left: 10%;
+  }
+
+.ellipse2 {
+  position: relative;
+  width: 30px;
+  height: 30px;
+  left: 70%;
+  margin-top: -20% ;
+  margin-bottom: 5%;
+  background: #000000;
+  border-radius: 50%; /* Makes the div an ellipse */
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.plus {
+  position: relative;
+  color: #ffffff;
+  font-size: 24px;
+  line-height: 0; /* Adjusts the vertical alignment of the "+" */
+} 
+
+
+
+
+
+
+
+}
+
+
+
+/**************** Desktop version **************/
+ @media screen and (min-width: 700px) {
+
+  body
+  { 
+    margin: 0 auto;
+    padding: 0;
+  }
+
+  .select-container
+   {    
+   
+    background: url(../Assets/Select_Order_Assets/background_animo.jpeg) no-repeat center;
+    background-size: cover;
+    background-attachment: fixed;
+    margin: 0;
+    padding: 0;
+
+   }
+
+  .App 
+  {
+    text-align: center;
+    width: 100%;
+    font-family: 'Lato';
+    font-style: normal;
+    
+  }
+
+  .Select_Order_Header h1 
+  {
+    text-align: center;
+    margin-top: -10vh;
+  }
+  
+  .Select_Order_Header {
+  
+    padding: 20px;
+    color: #CBCBD4;
+    height: 200px;
+    display: flex;
+    justify-content: center;
+    align-items: center;      /* Add this line */
+    margin-bottom: -10vh;
+  
+  }
+  
+  .header-content
+  {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+  
+  .logo-img
+  {
+    border-radius: 50%;
+    width: 100px;
+    height: 100px;
+    position: absolute;
+    right: 10%;
+    top: 20px;
+  }
+  
+  .header_campaign
+  {
+    font-family: 'Lato', sans-serif;
+    font-style: normal;
+    font-size: 18px;
+    text-align: center;
+    color: #CBCBD4;
+  }
+
+  .main2
+  {
+    width: 50%;
+    padding: 0;   
+    margin: 0 auto;
+  }
+  
+  
+
+  .coffe_selection_container
+  {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    align-items: center;
+    gap: 10vh;  /* Add gap here */
+    background-color: rgba(255, 255, 255, 0.5); /* White background with 50% transparency */
+    border-radius: 40px;
+    width: 100%;
+    
+  }
+
+  .coffee-item, .capucino-item,.espresso-item, .milk_coffee-item, .chocolate_milk-item, .chocolate_coffee-item, .double_espresso-item, .wiener_melange-item, .late_machiato-item
+  {
+    width: 15vh;
+    height: 20vh;
+    border: 1px solid #FFFFFF;
+    filter: drop-shadow(2px 1px 7px rgba(0, 0, 0, 0.25));
+    border-radius: 15px;
+    box-sizing: border-box;
+    background-color: rgba(255, 255, 255, 0.5); /* 50% transparent white */
+    margin-top: 20px; /* Add some space between the rounded-rectangle and coffee-selection divs */
+
+    
+  }
+
+  
+  .item-image {
+    position: absolute;
+    width: 90%;
+    height: 50%;
+    left: 5px;
+    top: 5px;
+    background: url(../Assets/Select_Order_Assets/chocolate.png) no-repeat center; /* Placeholder image URL */;
+    background-size: cover; /* Cover the entire div with the background image */
+    border-radius: 15px;
+  }
+  
+  .item-text {
+    width: 15vh;
+    height: 24px;
+    font-family: 'Lato';
+    font-style: normal;
+    font-size: 16px;
+    text-align: center;
+    margin-top: 110px;
+    color: #000000;
+  
+  }
+  
+  .ellipse2 {
+    position: absolute;
+    width: 30px;
+    height: 30px;
+    left: 106px;
+    top: 150px;
+    background: #000000;
+    border-radius: 50%; /* Makes the div an ellipse */
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+  
+  .plus {
+    color: #ffffff;
+    font-size: 24px;
+    line-height: 0; /* Adjusts the vertical alignment of the "+" */
+    margin-top: 20px;  
+  } 
+  
+  
+  .item-price
+  {
+    font-family: 'Lato';
+    font-style: normal;
+    font-size: 16px;
+    text-align: center;
+    color: #000000;
+    margin-right: 80px;
+    margin-top: -10px;
+  }
+  
+} 

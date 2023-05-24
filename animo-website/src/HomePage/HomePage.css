@@ -1,0 +1,80 @@
+@import url('https://fonts.googleapis.com/css2?family=Lato&display=swap');
+
+.home-container {
+    text-align: center;
+    background-position: center;
+}
+
+.background-image {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    filter: blur(5px);
+    z-index: -1;
+}
+
+.logo-title-container {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    height: 13rem;
+    padding-bottom: 10rem;
+}
+
+.title {
+    margin-top: 30px;
+    font-family: 'Lato', sans-serif;
+    color: #CBCBD4;
+}
+
+.logo {
+    width: 50px;
+    height: 50px;
+    margin-right: 1rem;
+}
+
+
+.button-container {
+    margin-top: 20px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.voice-button,
+.select-button {
+    margin: 10px;
+    padding: 10px 40px; /* Adjust the padding to make the buttons longer */
+    font-size: 20px;
+    border: none;
+    border-radius: 20px;
+    cursor: pointer;
+    transition: background-color 0.3s, color 0.3s;
+    font-family: 'Lato', sans-serif; /* Use Lato font */
+}
+
+.voice-button {
+    background-color: #FFFFFF;
+    color: #000000;
+}
+
+.select-button {
+    background-color: #000000;
+    color: #FFFFFF;
+}
+
+@media screen and (min-width: 600px) {
+    .logo-title-container {
+        flex-direction: row;
+        justify-content: center;
+    }
+    .button-container {
+        flex-direction: row;
+        justify-content: center;
+        gap: 20px;
+        width: auto;
+    }
+}
