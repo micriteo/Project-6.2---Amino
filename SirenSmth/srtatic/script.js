@@ -1,16 +1,11 @@
 'use strict';
-let log = console.log.bind(console), id = val => document.getElementById(val),
-    label = id('label'),
-    recordButton = id('recordButton'),
-    stream, recorder, chunks, media;
+let log = console.log.bind(console), id = val => document.getElementById(val), label = id('label'),
+    recordButton = id('recordButton'), stream, recorder, chunks, media;
 
 recordButton.onmousedown = (e) => {
     let recType = {
         audio: {
-            tag: 'audio',
-            type: 'audio/wav',
-            ext: '.wav',
-            gUM: { audio: true }
+            tag: 'audio', type: 'audio/wav', ext: '.wav', gUM: {audio: true}
         }
     };
     media = recType.audio;
@@ -34,13 +29,12 @@ recordButton.onmouseup = (e) => {
 }
 
 function makeLink() {
-    let blob = new Blob(chunks, { type: 'audio/wav' });
+    let blob = new Blob(chunks, {type: 'audio/wav'});
     const formData = new FormData();
     formData.append('audio_file', blob, 'sound.wav');
 
     fetch('/converter', {
-        method: 'POST',
-        body: formData
+        method: 'POST', body: formData
     }).then(async response => {
         if (response.ok) {
             label.innerHTML = await response.text();

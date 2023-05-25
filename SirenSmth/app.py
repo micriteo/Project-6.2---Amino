@@ -2,7 +2,7 @@ import os
 import subprocess
 
 import flask
-from flask import Flask, request, render_template
+from flask import Flask, request, render_template, send_from_directory
 import speech_recognition as sr
 
 app = Flask(__name__)
@@ -10,14 +10,20 @@ app = Flask(__name__)
 
 @app.route('/')
 def home():
-    return render_template('index.html')
+    # subprocess.call("../animo-website npm start", shell=True)
+    return render_template("bindex.html")
+
+
+@app.route('/static/<path:path>')
+def serve_static(path):
+    return send_from_directory('srtatic', path)
 
 
 @app.route('/converter', methods=['POST'])
 async def converter():
     if request.method == 'POST':
         audio_file = request.files['audio_file']
-        audio_file.save('new_voice.webm')
+        audio_file.save(r'C:\MainStuff\Uni\Project6.2\new_voice.webm')
         convert_to_wav()
         text = await convert_to_text()
         remove_files()
@@ -26,7 +32,7 @@ async def converter():
 
 async def convert_to_text():
     r = sr.Recognizer()
-    with sr.AudioFile('new_voice.wav') as source:
+    with sr.AudioFile(r'C:\MainStuff\Uni\Project6.2\new_voice.wav') as source:
         audio_data = r.record(source)
         try:
             text = r.recognize_google(audio_data, language="nl-NL")
@@ -36,8 +42,8 @@ async def convert_to_text():
 
 
 def convert_to_wav():
-    input_path = "new_voice.webm"
-    output_path = "new_voice.wav"
+    input_path = r'C:\MainStuff\Uni\Project6.2\new_voice.webm'
+    output_path = r'C:\MainStuff\Uni\Project6.2\new_voice.wav'
     ffmpeg_path = r"C:\MainStuff\ffmpeg-6.0\bin\ffmpeg.exe"
     subprocess.call([ffmpeg_path, '-i', input_path, output_path])
 
@@ -45,8 +51,8 @@ def convert_to_wav():
 def remove_files():
     extensions = ['.wav', '.webm']
     for ext in extensions:
-        if os.path.exists('new_voice' + ext):
-            os.remove('new_voice' + ext)
+        if os.path.exists(r'C:\MainStuff\Uni\Project6.2\new_voice' + ext):
+            os.remove(r'C:\MainStuff\Uni\Project6.2\new_voice' + ext)
 
 
 if __name__ == '__main__':
