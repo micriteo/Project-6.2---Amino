@@ -2,7 +2,6 @@ import os
 import subprocess
 
 import pyttsx3
-import flask
 from flask import Flask, request, render_template, send_from_directory
 import speech_recognition as sr
 
@@ -12,12 +11,7 @@ app = Flask(__name__)
 @app.route('/')
 def home():
     # subprocess.call("../animo-website npm start", shell=True)
-    return render_template("bindex.html")
-
-
-@app.route('/static/<path:path>')
-def serve_static(path):
-    return send_from_directory('srtatic', path)
+    return render_template("bndex.html")
 
 
 @app.route('/converter', methods=['POST'])
@@ -28,8 +22,7 @@ async def converter():
         convert_to_wav()
         text = await convert_to_text()
         remove_files()
-        engine.say(text)
-        engine.runAndWait()
+        text_to_speech(text)
         return text
 
 
@@ -58,24 +51,24 @@ def remove_files():
             os.remove(r'C:\MainStuff\Uni\Project6.2\new_voice' + ext)
 
 
+def text_to_speech(text):
+    voice_dict = {'Male': 0, 'Female': 1}
+    code = voice_dict[0]
+    engine = pyttsx3.init()
+
+    # Setting up voice rate
+    engine.setProperty('rate', 125)
+
+    # Setting up volume level between 0 and 1
+    engine.setProperty('volume', 0.8)
+
+    # Change voices: 0 for male and 1 for female
+    voices = engine.getProperty('voices')
+    engine.setProperty('voice', voices[code].id)
+
+    engine.say(text)
+    engine.runAndWait()
+
+
 if __name__ == '__main__':
     app.run(host='0.0.0.0', port=122, ssl_context='adhoc')
-
-
-def text_to_speech(text, gender):
-    """
-    :param text: String
-    :param gender: gender
-    :return: None
-    """
-
-
-voice_dict = {'Male': 0, 'Female': 1}
-code = voice_dict[0]
-
-engine = pyttsx3.init()
-
-engine.setProperty('rate', 125)
-engine.setProperty('volume', 0.8)
-voices = engine.getProperty('voices')
-engine.setProperty('voice', voices[code].id)
