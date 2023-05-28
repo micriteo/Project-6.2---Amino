@@ -1,6 +1,7 @@
 import os
 import subprocess
 
+import cryptography
 import pyttsx3
 import flask
 from flask import Flask, request, render_template, send_from_directory
@@ -12,7 +13,7 @@ app = Flask(__name__)
 @app.route('/')
 def home():
     # subprocess.call("../animo-website npm start", shell=True)
-    return render_template("bindex.html")
+    return render_template("index.html")
 
 
 @app.route('/static/<path:path>')
