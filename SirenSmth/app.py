@@ -1,6 +1,7 @@
 import os
 import subprocess
 
+import pyttsx3
 import flask
 from flask import Flask, request, render_template, send_from_directory
 import speech_recognition as sr
@@ -27,6 +28,8 @@ async def converter():
         convert_to_wav()
         text = await convert_to_text()
         remove_files()
+        engine.say(text)
+        engine.runAndWait()
         return text
 
 
@@ -57,3 +60,22 @@ def remove_files():
 
 if __name__ == '__main__':
     app.run(host='0.0.0.0', port=122, ssl_context='adhoc')
+
+
+def text_to_speech(text, gender):
+    """
+    :param text: String
+    :param gender: gender
+    :return: None
+    """
+
+
+voice_dict = {'Male': 0, 'Female': 1}
+code = voice_dict[0]
+
+engine = pyttsx3.init()
+
+engine.setProperty('rate', 125)
+engine.setProperty('volume', 0.8)
+voices = engine.getProperty('voices')
+engine.setProperty('voice', voices[code].id)
