@@ -11,10 +11,12 @@ turn = 0
 current_coffee = None
 array_coffee = []
 coffee_types = ["coffee", "koffie", "expresso", "espresso", "milk coffee", "koffie melk", "cappuccino",
-                "koffie chocolate", "chocolate coffee", "chocolate milk", "chocolade melk", "hot chocolate", "hot water",
-                "heet water", "double expresso", "dubbele espresso", "latte macchiato", "wiener melange"]  # coffees available
+                "koffie chocolate", "chocolate coffee", "chocolate milk", "chocolade melk", "hot chocolate",
+                "hot water", "heet water", "double expresso", "dubbele espresso",
+                "latte macchiato", "wiener melange", "big balls"]  # coffees available
 positive_response = ["yes", "sounds good", "sure"]
 negative_response = ["no", "nope", "cancel"]
+
 
 @app.route('/')
 def home():
@@ -86,28 +88,30 @@ def handle_coffee_order(voice_text):
 
     if turn == 0:
         for coffee in coffee_types:
-            if coffee in voice_text:
+            if coffee in voice_text.lower():
                 current_coffee = coffee
                 array_coffee.append(coffee)
         if current_coffee:
-            return f"You have requested a {current_coffee}. Is this correct?"
             turn = 1
+            return f"You have requested a {current_coffee}. Is this correct?"
         else:
-            return "I'm sorry, I could not understand you. What coffee would you like?"
             current_coffee = None
             array_coffee = []
+            return "I'm sorry, I could not understand you. What coffee would you like?"
 
     elif turn == 1:
-        if voice_text.__contains__(positive_response):
-            return f"Brewing {current_coffee} now!"
+        if voice_text in positive_response:
             turn = 0
+            response = f"Brewing {current_coffee} now!"
             current_coffee = None
             array_coffee = []
-        elif voice_text.__contains__(negative_response):
-            return "What coffee would you like instead?"
+            return response
+        elif voice_text in negative_response:
             turn = 0
+            response = "What coffee would you like instead?"
             current_coffee = None
             array_coffee = []
+            return response
         else:
             return f"I'm sorry, I could not understand you. Would you like a {current_coffee}? Please say Yes or No"
 
