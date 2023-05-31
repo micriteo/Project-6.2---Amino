@@ -35,10 +35,11 @@ recordButton.onmouseup = (e) => {
 
 let turn = 0; //0 for choosing a coffee, 1 for confirming
 let currentCoffee = null;//coffee to brew
-const coffeeTypes = ["coffee", "koffie", "expresso", "espresso", "milk coffee", "koffie melk", "cappuccino",
-    "koffie chocolate", "chocolate koffie", "chocolate milk", "chocolade melk", "hot chocolate", "hot water",
+let coffeeTypes = ["coffee", "koffie", "expresso", "espresso", "milk coffee", "koffie melk", "cappuccino",
+    "koffie chocolate", "chocolate coffee", "chocolate milk", "chocolade melk", "hot chocolate", "hot water",
     "heet water", "double expresso", "dubbele espresso", "latte macchiato", "wiener melange", ] //Coffees that are available
 //DOES NOT INCLUDE X2 COFFEE/X2 KOFFIE
+let arrayCoffee = []
 function makeLink() {
     let blob = new Blob(chunks, { type: 'audio/wav' });
     const formData = new FormData();
@@ -56,30 +57,40 @@ function makeLink() {
                 coffeeTypes.forEach((coffee) => {
                     if (voiceText.includes(coffee)) {
                         currentCoffee = coffee
+                        arrayCoffee.push(" " + coffee)
                     }
                 })
                 if (currentCoffee != null) {
-                    label.innerHTML = "You have requested a " + currentCoffee +", is this correct?";
+                    label.innerHTML = "You have requested a " + currentCoffee +", is this correct?" //+ arrayCoffee.toString();
                     turn = 1
+                    console.log(arrayCoffee)
                 }
                 else {
                     label.innerHTML = "I'm sorry, I could not understand you. What coffee would you like?"
+                    currentCoffee = null
+                    arrayCoffee = []
                 }
             } else if (turn == 1) {
+<<<<<<< Updated upstream
                 if (voiceText.includes("yes") || voiceText.includes("sounds good") || voiceText.includes("sure" || voiceText.includes("ja"))) {
+                if (voiceText.includes("yes") || voiceText.includes("sounds good") || voiceText.includes("sure") ||
+                    voiceText.includes("yeah")) {
                     label.innerHTML = "Brewing " + currentCoffee + " now!";
                     //Code to make the coffee here
                     turn = 0
                     currentCoffee = null
+                    arrayCoffee = []
                 }
                 else if (voiceText.includes("no") || voiceText.includes("nope") || voiceText.includes("cancel"))
                 {
                     label.innerHTML = "What coffee would you like instead?"
                     turn = 0
                     currentCoffee = null
+                    arrayCoffee = []
                 }
                 else {
-                    label.innerHTML = "I'm sorry, I could not understand you. Would you like a " + currentCoffee + "? Please say Yes or No"
+                    label.innerHTML = "I'm sorry, I could not understand you. Would you like a " + currentCoffee +
+                        "? Please say Yes or No"
                 }
             }
         } else {
