@@ -1,4 +1,4 @@
-@media screen and (max-width: 600px) {
+@media screen and (max-width: 699px) {
  
   body
   { 
@@ -139,7 +139,7 @@
   position: relative;
   width: 30px;
   height: 30px;
-  left: 70%;
+  left: 80%;
   margin-top: -20% ;
   margin-bottom: 5%;
   background: #000000;
@@ -154,8 +154,7 @@
   color: #ffffff;
   font-size: 24px;
   line-height: 0; /* Adjusts the vertical alignment of the "+" */
-} 
-
+}
 
 
 
@@ -263,72 +262,76 @@
 
   .coffee-item, .capucino-item,.espresso-item, .milk_coffee-item, .chocolate_milk-item, .chocolate_coffee-item, .double_espresso-item, .wiener_melange-item, .late_machiato-item
   {
-    width: 15vh;
-    height: 20vh;
+    width: 10vw;
+    height: 250px;
     border: 1px solid #FFFFFF;
     filter: drop-shadow(2px 1px 7px rgba(0, 0, 0, 0.25));
     border-radius: 15px;
     box-sizing: border-box;
-    background-color: rgba(255, 255, 255, 0.5); /* 50% transparent white */
-    margin-top: 20px; /* Add some space between the rounded-rectangle and coffee-selection divs */
-
-    
+    background-color: rgba(255, 255, 255, 0.5);
+    margin-top: 5%;
   }
 
   
   .item-image {
-    position: absolute;
+    position: relative;
     width: 90%;
     height: 50%;
-    left: 5px;
-    top: 5px;
+    left: 5%;
+    top: 5%;
     background: url(../Assets/Select_Order_Assets/chocolate.png) no-repeat center; /* Placeholder image URL */;
     background-size: cover; /* Cover the entire div with the background image */
     border-radius: 15px;
   }
   
   .item-text {
-    width: 15vh;
-    height: 24px;
+    position: relative;
+    top: 5%;
+    width: 100%;
+    height: 1vh;
     font-family: 'Lato';
     font-style: normal;
     font-size: 16px;
     text-align: center;
-    margin-top: 110px;
     color: #000000;
   
   }
   
-  .ellipse2 {
-    position: absolute;
-    width: 30px;
-    height: 30px;
-    left: 106px;
-    top: 150px;
+  .ellipse2 
+  {
+    position: relative;
+    width: 4vh;
+    height: 4vh;
+    left: 70%;
     background: #000000;
-    border-radius: 50%; /* Makes the div an ellipse */
+    border-radius: 50%;
     display: flex;
     align-items: center;
     justify-content: center;
-  }
+}
+
+
   
   .plus {
+    position: relative;
     color: #ffffff;
     font-size: 24px;
     line-height: 0; /* Adjusts the vertical alignment of the "+" */
-    margin-top: 20px;  
   } 
   
   
   .item-price
   {
+    position: relative;
+    left: 15%;
+    top: 10%;
     font-family: 'Lato';
     font-style: normal;
     font-size: 16px;
-    text-align: center;
+    text-align: left;
     color: #000000;
-    margin-right: 80px;
-    margin-top: -10px;
   }
   
 } 
+
+
