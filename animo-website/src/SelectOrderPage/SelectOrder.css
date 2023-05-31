@@ -89,23 +89,23 @@
 
 .coffee-item, .capucino-item,.espresso-item, .milk_coffee-item, .chocolate_milk-item, .chocolate_coffee-item, .double_espresso-item, .wiener_melange-item, .late_machiato-item
   {
-    width: 40%;
-    height: 40%;
+    position: relative;
+    width: 150px;
+    height: 200px;
     border: 1px solid #FFFFFF;
     filter: drop-shadow(2px 1px 7px rgba(0, 0, 0, 0.25));
     border-radius: 15px;
     box-sizing: border-box;
     background-color: rgba(255, 255, 255, 0.5); /* 50% transparent white */
-    margin-top: 20px; /* Add some space between the rounded-rectangle and coffee-selection divs */
-    
+    margin-top: 10%;
   }
 
   .item-image {
-    position: absolute;
+    position: relative;
     width: 90%;
     height: 99px;
-    left: 5px;
-    top: 5px;
+    left: 5%;
+    top: 5%;
     background: url(../Assets/Select_Order_Assets/chocolate.png) no-repeat center; /* Placeholder image URL */;
     background-size: cover; /* Cover the entire div with the background image */
     border-radius: 15px;
@@ -118,7 +118,7 @@
     font-style: normal;
     font-size: 16px;
     text-align: cen;
-    margin-top: 110px;
+    top: 5%;
     color: #000000;
   
   }
@@ -126,7 +126,6 @@
   .item-price
   {
     position: relative;
-  
     font-family: 'Lato';
     font-style: normal;
     font-size: 16px;
@@ -137,8 +136,8 @@
 
 .ellipse2 {
   position: relative;
-  width: 30px;
-  height: 30px;
+  width: 3.5vh;
+  height: 3.5vh;
   left: 80%;
   margin-top: -20% ;
   margin-bottom: 5%;
@@ -155,12 +154,6 @@
   font-size: 24px;
   line-height: 0; /* Adjusts the vertical alignment of the "+" */
 }
-
-
-
-
-
-
 }
 
 
