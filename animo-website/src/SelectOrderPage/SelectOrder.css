@@ -28,8 +28,8 @@
   
 }
 
-.Select_Order_Header {
-
+.Select_Order_Header 
+{
   position: relative;
   color: #CBCBD4;
   height: 15%;
@@ -37,7 +37,6 @@
   justify-content: space-between;
   align-items: center;      /* Add this line */
   top: 10px;
-
 }
 
 .header-content
@@ -49,9 +48,11 @@
 
 .logo-img
 {
+  position:relative;
   border-radius: 50%;
-  width: 100px;
-  height: 100px;
+  width: 40px;
+  height: 40px;
+  margin-right: 20px;
 }
 
 .header_campaign
@@ -215,11 +216,11 @@
   .logo-img
   {
     border-radius: 50%;
-    width: 100px;
-    height: 100px;
+    width: 60px;
+    height: 60px;
     position: absolute;
     right: 10%;
-    top: 20px;
+    top: 30px;
   }
   
   .header_campaign
