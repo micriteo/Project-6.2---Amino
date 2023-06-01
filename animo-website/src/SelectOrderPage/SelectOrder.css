@@ -53,6 +53,7 @@
   width: 40px;
   height: 40px;
   margin-right: 20px;
+  top: 40px;
 }
 
 .header_campaign
@@ -220,7 +221,7 @@
     height: 60px;
     position: absolute;
     right: 10%;
-    top: 30px;
+    top: 40px;
   }
   
   .header_campaign
