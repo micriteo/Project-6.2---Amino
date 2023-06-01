@@ -55,6 +55,9 @@ function VoiceOrder() {
 
     return (
       <div className="OrderCoffee">
+        <button className="ellipse3" onClick={handleBack}>
+              <p className="back3">&lt;</p> {/* New "+" text inside the ellipse */}
+        </button>
         <h2>Order a coffee or try one of these:</h2>
         <div className="button-container">
           <button className="button">Coffee</button>

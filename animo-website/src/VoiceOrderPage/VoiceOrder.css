@@ -10,6 +10,8 @@
     align-items: center;
     height: 100vh;
     color: white;
+    font-family: 'Lato';
+    font-style: normal;
   }
   
   .button-container {
@@ -20,19 +22,18 @@
   }
   
   .button {
-    background-color: #FCFCFCD9;
+    background-color: white;
     border: none;
     border-radius: 10px;
     color: black;
     font-weight: bold;
-    padding: 15px 32px;
     text-align: center;
     text-decoration: none;
     display: inline-block;
-    font-size: 12px;
+    font-size: 14px;
     margin: 4px 2px;
     cursor: pointer;
-    width: 150px; /* specify a fixed width */
+    width: 300px; /* specify a fixed width */
     height: 50px; /* specify a fixed height */
   }
   
@@ -71,4 +72,29 @@
       width: 300px; /* specify a fixed width */
       height: 20px; /* specify a fixed height */
     }
+
+    .ellipse3
+  {
+    position: relative;
+    left:-40%;
+    top: -5%;
+    width: 4vh;
+    height: 4vh;
+    background: #000000;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+
+  
+  .back3 {
+    position: relative;
+    color: #ffffff;
+    font-size: 24px;
+    line-height: 0; /* Adjusts the vertical alignment of the "+" */
+  } 
+
+  
   
