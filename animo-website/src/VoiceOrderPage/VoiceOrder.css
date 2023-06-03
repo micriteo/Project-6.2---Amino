@@ -55,6 +55,8 @@
     width: 100px; /* adjust as needed */
     height: 100px; /* adjust as needed */
     margin-top: 30px;
+      cursor: pointer;
+
   }
   
   .button1{
@@ -68,7 +70,6 @@
       display: inline-block;
       font-size: 14px;
       margin: 4px 2px;
-      cursor: pointer;
       width: 300px; /* specify a fixed width */
       height: 20px; /* specify a fixed height */
     }

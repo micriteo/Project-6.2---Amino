@@ -65,11 +65,21 @@ function VoiceOrder() {
           <button className="button">Hot Chocolate</button>
         </div>
         <div className="dialog-box">
-          <button className="button1" onMouseDown={recordVoice} onMouseUp={stopRecording} id={"orderShow"} >Do you want to place an order?</button>
+          <p className={"button1"} id={"orderShow"}>Press and hold the logo to order</p>
         </div>
-        <div className="logo" />
+        <div className="logo" onMouseDown={changeTextOne} onMouseUp={changeTextTwo}/>
       </div>
     );
   }
-  
+
+ function changeTextOne(){
+    let retrieve = document.getElementById("orderShow");
+    retrieve.innerHTML = "Button held down";
+
+ }
+
+ function changeTextTwo() {
+    let gimme = document.getElementById("orderShow");
+    gimme.innerHTML = "Button let go";
+ }
   export default VoiceOrder;
