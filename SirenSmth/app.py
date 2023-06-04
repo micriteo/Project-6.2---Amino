@@ -30,9 +30,20 @@ async def converter():
         audio_file = request.files['audio_file']
         audio_file.save(r'/home/animo/AnimoMisc/new_voice.webm')
         text = await convert_to_text()
+        remove_files()
         text = handle_coffee_order(text)
         text_to_speech(text)
         return text
+
+
+@app.route('/process_order', methods=['POST'])
+def process_order():
+    if request.method == 'POST':
+        order = request.get_json()
+        coffee = order['coffee']
+        sugar = order['sugar']
+        milk = order['milk']
+        return f"Your order is: {coffee}, {sugar}, {milk}"
 
 
 async def convert_to_text():
@@ -47,7 +58,6 @@ async def convert_to_text():
                 text = r.recognize_google(audio_data)
             except sr.UnknownValueError:
                 text = "I'm sorry, I could not understand you. Please try again."
-        remove_files()
         return text
 
 

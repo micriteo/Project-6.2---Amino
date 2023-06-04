@@ -40,7 +40,7 @@ function VoiceOrder() {
     const makeLink = () => {
         let blob = new Blob(chunks, {type: 'audio/wav'});
         const formData = new FormData();
-        formData.append('audio_file', blob, 'sound.wav');
+        formData.append('audio_file', blob, 'special.wav');
         fetch('/converter', {
             method: 'POST', body: formData
         }).then(async response => {
