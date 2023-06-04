@@ -11,7 +11,7 @@ function BrewCoffe({backgroundImg, info, name}) {
     };
 
     const [order, setOrder] = useState({
-        coffee: 'Regular', sugar: 'No Sugar', milk: 'No Milk',
+        coffee: name || 'Regular', sugar: 'No Sugar', milk: 'No Milk',
     });
 
     const handleCoffeeOption = (option) => {
