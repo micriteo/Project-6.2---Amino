@@ -40,13 +40,17 @@ function VoiceOrder() {
     const makeLink = () => {
         let blob = new Blob(chunks, {type: 'audio/wav'});
         const formData = new FormData();
-        formData.append('audio_file', blob, 'sound.wav');
+        formData.append('audio_file', blob, 'special.wav');
         fetch('/converter', {
             method: 'POST', body: formData
         }).then(async response => {
             if (response.ok) {
                 let label = document.getElementById('orderShow');
-                label.innerHTML = await response.text();
+                let order = await response.text();
+                label.innerHTML = order;
+                let msg = new SpeechSynthesisUtterance();
+                msg.text = order;
+                window.speechSynthesis.speak(msg);
             } else {
                 console.log('HTTP-Error: ' + response.status);
             }

@@ -34,7 +34,16 @@ function BrewCoffe({backgroundImg, info, name}) {
 
     const handleSubmit = () => {
         console.log(order);
-    };
+        fetch ('/process_order', {
+            method: 'POST', body: JSON.stringify(order), headers: { 'Content-Type': 'application/json' },
+        }).then(async response => {
+            if (response.ok) {
+                console.log('HTTP-Response: ' + await response.text());
+            } else {
+                console.log('HTTP-Error: ' + response.status);
+            }
+        });
+    }
 
 
 
