@@ -29,29 +29,32 @@ async def converter():
     if request.method == 'POST':
         audio_file = request.files['audio_file']
         audio_file.save(r'/home/animo/AnimoMisc/new_voice.webm')
-        convert_to_wav()
         text = await convert_to_text()
-        remove_files()
         text = handle_coffee_order(text)
         text_to_speech(text)
         return text
 
 
 async def convert_to_text():
+    convert_to_wav()
     r = sr.Recognizer()
     with sr.AudioFile(r'/home/animo/AnimoMisc/new_voice.wav') as source:
         audio_data = r.record(source)
         try:
             text = r.recognize_google(audio_data, language="nl-NL")
         except sr.UnknownValueError:
-            text = r.recognize_google(audio_data)
+            try:
+                text = r.recognize_google(audio_data)
+            except sr.UnknownValueError:
+                text = "I'm sorry, I could not understand you. Please try again."
+        remove_files()
         return text
 
 
 def convert_to_wav():
     input_path = r'/home/animo/AnimoMisc/new_voice.webm'
     output_path = r'/home/animo/AnimoMisc/new_voice.wav'
-    ffmpeg_path = r"ffpeg"
+    ffmpeg_path = r"ffmpeg"
     subprocess.call([ffmpeg_path, '-i', input_path, output_path])
 
 
