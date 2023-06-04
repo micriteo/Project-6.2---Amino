@@ -25,14 +25,14 @@ def home():
 
 
 @app.route('/converter', methods=['POST'])
-async def converter():
+def converter():
     if request.method == 'POST':
         audio_file = request.files['audio_file']
         audio_file.save(r'/home/animo/AnimoMisc/new_voice.webm')
-        text = await convert_to_text()
+        text = convert_to_text()
         remove_files()
         text = handle_coffee_order(text)
-        text_to_speech(text)
+        # text_to_speech(text)
         return text
 
 
@@ -46,7 +46,7 @@ def process_order():
         return f"Your order is: {coffee}, {sugar}, {milk}"
 
 
-async def convert_to_text():
+def convert_to_text():
     convert_to_wav()
     r = sr.Recognizer()
     with sr.AudioFile(r'/home/animo/AnimoMisc/new_voice.wav') as source:

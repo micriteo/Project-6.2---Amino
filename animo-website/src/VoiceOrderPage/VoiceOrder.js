@@ -46,7 +46,11 @@ function VoiceOrder() {
         }).then(async response => {
             if (response.ok) {
                 let label = document.getElementById('orderShow');
-                label.innerHTML = await response.text();
+                let order = await response.text();
+                label.innerHTML = order;
+                let msg = new SpeechSynthesisUtterance();
+                msg.text = order;
+                window.speechSynthesis.speak(msg);
             } else {
                 console.log('HTTP-Error: ' + response.status);
             }

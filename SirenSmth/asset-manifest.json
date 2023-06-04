@@ -1,7 +1,7 @@
 {
   "files": {
     "main.css": "/static/css/main.322f294b.css",
-    "main.js": "/static/js/main.6a1229a5.js",
+    "main.js": "/static/js/main.51916f93.js",
     "static/media/background.jpg": "/static/media/background.81dfe14065cbb97ecc05.jpg",
     "static/media/chocolate.png": "/static/media/chocolate.182311ec4eac28b839b7.png",
     "static/media/animo_logo.jpg": "/static/media/animo_logo.95df3ecbbd3029f1c856.jpg",
@@ -13,10 +13,10 @@
     "static/media/capucino_vector.svg": "/static/media/capucino_vector.eb5398a7c7f0117280d1fd21192f998f.svg",
     "index.html": "/index.html",
     "main.322f294b.css.map": "/static/css/main.322f294b.css.map",
-    "main.6a1229a5.js.map": "/static/js/main.6a1229a5.js.map"
+    "main.51916f93.js.map": "/static/js/main.51916f93.js.map"
   },
   "entrypoints": [
     "static/css/main.322f294b.css",
-    "static/js/main.6a1229a5.js"
+    "static/js/main.51916f93.js"
   ]
 }
