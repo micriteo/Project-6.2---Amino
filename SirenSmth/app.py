@@ -15,7 +15,7 @@ coffee_types = ["coffee", "koffie", "expresso", "espresso", "milk coffee", "koff
                 "hot water", "heet water", "double expresso", "dubbele espresso",
                 "latte macchiato", "wiener melange", "big balls"]  # coffees available
 positive_response = ["yes", "sounds good", "sure"]
-negative_response = ["no", "nope", "cancel"]
+negative_response = ["no", "nope", "cancel", "nee"]
 
 
 @app.route('/')
@@ -28,7 +28,7 @@ def home():
 def converter():
     if request.method == 'POST':
         audio_file = request.files['audio_file']
-        audio_file.save(r'/home/animo/AnimoMisc/new_voice.webm')
+        audio_file.save(r'C:\MainStuff\Uni\Project6.2\new_voice.webm')
         text = convert_to_text()
         remove_files()
         text = handle_coffee_order(text)
@@ -49,7 +49,7 @@ def process_order():
 def convert_to_text():
     convert_to_wav()
     r = sr.Recognizer()
-    with sr.AudioFile(r'/home/animo/AnimoMisc/new_voice.wav') as source:
+    with sr.AudioFile(r'C:\MainStuff\Uni\Project6.2\new_voice.wav') as source:
         audio_data = r.record(source)
         try:
             text = r.recognize_google(audio_data, language="nl-NL")
@@ -62,17 +62,17 @@ def convert_to_text():
 
 
 def convert_to_wav():
-    input_path = r'/home/animo/AnimoMisc/new_voice.webm'
-    output_path = r'/home/animo/AnimoMisc/new_voice.wav'
-    ffmpeg_path = r"ffmpeg"
+    input_path = r'C:\MainStuff\Uni\Project6.2\new_voice.webm'
+    output_path = r'C:\MainStuff\Uni\Project6.2\new_voice.wav'
+    ffmpeg_path = r"C:\MainStuff\ffmpeg-6.0\bin\ffmpeg.exe"
     subprocess.call([ffmpeg_path, '-i', input_path, output_path])
 
 
 def remove_files():
     extensions = ['.wav', '.webm']
     for ext in extensions:
-        if os.path.exists(r'/home/animo/AnimoMisc/new_voice' + ext):
-            os.remove(r'/home/animo/AnimoMisc/new_voice' + ext)
+        if os.path.exists(r'C:\MainStuff\Uni\Project6.2\new_voice' + ext):
+            os.remove(r'C:\MainStuff\Uni\Project6.2\new_voice' + ext)
 
 
 def text_to_speech(text):
@@ -95,13 +95,15 @@ def text_to_speech(text):
 
 
 def handle_coffee_order(voice_text):
+    voice_text = voice_text.lower()
+    print(voice_text)
     global turn
     global current_coffee
     global array_coffee
 
     if turn == 0:
         for coffee in coffee_types:
-            if coffee in voice_text.lower():
+            if coffee in voice_text:
                 current_coffee = coffee
                 array_coffee.append(coffee)
         if current_coffee:
