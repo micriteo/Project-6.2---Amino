@@ -15,6 +15,7 @@ function App() {
         <Routes>
           <Route path="/" element={<HomePage />} />
           <Route path="/select-order" element={<SelectOrder />} />
+          <Route path="/home_page" element={<HomePage />} />
 
           <Route path="/brew_coffee" element={<BrewCoffee backgroundImg="Assets/coffee.png" name = "Coffee" info="Coffee text"/>} />
 
