@@ -28,6 +28,29 @@
   
 }
 
+.ellipse4
+  {
+    position: relative;
+    width: 4vh;
+    height: 4vh;
+    background: #000000;
+    border-radius: 50%;
+    color: white;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 3vh;
+    top: 5%;
+    margin-left: 10px;
+  }
+    
+  .back4
+  { 
+    position: relative;
+    bottom: 8%;
+    right: 4%;
+  }
+
 .Select_Order_Header 
 {
   position: relative;
@@ -195,6 +218,29 @@
     margin-top: -10vh;
   }
   
+  .ellipse4
+  {
+    position: relative;
+    width: 4vh;
+    height: 4vh;
+    background: #000000;
+    border-radius: 50%;
+    color: white;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 3vh;
+    top: 5%;
+    right: 30%;
+  }
+    
+  .back4
+  { 
+    position: relative;
+    bottom: 8%;
+    right: 4%;
+  }
+
   .Select_Order_Header {
   
     padding: 20px;

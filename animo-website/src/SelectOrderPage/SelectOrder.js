@@ -68,6 +68,9 @@ function SelectOrder()
     <div className='select-container'>
     <div className="App">
       <header className="Select_Order_Header">
+        <button className="ellipse4" onClick={handleMainScreen}>
+          <p className="back4">&lt;</p>
+        </button>
         <h1>Welcome to your Animo!</h1>
         <img src= {animo_logo} alt="Animo" className="logo-img" onClick={handleMainScreen} />
       </header>

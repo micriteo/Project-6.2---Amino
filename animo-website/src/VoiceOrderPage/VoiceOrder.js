@@ -9,7 +9,7 @@ function VoiceOrder() {
 
     const handleBack = () =>
     {
-        navigate('/select-order');
+        navigate('/home_page');
     };
 
     const recordVoice = () => {

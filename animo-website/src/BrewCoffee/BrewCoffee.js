@@ -95,6 +95,7 @@ function BrewCoffe({backgroundImg, info, name}) {
             </div>
         </div>
     </div>);
+    
 }
 
 export default BrewCoffe;
