@@ -98,6 +98,12 @@
     font-size: 1.6em; /* adjusted */
     color: #000000;
   }
+
+  .no_Sugar_Button.clicked, .normal_Sugar_Button.clicked, .sweet_Sugar_Button.clicked 
+  {
+    background-color: #f8f7fa;
+    color: black;
+  }
     
   .sugar_Container 
   {
@@ -171,6 +177,11 @@
     color: #000000;
   }
 
+  .no_Milk_Button.clicked, .normal_Milk_Button.clicked, .milk_Button.clicked 
+  {
+    background-color: #f8f7fa;
+    color: black;
+  }
   .milk_Container
   {
     position: relative;
@@ -368,6 +379,12 @@
     color: #000000;
   }
 
+  .no_Sugar_Button.clicked, .normal_Sugar_Button.clicked, .sweet_Sugar_Button.clicked 
+  {
+    background-color: #f8f7fa;
+    color: black;
+  }
+
   .sugar_Container
   {
     position: relative;
@@ -412,10 +429,6 @@
     margin-right: 5%;
   }
 
-  .clicked {
-    background-color: red;
-  }
-
   .main
   {
     padding: 0;   
@@ -449,6 +462,12 @@
     font-weight: 700;
     font-size: 1.6em; /* adjusted */
     color: #000000;
+  }
+
+  .no_Milk_Button.clicked, .normal_Milk_Button.clicked, .milk_Button.clicked 
+  {
+    background-color: #f8f7fa;
+    color: black;
   }
 
 .milk_Container
