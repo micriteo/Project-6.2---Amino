@@ -12,12 +12,23 @@ import com.animo.door.R;
 import com.animo.door.service.BackLight;
 import com.animo.door.service.RGBLight;
 import com.animo.door.service.Recipe;
+import com.animo.door.view.CustomProgressCircle;
+import com.animo.door.view.CustomTextViewALSLight;
 
+import java.util.ArrayList;
+import java.util.HashMap;
 import java.util.concurrent.ThreadLocalRandom;
 
 public class IdleActivity extends Activity {
 
     private static final int BREWING_CODE = 1;
+
+    private static final HashMap<String, Integer> coffeeList;
+
+    static {
+        coffeeList = new HashMap<>();
+        coffeeList.put("Espresso", R.drawable.iconx2_004_espresso);
+    }
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -31,7 +42,7 @@ public class IdleActivity extends Activity {
             // You can handle the error more appropriately based on your application's requirements
         }
 
-        //set layout
+        // Set layout
         setContentView(R.layout.activity_idle);
 
         // Make app full screen in case we haven't yet.
@@ -41,10 +52,17 @@ public class IdleActivity extends Activity {
 
         ImageView logo = findViewById(R.id.logo);
 
+        // Creating a list of keys (coffee names)
+        ArrayList<String> coffeeNames = new ArrayList<>(coffeeList.keySet());
+
         logo.setOnClickListener(v -> {
+            int randomCoffeeIndex = ThreadLocalRandom.current().nextInt(coffeeNames.size());
+            String randomCoffee = coffeeNames.get(randomCoffeeIndex);
+            int imageResource = coffeeList.get(randomCoffee);
+
             Intent i = new Intent(this, BrewingActivity.class);
-            int randomRecipe = ThreadLocalRandom.current().nextInt(Recipe.VALUES.length);
-            i.putExtra(BrewingActivity.RECIPE_KEY, randomRecipe);
+            i.putExtra(BrewingActivity.RECIPE_KEY, randomCoffee);
+            i.putExtra(BrewingActivity.IMAGE_KEY, imageResource);
             startActivityForResult(i, BREWING_CODE);
             overridePendingTransition(0, 0);
         });
@@ -52,7 +70,7 @@ public class IdleActivity extends Activity {
 
     @Override
     protected void onActivityResult(int requestCode, int resultCode, Intent data) {
-        if(requestCode==BREWING_CODE){
+        if (requestCode == BREWING_CODE) {
             Log.i("Idle", "Completed brewing.");
             try {
                 RGBLight.setColor(100, 100, 100);
