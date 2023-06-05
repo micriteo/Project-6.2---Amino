@@ -1,10 +1,9 @@
 import os
 import subprocess
-
-import cryptography
 import pyttsx3
 from flask import Flask, request, render_template, send_from_directory
 import speech_recognition as sr
+from voice_paths import *
 
 app = Flask(__name__)
 turn = 0
@@ -28,7 +27,7 @@ def home():
 def converter():
     if request.method == 'POST':
         audio_file = request.files['audio_file']
-        audio_file.save(r'C:\MainStuff\Uni\Project6.2\new_voice.webm')
+        audio_file.save(path_webm)
         text = convert_to_text()
         remove_files()
         text = handle_coffee_order(text)
@@ -49,7 +48,7 @@ def process_order():
 def convert_to_text():
     convert_to_wav()
     r = sr.Recognizer()
-    with sr.AudioFile(r'C:\MainStuff\Uni\Project6.2\new_voice.wav') as source:
+    with sr.AudioFile(path_wav) as source:
         audio_data = r.record(source)
         try:
             text = r.recognize_google(audio_data, language="nl-NL")
@@ -62,17 +61,14 @@ def convert_to_text():
 
 
 def convert_to_wav():
-    input_path = r'C:\MainStuff\Uni\Project6.2\new_voice.webm'
-    output_path = r'C:\MainStuff\Uni\Project6.2\new_voice.wav'
-    ffmpeg_path = r"C:\MainStuff\ffmpeg-6.0\bin\ffmpeg.exe"
-    subprocess.call([ffmpeg_path, '-i', input_path, output_path])
+    subprocess.call([ffmpeg_path, '-i', path_webm, path_wav])
 
 
 def remove_files():
     extensions = ['.wav', '.webm']
     for ext in extensions:
-        if os.path.exists(r'C:\MainStuff\Uni\Project6.2\new_voice' + ext):
-            os.remove(r'C:\MainStuff\Uni\Project6.2\new_voice' + ext)
+        if os.path.exists(path_no_extension + ext):
+            os.remove(path_no_extension + ext)
 
 
 def text_to_speech(text):
