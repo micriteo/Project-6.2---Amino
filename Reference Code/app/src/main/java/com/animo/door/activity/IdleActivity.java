@@ -94,6 +94,16 @@ public class IdleActivity extends Activity {
             } catch (NullPointerException e) {
                 Log.e("IdleActivity", "Error setting color on RGBLight", e);
             }
+
+            ImageView imageView = findViewById(R.id.coffee_image);
+            imageView.setVisibility(View.GONE); //hide the coffee image
+
+            TextView description = findViewById(R.id.customTextViewALSLight);
+            description.setVisibility(View.GONE); //hide the description
+
+            TextView thankYouMessage = findViewById(R.id.text_thank_you);
+            thankYouMessage.setVisibility(View.VISIBLE);
+
             return;
         }
         super.onActivityResult(requestCode, resultCode, data);

@@ -1,5 +1,6 @@
 package com.animo.door.activity;
 
+import android.annotation.SuppressLint;
 import android.app.Activity;
 import android.content.Intent;
 import android.os.Bundle;
@@ -8,6 +9,7 @@ import android.util.Log;
 import android.view.View;
 import android.view.WindowManager;
 import android.widget.ImageView;
+import android.widget.TextView;
 
 import com.animo.door.R;
 import com.animo.door.service.BackLight;
@@ -21,6 +23,7 @@ public class BrewingActivity extends Activity {
     public static final String RECIPE_KEY = "selected_recipe";
     public static final String IMAGE_KEY = "selected_image";
 
+    public boolean brewingComplete = false;
     private CustomTextViewALSLight textBrewName;
     private CustomProgressCircle progressCircle;
     private ImageView brewIcon;
@@ -50,8 +53,10 @@ public class BrewingActivity extends Activity {
         progressCircle.setFilledPercentage(0);
 
         fakeTimer = new Handler();
+        doFakeBrewing();
     }
 
+    @SuppressLint("SetTextI18n")
     @Override
     public void onResume() {
         super.onResume();
@@ -74,8 +79,10 @@ public class BrewingActivity extends Activity {
         brewIcon.setImageResource(imageResource);
         Log.i("BREW", "Starting brew of " + recipe);
 
-        doFakeBrewing();
+        updateUI();
     }
+
+
 
     @Override
     protected void onPause() {
@@ -87,11 +94,25 @@ public class BrewingActivity extends Activity {
             progressCircle.setFilledPercentage(brewProgress++);
             if (brewProgress >= 100) {
                 SoundService.playReadySound();
+                brewingComplete = true; // Set brewingComplete to tru
                 setResult(Activity.RESULT_OK); // Set the result for the calling activity
+                updateUI();
                 finish();
             } else {
                 doFakeBrewing();
             }
         }, 200);
     }
+
+    private void updateUI() {
+        if (brewingComplete) {
+            textBrewName.setVisibility(View.GONE);
+            brewIcon.setVisibility(View.GONE);
+            progressCircle.setVisibility(View.GONE);
+            // Display the "Thank you" message
+            TextView thankYouMessage = findViewById(R.id.text_thank_you);
+            thankYouMessage.setVisibility(View.VISIBLE);
+        }
+    }
+
 }

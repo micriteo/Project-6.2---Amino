@@ -49,5 +49,18 @@
         android:gravity="center_horizontal"
         android:text="DRINK_NAME"
         android:textColor="#ffffffff"
-        android:textSize="44sp" />
+        android:textSize="44sp"
+        android:visibility="visible" />
+
+    <com.animo.door.view.CustomTextViewALSLight
+        android:id="@+id/text_thank_you"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="800dp"
+        android:text="Thank you for ordering from Animo"
+        android:textColor="#ffffffff"
+        android:textSize="24sp"
+        android:visibility="gone" />
+
 </RelativeLayout>
