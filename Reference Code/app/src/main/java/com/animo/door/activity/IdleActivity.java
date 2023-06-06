@@ -13,6 +13,7 @@ import android.widget.Toast;
 import com.animo.door.R;
 import com.animo.door.service.BackLight;
 import com.animo.door.service.RGBLight;
+import com.animo.door.service.Recipe;
 
 import org.jetbrains.annotations.NotNull;
 
@@ -119,7 +120,7 @@ public class IdleActivity extends Activity {
 
         OkHttpClient client = clientBuilder.build();
 
-        Request request = new Request.Builder().url("https://141.252.159.141:122/drink_order").build();
+        Request request = new Request.Builder().url("https://192.168.1.2:122/drink_order").build();
 
         client.newCall(request).enqueue(new Callback() {
             @Override
@@ -134,6 +135,20 @@ public class IdleActivity extends Activity {
                 runOnUiThread(() -> {
                     TextView description = findViewById(R.id.customTextViewALSLight);
                     description.setText(responseData);
+
+                    ImageView imageView = findViewById(R.id.coffee_image);
+                    String coffeeName = responseData.toUpperCase();
+                    for (Recipe recipe : Recipe.VALUES) {
+                        if (recipe.getName().equals(coffeeName)) {
+                            imageView.setImageResource(recipe.getDrawableID());
+                            Intent intent = new Intent(IdleActivity.this, BrewingActivity.class);
+                            intent.putExtra(BrewingActivity.RECIPE_KEY, coffeeName);
+                            intent.putExtra(BrewingActivity.IMAGE_KEY, recipe.getDrawableID());
+                            startActivityForResult(intent, BREWING_CODE);
+                            overridePendingTransition(0, 0);
+                            break;
+                        }
+                    }
                 });
             }
         });

@@ -87,6 +87,7 @@ public class BrewingActivity extends Activity {
             progressCircle.setFilledPercentage(brewProgress++);
             if (brewProgress >= 100) {
                 SoundService.playReadySound();
+                setResult(Activity.RESULT_OK); // Set the result for the calling activity
                 finish();
             } else {
                 doFakeBrewing();

@@ -9,6 +9,12 @@ android {
             storePassword 'password123'
         }
     }
+    task wrapper(type: Wrapper){
+        gradleVersion = '7.2'
+    }
+    task prepareKotlinBuildScriptModel {
+
+    }
     compileSdk 33
     defaultConfig {
         applicationId "com.animo.optiline"
