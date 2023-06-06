@@ -7,17 +7,22 @@ import android.util.Log;
 import android.view.View;
 import android.view.WindowManager;
 import android.widget.ImageView;
+import android.widget.TextView;
 
 import com.animo.door.R;
 import com.animo.door.service.BackLight;
 import com.animo.door.service.RGBLight;
-import com.animo.door.service.Recipe;
-import com.animo.door.view.CustomProgressCircle;
-import com.animo.door.view.CustomTextViewALSLight;
 
+import java.io.IOException;
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.concurrent.ThreadLocalRandom;
+
+import okhttp3.Call;
+import okhttp3.Callback;
+import okhttp3.OkHttpClient;
+import okhttp3.Request;
+import okhttp3.Response;
 
 public class IdleActivity extends Activity {
 
@@ -33,7 +38,6 @@ public class IdleActivity extends Activity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-
         try {
             RGBLight.setColor(100, 100, 100);
             BackLight.setBackLight(BackLight.BackLightBrightness.HUNDERD);
@@ -56,6 +60,7 @@ public class IdleActivity extends Activity {
         ArrayList<String> coffeeNames = new ArrayList<>(coffeeList.keySet());
 
         logo.setOnClickListener(v -> {
+            /*
             int randomCoffeeIndex = ThreadLocalRandom.current().nextInt(coffeeNames.size());
             String randomCoffee = coffeeNames.get(randomCoffeeIndex);
             int imageResource = coffeeList.get(randomCoffee);
@@ -64,7 +69,8 @@ public class IdleActivity extends Activity {
             i.putExtra(BrewingActivity.RECIPE_KEY, randomCoffee);
             i.putExtra(BrewingActivity.IMAGE_KEY, imageResource);
             startActivityForResult(i, BREWING_CODE);
-            overridePendingTransition(0, 0);
+            overridePendingTransition(0, 0);*/
+            fetchOrder();
         });
     }
 
@@ -80,5 +86,34 @@ public class IdleActivity extends Activity {
             return;
         }
         super.onActivityResult(requestCode, resultCode, data);
+    }
+
+    private void fetchOrder() {
+        OkHttpClient client = new OkHttpClient();
+
+        Request request = new Request.Builder()
+                .url("https://whatthecommit.com/index.txt")
+                .build();
+
+        client.newCall(request).enqueue(new Callback() {
+            @Override
+            public void onResponse(Call call, Response response) throws IOException {
+                assert response.body() != null;
+                final String responseData = response.body().string();
+
+                runOnUiThread(new Runnable() {
+                    @Override
+                    public void run() {
+                        TextView description = findViewById(R.id.customTextViewALSLight);
+                        description.setText(responseData);
+                    }
+                });
+            }
+
+            @Override
+            public void onFailure(Call call, IOException e) {
+                e.printStackTrace();
+            }
+        });
     }
 }
