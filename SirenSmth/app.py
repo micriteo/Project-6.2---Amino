@@ -31,6 +31,11 @@ def home():
     return render_template("bindex.html")
 
 
+@app.route('/drink_order')
+def drink_order():
+    return "Coffee"
+
+
 @app.route('/converter', methods=['POST'])
 def converter():
     if request.method == 'POST':
