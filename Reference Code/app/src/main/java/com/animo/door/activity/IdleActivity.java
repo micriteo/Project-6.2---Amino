@@ -8,15 +8,26 @@ import android.view.View;
 import android.view.WindowManager;
 import android.widget.ImageView;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import com.animo.door.R;
 import com.animo.door.service.BackLight;
 import com.animo.door.service.RGBLight;
 
+import org.jetbrains.annotations.NotNull;
+
 import java.io.IOException;
+import java.security.KeyManagementException;
+import java.security.NoSuchAlgorithmException;
+import java.security.SecureRandom;
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.concurrent.ThreadLocalRandom;
+
+import javax.net.ssl.SSLContext;
+import javax.net.ssl.SSLSocketFactory;
+import javax.net.ssl.TrustManager;
+import javax.net.ssl.X509TrustManager;
 
 import okhttp3.Call;
 import okhttp3.Callback;
@@ -51,8 +62,7 @@ public class IdleActivity extends Activity {
 
         // Make app full screen in case we haven't yet.
         getWindow().setFlags(WindowManager.LayoutParams.FLAG_FULLSCREEN, WindowManager.LayoutParams.FLAG_FULLSCREEN);
-        getWindow().getDecorView().setSystemUiVisibility(View.SYSTEM_UI_FLAG_HIDE_NAVIGATION |
-                View.SYSTEM_UI_FLAG_IMMERSIVE);
+        getWindow().getDecorView().setSystemUiVisibility(View.SYSTEM_UI_FLAG_HIDE_NAVIGATION | View.SYSTEM_UI_FLAG_IMMERSIVE);
 
         ImageView logo = findViewById(R.id.logo);
 
@@ -89,31 +99,44 @@ public class IdleActivity extends Activity {
     }
 
     private void fetchOrder() {
-        OkHttpClient client = new OkHttpClient();
+        OkHttpClient.Builder clientBuilder = new OkHttpClient.Builder();
 
-        Request request = new Request.Builder()
-                .url("https://whatthecommit.com/index.txt")
-                .build();
+        // Disable certificate verification
+        TrustManager[] trustAllCerts = new TrustManager[]{new TrustAllCertificates()};
+        SSLContext sslContext = null;
+        try {
+            sslContext = SSLContext.getInstance("TLS");
+            sslContext.init(null, trustAllCerts, new SecureRandom());
+        } catch (NoSuchAlgorithmException | KeyManagementException e) {
+            e.printStackTrace();
+        }
+
+        if (sslContext != null) {
+            SSLSocketFactory sslSocketFactory = sslContext.getSocketFactory();
+            clientBuilder.sslSocketFactory(sslSocketFactory, (X509TrustManager) trustAllCerts[0]);
+            clientBuilder.hostnameVerifier((hostname, session) -> true);
+        }
+
+        OkHttpClient client = clientBuilder.build();
+
+        Request request = new Request.Builder().url("https://141.252.159.141:122/drink_order").build();
 
         client.newCall(request).enqueue(new Callback() {
+            @Override
+            public void onFailure(@NotNull Call call, @NotNull IOException e) {
+            }
+
             @Override
             public void onResponse(Call call, Response response) throws IOException {
                 assert response.body() != null;
                 final String responseData = response.body().string();
 
-                runOnUiThread(new Runnable() {
-                    @Override
-                    public void run() {
-                        TextView description = findViewById(R.id.customTextViewALSLight);
-                        description.setText(responseData);
-                    }
+                runOnUiThread(() -> {
+                    TextView description = findViewById(R.id.customTextViewALSLight);
+                    description.setText(responseData);
                 });
-            }
-
-            @Override
-            public void onFailure(Call call, IOException e) {
-                e.printStackTrace();
             }
         });
     }
+
 }
