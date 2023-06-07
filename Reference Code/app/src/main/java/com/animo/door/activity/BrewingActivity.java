@@ -1,10 +1,13 @@
 package com.animo.door.activity;
 
+import static android.provider.Telephony.Carriers.PORT;
+
 import android.annotation.SuppressLint;
 import android.app.Activity;
 import android.content.Intent;
 import android.os.Bundle;
 import android.os.Handler;
+import android.os.Looper;
 import android.util.Log;
 import android.view.View;
 import android.view.WindowManager;
@@ -17,6 +20,12 @@ import com.animo.door.service.RGBLight;
 import com.animo.door.service.SoundService;
 import com.animo.door.view.CustomProgressCircle;
 import com.animo.door.view.CustomTextViewALSLight;
+
+import java.io.BufferedReader;
+import java.io.IOException;
+import java.io.InputStreamReader;
+import java.net.ServerSocket;
+import java.net.Socket;
 
 public class BrewingActivity extends Activity {
 
@@ -31,9 +40,12 @@ public class BrewingActivity extends Activity {
 
     private int brewProgress = 0;
 
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+
+
 
         // Set layout
         setContentView(R.layout.activity_brewing);
@@ -114,5 +126,7 @@ public class BrewingActivity extends Activity {
             thankYouMessage.setVisibility(View.VISIBLE);
         }
     }
+
+
 
 }
