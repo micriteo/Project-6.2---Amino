@@ -1,0 +1,26 @@
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:id="@+id/activityBrewing"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="#61554F">
+
+    <ImageView
+        android:id="@+id/logo"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="150dp"
+        android:src="@drawable/logograyish" />
+
+    <TextView
+        android:id="@+id/customTextViewALSLight"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/logo"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="16dp"
+        android:text="Press Logo to Brew Random Drink"
+        android:textSize="22sp"
+        android:textStyle="bold"
+        android:textColor="#FFFFFF" />
+</RelativeLayout>
