@@ -49,16 +49,13 @@ def process_order():
         coffee = order['coffee']
         sugar = order['sugar']
         milk = order['milk']
-
-        result = send_order_to_android_list(order)
-
-
+        send_order_to_android_list(order)
         return f"Your order is: {coffee}, {sugar}, {milk}"
 
 
 def send_order_to_android_list(order):
     # Define the IP address and port of the Android application running on the same server
-    android_ip = '141.252.132.12'  # this need to be change everytime the android device is connected to a new network
+    android_ip = '141.252.159.141'  # this need to be change everytime the android device is connected to a new network
     android_port = 9999  # Replace with the port number the Android application is listening on
 
     try:
