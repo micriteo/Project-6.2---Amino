@@ -19,12 +19,6 @@ positive_response = ["yes", "sounds good", "sure"]
 negative_response = ["no", "nope", "cancel", "nee"]
 
 
-# # Create a socket for sending data to the Android app
-# android_socket = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
-# android_host = '2.10.20.172'  # Replace with your Android device's IP
-# android_port = 122  # Replace with your Android device's listening port
-# android_socket.connect((android_host, android_port))
-
 @app.route('/')
 def home():
     # subprocess.call("../animo-website npm start", shell=True)
@@ -55,10 +49,6 @@ def process_order():
         coffee = order['coffee']
         sugar = order['sugar']
         milk = order['milk']
-        # order_text = f"Your order is: {coffee}, {sugar}, {milk}"
-
-
-        # android_socket.send(order_text.encode())
 
         result = send_order_to_android_list(order)
 
@@ -68,7 +58,7 @@ def process_order():
 
 def send_order_to_android_list(order):
     # Define the IP address and port of the Android application running on the same server
-    android_ip = '172.20.10.2'  # or '127.0.0.1'
+    android_ip = '141.252.132.12'  # this need to be change everytime the android device is connected to a new network
     android_port = 9999  # Replace with the port number the Android application is listening on
 
     try:
@@ -96,16 +86,6 @@ def send_order_to_android_list(order):
     except Exception as e:
         return f"An error occurred while sending the order: {str(e)}"
 
-# # Define the order data
-# order_data = {
-#     "coffee": "Espresso",
-#     "sugar": 2,
-#     "milk": "Yes"
-#}
-
-# Send the order to the Android app
-# result = send_order_to_android(order_data)
-# print(result)
 
 def convert_to_text():
     convert_to_wav()
