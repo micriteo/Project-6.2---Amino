@@ -5,22 +5,8 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="c42c5621-53bd-4d78-a267-e73894a13cad" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/Reference Code/.idea/compiler.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Reference Code/.idea/gradle.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Reference Code/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/Reference Code/.idea/misc.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Reference Code/app/build.gradle" beforeDir="false" afterPath="$PROJECT_DIR$/Reference Code/app/build.gradle" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Reference Code/app/src/androidTest/java/com/animo/door/ExampleInstrumentedTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/Reference Code/app/src/androidTest/java/com/animo/door/ExampleInstrumentedTest.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Reference Code/app/src/main/AndroidManifest.xml" beforeDir="false" afterPath="$PROJECT_DIR$/Reference Code/app/src/main/AndroidManifest.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Reference Code/app/src/main/java/com/animo/door/AnimoApp.java" beforeDir="false" afterPath="$PROJECT_DIR$/Reference Code/app/src/main/java/com/animo/door/AnimoApp.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Reference Code/app/src/main/java/com/animo/door/activity/IdleActivity.java" beforeDir="false" afterPath="$PROJECT_DIR$/Reference Code/app/src/main/java/com/animo/door/activity/IdleActivity.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Reference Code/app/src/main/java/com/animo/door/devices/PWMPin.java" beforeDir="false" afterPath="$PROJECT_DIR$/Reference Code/app/src/main/java/com/animo/door/devices/PWMPin.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Reference Code/app/src/main/java/com/animo/door/view/CustomTextViewALSLight.java" beforeDir="false" afterPath="$PROJECT_DIR$/Reference Code/app/src/main/java/com/animo/door/view/CustomTextViewALSLight.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Reference Code/app/src/main/res/layout/activity_brewing.xml" beforeDir="false" afterPath="$PROJECT_DIR$/Reference Code/app/src/main/res/layout/activity_brewing.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Reference Code/app/src/main/res/layout/activity_idle.xml" beforeDir="false" afterPath="$PROJECT_DIR$/Reference Code/app/src/main/res/layout/activity_idle.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Reference Code/app/src/main/res/values/strings.xml" beforeDir="false" afterPath="$PROJECT_DIR$/Reference Code/app/src/main/res/values/strings.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Reference Code/build.gradle" beforeDir="false" afterPath="$PROJECT_DIR$/Reference Code/build.gradle" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Reference Code/gradle.properties" beforeDir="false" afterPath="$PROJECT_DIR$/Reference Code/gradle.properties" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Reference Code/gradle/wrapper/gradle-wrapper.properties" beforeDir="false" afterPath="$PROJECT_DIR$/Reference Code/gradle/wrapper/gradle-wrapper.properties" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Reference Code/app/src/main/java/com/animo/door/service/Recipe.java" beforeDir="false" afterPath="$PROJECT_DIR$/Reference Code/app/src/main/java/com/animo/door/service/Recipe.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -44,6 +30,7 @@
     "RunOnceActivity.ShowReadmeOnStart": "true",
     "RunOnceActivity.cidr.known.project.marker": "true",
     "cidr.known.project.marker": "true",
+    "dart.analysis.tool.window.visible": "false",
     "last_opened_file_path": "C:/Users/User/Desktop/Project-6.2---Amino"
   }
 }]]></component>

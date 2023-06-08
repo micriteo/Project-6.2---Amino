@@ -8,10 +8,15 @@ import java.util.Locale;
  * Dummy recipes made for this project
  */
 public enum Recipe {
-    COFFEE(R.drawable.iconx2_000_black_coffee),
-    ESPRESSO(R.drawable.iconx2_004_espresso),
-    COFFEE_CHOC(R.drawable.iconx2_007_coffee_chocolate),
-    HOT_WATER(R.drawable.iconx2_010_hot_water),
+    COFFEE(R.drawable.coffee),
+    ESPRESSO(R.drawable.espresso),
+    MILK_COFEE(R.drawable.milk_coffee),
+    CAPUCINO(R.drawable.capucino),
+    CHOCOLATE_COFFEE(R.drawable.chocolate_coffee),
+    CHOCOLATE_MILK(R.drawable.chocolate_milk),
+    DOUBLE_ESPRESSO(R.drawable.iconx2_010_hot_water),
+    LATE_MACHIATO(R.drawable.late_machiato),
+    WIENER_MELANGE(R.drawable.wiener),
     ;
 
     public static final Recipe[] VALUES = values();
