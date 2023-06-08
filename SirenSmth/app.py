@@ -6,7 +6,7 @@ import pyttsx3
 from flask import Flask, request, render_template, send_from_directory
 import speech_recognition as sr
 from voice_paths import *
-
+send_order = ""
 app = Flask(__name__)
 turn = 0
 current_coffee = None
@@ -27,7 +27,7 @@ def home():
 
 @app.route('/drink_order')
 def drink_order():
-    return "Coffee"
+    return send_order
 
 
 @app.route('/converter', methods=['POST'])
@@ -49,8 +49,10 @@ def process_order():
         coffee = order['coffee']
         sugar = order['sugar']
         milk = order['milk']
+        global send_order
+        send_order = f"Your order is: {coffee}, {sugar}, {milk}"
         send_order_to_android_list(order)
-        return f"Your order is: {coffee}, {sugar}, {milk}"
+        return send_order
 
 
 def send_order_to_android_list(order):

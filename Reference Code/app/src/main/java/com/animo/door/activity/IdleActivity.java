@@ -8,7 +8,6 @@ import android.view.View;
 import android.view.WindowManager;
 import android.widget.ImageView;
 import android.widget.TextView;
-import android.widget.Toast;
 
 import com.animo.door.R;
 import com.animo.door.service.BackLight;
@@ -40,13 +39,6 @@ public class IdleActivity extends Activity {
 
     private static final int BREWING_CODE = 1;
 
-    private static final HashMap<String, Integer> coffeeList;
-
-    static {
-        coffeeList = new HashMap<>();
-        coffeeList.put("Espresso", R.drawable.iconx2_004_espresso);
-    }
-
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -68,7 +60,6 @@ public class IdleActivity extends Activity {
         ImageView logo = findViewById(R.id.logo);
 
         // Creating a list of keys (coffee names)
-        ArrayList<String> coffeeNames = new ArrayList<>(coffeeList.keySet());
 
         logo.setOnClickListener(v -> {
             /*
@@ -130,7 +121,7 @@ public class IdleActivity extends Activity {
 
         OkHttpClient client = clientBuilder.build();
 
-        Request request = new Request.Builder().url("https://192.168.1.2:122/drink_order").build();
+        Request request = new Request.Builder().url("https://141.252.159.141:122/drink_order").build();
 
         client.newCall(request).enqueue(new Callback() {
             @Override
