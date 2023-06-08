@@ -27,7 +27,7 @@ function App() {
           <Route path="/brew_capucino" element={<BrewCoffee backgroundImg="Assets/capucino.png" name = "Capucino" info="Capuccino text"/>} />
 
            {/* Add Chocolate Coffee page */}
-           <Route path="/brew_chocolate_coffee" element={<BrewCoffee backgroundImg="Assets/chocolate_coffee.png" name = "Chocolate Espresso" info="Chocolate Coffee text"/>} />
+           <Route path="/brew_chocolate_coffee" element={<BrewCoffee backgroundImg="Assets/chocolate_coffee.png" name = "Chocolate Coffee" info="Chocolate Coffee text"/>} />
 
           {/* Add Chocolate Milk page */}
           <Route path="/brew_chocolate_milk" element={<BrewCoffee backgroundImg="Assets/chocolate_milk.png" name = "Chocolate Milk" info="Chocolate milk text"/>} />
