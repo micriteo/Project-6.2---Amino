@@ -14,7 +14,7 @@ public enum Recipe {
     CAPUCINO(R.drawable.capucino),
     CHOCOLATE_COFFEE(R.drawable.chocolate_coffee),
     CHOCOLATE_MILK(R.drawable.chocolate_milk),
-    DOUBLE_ESPRESSO(R.drawable.iconx2_010_hot_water),
+    DOUBLE_ESPRESSO(R.drawable.double_espresso),
     LATE_MACHIATO(R.drawable.late_machiato),
     WIENER_MELANGE(R.drawable.wiener),
     ;
