@@ -5,29 +5,74 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="c42c5621-53bd-4d78-a267-e73894a13cad" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/Reference Code/.idea/compiler.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Reference Code/.idea/gradle.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Reference Code/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/Reference Code/.idea/misc.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Reference Code/app/build.gradle" beforeDir="false" afterPath="$PROJECT_DIR$/Reference Code/app/build.gradle" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Reference Code/app/src/androidTest/java/com/animo/door/ExampleInstrumentedTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/Reference Code/app/src/androidTest/java/com/animo/door/ExampleInstrumentedTest.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Reference Code/app/src/main/AndroidManifest.xml" beforeDir="false" afterPath="$PROJECT_DIR$/Reference Code/app/src/main/AndroidManifest.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Reference Code/app/src/main/java/com/animo/door/AnimoApp.java" beforeDir="false" afterPath="$PROJECT_DIR$/Reference Code/app/src/main/java/com/animo/door/AnimoApp.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Reference Code/app/src/main/java/com/animo/door/activity/IdleActivity.java" beforeDir="false" afterPath="$PROJECT_DIR$/Reference Code/app/src/main/java/com/animo/door/activity/IdleActivity.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Reference Code/app/src/main/java/com/animo/door/devices/PWMPin.java" beforeDir="false" afterPath="$PROJECT_DIR$/Reference Code/app/src/main/java/com/animo/door/devices/PWMPin.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Reference Code/app/src/main/java/com/animo/door/view/CustomTextViewALSLight.java" beforeDir="false" afterPath="$PROJECT_DIR$/Reference Code/app/src/main/java/com/animo/door/view/CustomTextViewALSLight.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Reference Code/app/src/main/res/layout/activity_brewing.xml" beforeDir="false" afterPath="$PROJECT_DIR$/Reference Code/app/src/main/res/layout/activity_brewing.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Reference Code/app/src/main/res/layout/activity_idle.xml" beforeDir="false" afterPath="$PROJECT_DIR$/Reference Code/app/src/main/res/layout/activity_idle.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Reference Code/app/src/main/res/values/strings.xml" beforeDir="false" afterPath="$PROJECT_DIR$/Reference Code/app/src/main/res/values/strings.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Reference Code/build.gradle" beforeDir="false" afterPath="$PROJECT_DIR$/Reference Code/build.gradle" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Reference Code/gradle.properties" beforeDir="false" afterPath="$PROJECT_DIR$/Reference Code/gradle.properties" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Reference Code/gradle/wrapper/gradle-wrapper.properties" beforeDir="false" afterPath="$PROJECT_DIR$/Reference Code/gradle/wrapper/gradle-wrapper.properties" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/ffmpeg-6.0/LICENSE" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/ffmpeg-6.0/README.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/ffmpeg-6.0/bin/ffmpeg.exe" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/ffmpeg-6.0/bin/ffplay.exe" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/ffmpeg-6.0/bin/ffprobe.exe" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/ffmpeg-6.0/doc/bootstrap.min.css" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/ffmpeg-6.0/doc/default.css" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/ffmpeg-6.0/doc/developer.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/ffmpeg-6.0/doc/faq.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/ffmpeg-6.0/doc/fate.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/ffmpeg-6.0/doc/ffmpeg-all.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/ffmpeg-6.0/doc/ffmpeg-bitstream-filters.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/ffmpeg-6.0/doc/ffmpeg-codecs.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/ffmpeg-6.0/doc/ffmpeg-devices.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/ffmpeg-6.0/doc/ffmpeg-filters.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/ffmpeg-6.0/doc/ffmpeg-formats.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/ffmpeg-6.0/doc/ffmpeg-protocols.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/ffmpeg-6.0/doc/ffmpeg-resampler.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/ffmpeg-6.0/doc/ffmpeg-scaler.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/ffmpeg-6.0/doc/ffmpeg-utils.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/ffmpeg-6.0/doc/ffmpeg.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/ffmpeg-6.0/doc/ffplay-all.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/ffmpeg-6.0/doc/ffplay.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/ffmpeg-6.0/doc/ffprobe-all.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/ffmpeg-6.0/doc/ffprobe.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/ffmpeg-6.0/doc/general.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/ffmpeg-6.0/doc/git-howto.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/ffmpeg-6.0/doc/libavcodec.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/ffmpeg-6.0/doc/libavdevice.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/ffmpeg-6.0/doc/libavfilter.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/ffmpeg-6.0/doc/libavformat.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/ffmpeg-6.0/doc/libavutil.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/ffmpeg-6.0/doc/libswresample.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/ffmpeg-6.0/doc/libswscale.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/ffmpeg-6.0/doc/mailing-list-faq.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/ffmpeg-6.0/doc/nut.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/ffmpeg-6.0/doc/platform.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/ffmpeg-6.0/doc/style.min.css" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/ffmpeg-6.0/presets/libvpx-1080p.ffpreset" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/ffmpeg-6.0/presets/libvpx-1080p50_60.ffpreset" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/ffmpeg-6.0/presets/libvpx-360p.ffpreset" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/ffmpeg-6.0/presets/libvpx-720p.ffpreset" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/ffmpeg-6.0/presets/libvpx-720p50_60.ffpreset" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/SirenSmth/app.py" beforeDir="false" afterPath="$PROJECT_DIR$/SirenSmth/app.py" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
     <option name="LAST_RESOLUTION" value="IGNORE" />
   </component>
+  <component name="FlaskConsoleOptions" custom-start-script="import sys&#10;sys.path.extend([WORKING_DIR_AND_PYTHON_PATHS])&#10;from flask.cli import ScriptInfo&#10;locals().update(ScriptInfo(create_app=None).load_app().make_shell_context())&#10;print(&quot;Python %s on %s\nApp: %s [%s]\nInstance: %s&quot; % (sys.version, sys.platform, app.import_name, app.env, app.instance_path))">
+    <envs>
+      <env key="FLASK_APP" value="app" />
+    </envs>
+    <option name="myCustomStartScript" value="import sys&#10;sys.path.extend([WORKING_DIR_AND_PYTHON_PATHS])&#10;from flask.cli import ScriptInfo&#10;locals().update(ScriptInfo(create_app=None).load_app().make_shell_context())&#10;print(&quot;Python %s on %s\nApp: %s [%s]\nInstance: %s&quot; % (sys.version, sys.platform, app.import_name, app.env, app.instance_path))" />
+    <option name="myEnvs">
+      <map>
+        <entry key="FLASK_APP" value="app" />
+      </map>
+    </option>
+  </component>
   <component name="Git.Settings">
+    <option name="RECENT_BRANCH_BY_REPOSITORY">
+      <map>
+        <entry key="$PROJECT_DIR$" value="dev" />
+      </map>
+    </option>
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
   </component>
   <component name="MarkdownSettingsMigration">
@@ -38,15 +83,22 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent"><![CDATA[{
-  "keyToString": {
-    "RunOnceActivity.OpenProjectViewOnStart": "true",
-    "RunOnceActivity.ShowReadmeOnStart": "true",
-    "RunOnceActivity.cidr.known.project.marker": "true",
-    "cidr.known.project.marker": "true",
-    "last_opened_file_path": "C:/Users/User/Desktop/Project-6.2---Amino"
+  <component name="PropertiesComponent">{
+  &quot;keyToString&quot;: {
+    &quot;RunOnceActivity.OpenProjectViewOnStart&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.cidr.known.project.marker&quot;: &quot;true&quot;,
+    &quot;WebServerToolWindowFactoryState&quot;: &quot;false&quot;,
+    &quot;cidr.known.project.marker&quot;: &quot;true&quot;,
+    &quot;last_opened_file_path&quot;: &quot;C:/Users/User/Desktop/Project-6.2---Amino&quot;,
+    &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,
+    &quot;node.js.detected.package.tslint&quot;: &quot;true&quot;,
+    &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,
+    &quot;node.js.selected.package.tslint&quot;: &quot;(autodetect)&quot;,
+    &quot;settings.editor.selected.configurable&quot;: &quot;com.jetbrains.python.configuration.PyActiveSdkModuleConfigurable&quot;,
+    &quot;vue.rearranger.settings.migration&quot;: &quot;true&quot;
   }
-}]]></component>
+}</component>
   <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
   <component name="TaskManager">
     <task active="true" id="Default" summary="Default task">
@@ -55,8 +107,15 @@
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
       <updated>1683709135155</updated>
+      <workItem from="1686147150919" duration="1023000" />
+      <workItem from="1686148484177" duration="18150000" />
+      <workItem from="1686208323199" duration="810000" />
+      <workItem from="1686296540128" duration="2928000" />
     </task>
     <servers />
+  </component>
+  <component name="TypeScriptGeneratedFilesManager">
+    <option name="version" value="3" />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
     <option name="TAB_STATES">
@@ -68,5 +127,8 @@
         </entry>
       </map>
     </option>
+  </component>
+  <component name="com.intellij.coverage.CoverageDataManagerImpl">
+    <SUITE FILE_PATH="coverage/Project_6_2___Amino$app.coverage" NAME="app Coverage Results" MODIFIED="1686298384346" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/SirenSmth" />
   </component>
 </project>
