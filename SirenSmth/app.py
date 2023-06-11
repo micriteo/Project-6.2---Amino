@@ -39,15 +39,7 @@ def converter():
         text = convert_to_text()
         remove_files()
         text = handle_coffee_order(text)
-        update_order(text)
         return text
-
-
-def update_order(order):
-    global orderNumber
-    orderNumber += 1
-    global send_order
-    send_order = f"{order};{orderNumber}"
 
 
 @app.route('/process_order', methods=['POST'])
@@ -57,9 +49,16 @@ def process_order():
         coffee = order['coffee']
         sugar = order['sugar']
         milk = order['milk']
-        update_order(coffee)
+        store_order(coffee)
         send_order_to_android_list(order)
         return send_order
+
+
+def store_order(order):
+    global orderNumber
+    orderNumber += 1
+    global send_order
+    send_order = f"{order};{orderNumber}"
 
 
 def send_order_to_android_list(order):
@@ -99,10 +98,12 @@ def convert_to_text():
     with sr.AudioFile(path_wav) as source:
         audio_data = r.record(source)
         try:
-            text = r.recognize_google(audio_data, language="nl-NL")
+            # text = r.recognize_google(audio_data, language="nl-NL")
+            text = r.recognize_google(audio_data)
         except sr.UnknownValueError:
             try:
-                text = r.recognize_google(audio_data)
+                text = r.recognize_google(audio_data, language="nl-NL")
+                # text = r.recognize_google(audio_data)
             except sr.UnknownValueError:
                 text = "I'm sorry, I could not understand you. Please try again."
         return text
@@ -162,6 +163,7 @@ def handle_coffee_order(voice_text):
         if voice_text in positive_response:
             turn = 0
             response = f"Brewing {current_coffee} now!"
+            store_order(current_coffee)
             current_coffee = None
             array_coffee = []
             return response

@@ -41,7 +41,7 @@ public class IdleActivity extends Activity {
     private static final int BREWING_CODE = 1;
     public int orderNumber = 0;
     Handler handler = new Handler();
-    final int DELAY = 5000;
+    final int DELAY = 2000;
 
 
     @Override
@@ -132,7 +132,7 @@ public class IdleActivity extends Activity {
 
         OkHttpClient client = clientBuilder.build();
 
-        Request request = new Request.Builder().url("https://141.252.159.141:122/drink_order").build();
+        Request request = new Request.Builder().url("https://192.168.0.240:122/drink_order").build();
 
         client.newCall(request).enqueue(new Callback() {
             @Override
