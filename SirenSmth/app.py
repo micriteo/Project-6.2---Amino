@@ -9,6 +9,7 @@ from voice_paths import *
 send_order = ""
 app = Flask(__name__)
 turn = 0
+orderNumber = 0
 current_coffee = None
 array_coffee = []
 coffee_types = ["coffee", "koffie", "expresso", "espresso", "milk coffee", "koffie melk", "cappuccino",
@@ -38,8 +39,15 @@ def converter():
         text = convert_to_text()
         remove_files()
         text = handle_coffee_order(text)
-        # text_to_speech(text)
+        update_order(text)
         return text
+
+
+def update_order(order):
+    global orderNumber
+    orderNumber += 1
+    global send_order
+    send_order = f"{order};{orderNumber}"
 
 
 @app.route('/process_order', methods=['POST'])
@@ -49,8 +57,7 @@ def process_order():
         coffee = order['coffee']
         sugar = order['sugar']
         milk = order['milk']
-        global send_order
-        send_order = f"Your order is: {coffee}, {sugar}, {milk}"
+        update_order(coffee)
         send_order_to_android_list(order)
         return send_order
 

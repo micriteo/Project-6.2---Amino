@@ -3,6 +3,7 @@ package com.animo.door.activity;
 import android.app.Activity;
 import android.content.Intent;
 import android.os.Bundle;
+import android.os.Handler;
 import android.util.Log;
 import android.view.View;
 import android.view.WindowManager;
@@ -38,6 +39,10 @@ import okhttp3.Response;
 public class IdleActivity extends Activity {
 
     private static final int BREWING_CODE = 1;
+    public int orderNumber = 0;
+    Handler handler = new Handler();
+    final int DELAY = 5000;
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -60,6 +65,12 @@ public class IdleActivity extends Activity {
         ImageView logo = findViewById(R.id.logo);
 
         // Creating a list of keys (coffee names)
+            handler.postDelayed(new Runnable() {
+                public void run() {
+                    fetchOrder();
+                    handler.postDelayed(this, DELAY);
+                }
+            }, DELAY);
 
         logo.setOnClickListener(v -> {
             /*
@@ -132,24 +143,33 @@ public class IdleActivity extends Activity {
             public void onResponse(Call call, Response response) throws IOException {
                 assert response.body() != null;
                 final String responseData = response.body().string();
-
+                int currOrderNumber = Character.getNumericValue(responseData.charAt(responseData.length() - 1));
+                String[] arr = responseData.split(";");
+                String coffeeName = arr[0].toUpperCase();
                 runOnUiThread(() -> {
-                    TextView description = findViewById(R.id.customTextViewALSLight);
-                    description.setText(responseData);
+                    if (orderNumber != currOrderNumber && currOrderNumber != 0) {
+                        orderNumber = currOrderNumber;
+                        TextView description = findViewById(R.id.customTextViewALSLight);
+                        description.setText(responseData);
 
-                    ImageView imageView = findViewById(R.id.coffee_image);
-                    String coffeeName = responseData.toUpperCase();
-                    for (Recipe recipe : Recipe.VALUES) {
-                        if (recipe.getName().equals(coffeeName)) {
-                            imageView.setImageResource(recipe.getDrawableID());
-                            Intent intent = new Intent(IdleActivity.this, BrewingActivity.class);
-                            intent.putExtra(BrewingActivity.RECIPE_KEY, coffeeName);
-                            intent.putExtra(BrewingActivity.IMAGE_KEY, recipe.getDrawableID());
-                            startActivityForResult(intent, BREWING_CODE);
-                            overridePendingTransition(0, 0);
-                            break;
+                        ImageView imageView = findViewById(R.id.coffee_image);
+                        for (Recipe recipe : Recipe.VALUES) {
+                            if (recipe.getName().equals(coffeeName)) {
+                                imageView.setImageResource(recipe.getDrawableID());
+                                Intent intent = new Intent(IdleActivity.this, BrewingActivity.class);
+                                intent.putExtra(BrewingActivity.RECIPE_KEY, coffeeName);
+                                intent.putExtra(BrewingActivity.IMAGE_KEY, recipe.getDrawableID());
+                                startActivityForResult(intent, BREWING_CODE);
+                                overridePendingTransition(0, 0);
+                                break;
+                            }
                         }
                     }
+                    else{
+                        TextView description = findViewById(R.id.customTextViewALSLight);
+                        description.setText("No orders");
+                    }
+
                 });
             }
         });
