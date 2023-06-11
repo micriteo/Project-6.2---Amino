@@ -161,7 +161,7 @@ def handle_coffee_order(voice_text):
     remove_and = " and"
     # TESTING ONLY REMOVE OR FOREVER WILL GET four hot water and 4 espresso and 8 coffee
     # Number written to digit, Dutch support
-    voice_text = "I want five espresso"
+    # voice_text = "I want five espresso"
 
     print(voice_text)
 
