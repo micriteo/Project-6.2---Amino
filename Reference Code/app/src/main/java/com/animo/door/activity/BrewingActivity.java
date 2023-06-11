@@ -103,7 +103,7 @@ public class BrewingActivity extends Activity {
 
     private void doFakeBrewing() {
         fakeTimer.postDelayed(() -> {
-            progressCircle.setFilledPercentage(brewProgress++);
+            progressCircle.setFilledPercentage(brewProgress+=5);
             if (brewProgress >= 100) {
                 SoundService.playReadySound();
                 brewingComplete = true; // Set brewingComplete to tru
