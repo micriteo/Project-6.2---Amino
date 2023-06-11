@@ -68,7 +68,8 @@
       <workItem from="1686148484177" duration="18150000" />
       <workItem from="1686208323199" duration="810000" />
       <workItem from="1686296540128" duration="4014000" />
-      <workItem from="1686476697159" duration="3344000" />
+      <workItem from="1686476697159" duration="3529000" />
+      <workItem from="1686512300053" duration="965000" />
     </task>
     <servers />
   </component>
@@ -86,7 +87,23 @@
       </map>
     </option>
   </component>
+  <component name="XDebuggerManager">
+    <breakpoint-manager>
+      <breakpoints>
+        <line-breakpoint enabled="true" suspend="THREAD" type="python-line">
+          <url>file://$PROJECT_DIR$/SirenSmth/app.py</url>
+          <line>183</line>
+          <option name="timeStamp" value="1" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" suspend="THREAD" type="python-line">
+          <url>file://$PROJECT_DIR$/SirenSmth/app.py</url>
+          <line>176</line>
+          <option name="timeStamp" value="3" />
+        </line-breakpoint>
+      </breakpoints>
+    </breakpoint-manager>
+  </component>
   <component name="com.intellij.coverage.CoverageDataManagerImpl">
-    <SUITE FILE_PATH="coverage/Project_6_2___Amino$app.coverage" NAME="app Coverage Results" MODIFIED="1686479830263" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/SirenSmth" />
+    <SUITE FILE_PATH="coverage/Project_6_2___Amino$app.coverage" NAME="app Coverage Results" MODIFIED="1686512824208" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/SirenSmth" />
   </component>
 </project>

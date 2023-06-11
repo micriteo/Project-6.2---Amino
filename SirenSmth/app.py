@@ -22,8 +22,8 @@ positive_response = ["yes", "sounds good", "sure"]
 negative_response = ["no", "nope", "cancel", "nee", "nou"]
 coffee_types_temp = coffee_types.copy()
 # Add more mappings as needed
-dutch_to_english = {"een": "one", "twee": "two", "drie": "three", "vier": "four", "vijf": "five", "zes": "six",
-                    "zeven": "seven", "acht": "eight", "negen": "nine"}
+dutch_to_english = {"een": "1", "twee": "2", "drie": "3", "vier": "4", "vijf": "5", "zes": "6",
+                    "zeven": "7", "acht": "8", "negen": "9"}
 
 
 @app.route('/')
@@ -155,10 +155,11 @@ def handle_coffee_order(voice_text):
     global dict_coffee
     global coffee_types_temp
     global dutch_to_english
+    # remove_and used to ensure coffees are properly registered
     remove_and = " and"
     # TESTING ONLY REMOVE OR FOREVER WILL GET four hot water and 4 espresso and 8 coffee
     # Number written to digit, Dutch support
-    voice_text = "I want vier hot water and 4 espresso coffee"
+    voice_text = "I want vier hot water and 4 espresso coffee 2 potato"
 
     if turn == 0:
         for word in voice_text.split():
@@ -178,17 +179,18 @@ def handle_coffee_order(voice_text):
                 number = match[0]
                 item = match[1].strip()
                 if number.isalpha():
+                    # If number is written
                     number = w2n.word_to_num(number)
-                    print(item)
-                    print(number)
-                if any(part in coffee_types for part in coffee_types):
+                if item in coffee_types_temp:
                     if remove_and in item:
+                        # Remove the and previously added to separate coffees
                         item = item.replace(remove_and, "")
                     dict_coffee.update({item: number})
                     if item in coffee_types_temp:
                         coffee_types_temp.remove(item)
             for coffee in coffee_types_temp:
                 if coffee in voice_text:
+                    # If coffee is voice_text and its does not have a number before it defaults to 1
                     dict_coffee.update({coffee: 1})
         else:
             for coffee in coffee_types:
@@ -198,11 +200,11 @@ def handle_coffee_order(voice_text):
         if dict_coffee:
             turn = 1
             print(dict_coffee)
-            return f"You have requested a {current_order()}. Is this correct?"
+            return f"You have requested {current_order()}. Is this correct?"
         else:
             current_coffee = None
             dict_coffee = {}
-            return "I'm sorry, I could not understand you. What coffee would you like?"
+            return f"I'm sorry, I could not understand you. What coffee would you like?"
 
     elif turn == 1:
         if voice_text in positive_response:
@@ -213,12 +215,12 @@ def handle_coffee_order(voice_text):
             return response
         elif voice_text in negative_response:
             turn = 0
-            response = "What coffee would you like instead?"
+            response = f"What coffee would you like instead?"
             current_coffee = None
             dict_coffee = []
             return response
         else:
-            return f"I'm sorry, I could not understand you. Would you like a {current_order()}? Please say Yes or No"
+            return f"I'm sorry, I could not understand you. Would you like {current_order()}? Please say Yes or No"
 
 
 if __name__ == '__main__':
