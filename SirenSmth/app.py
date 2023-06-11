@@ -191,7 +191,6 @@ def handle_coffee_order(voice_text):
                 if item in coffee_types:
                     if item in coffee_types_temp:
                         dict_coffee.update({item: number})
-                    if item in coffee_types_temp:
                         coffee_types_temp.remove(item)
             for coffee in coffee_types_temp:
                 if coffee in voice_text:
