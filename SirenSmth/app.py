@@ -22,8 +22,10 @@ positive_response = ["yes", "sounds good", "sure"]
 negative_response = ["no", "nope", "cancel", "nee", "nou"]
 coffee_types_temp = coffee_types.copy()
 # Add more mappings as needed
-dutch_to_english = {"een": "1", "twee": "2", "drie": "3", "vier": "4", "vijf": "5", "zes": "6",
-                    "zeven": "7", "acht": "8", "negen": "9"}
+dutch_to_number = {"een": "1", "twee": "2", "drie": "3", "vier": "4", "vijf": "5", "zes": "6",
+                   "zeven": "7", "acht": "8", "negen": "9"}
+english_to_number = {"one": "1", "two": "2", "three": "3", "four": "4", "five": "5", "six": "6",
+                     "seven": "7", "eight": "8", "nine": "9"}
 
 
 @app.route('/')
@@ -154,38 +156,41 @@ def handle_coffee_order(voice_text):
     global current_coffee
     global dict_coffee
     global coffee_types_temp
-    global dutch_to_english
+    global dutch_to_number
     # remove_and used to ensure coffees are properly registered
     remove_and = " and"
     # TESTING ONLY REMOVE OR FOREVER WILL GET four hot water and 4 espresso and 8 coffee
     # Number written to digit, Dutch support
-    voice_text = "I want vier hot water and 4 espresso coffee 2 potato"
+    voice_text = "I want five espresso"
+
+    print(voice_text)
 
     if turn == 0:
         for word in voice_text.split():
-            if word in dutch_to_english:
-                number = dutch_to_english.get(word)
+            if word in dutch_to_number:
+                number = dutch_to_number.get(word)
+                voice_text = voice_text.replace(word, number)
+            if word in english_to_number:
+                number = english_to_number.get(word)
                 voice_text = voice_text.replace(word, number)
         for coffee in coffee_types:
             if coffee in voice_text:
                 voice_text = voice_text.replace(coffee, coffee + " and")
 
         # Pattern to match numbers their associated items
-        pattern = r"\b(\d+|one|two|three|four|five|six|seven|eight|nine)\b\s+(\w+(?:\s+\w+)?)"
+        pattern = r"\b(\d+)\b\s+(\w+(?:\s+\w+)?)"
         matches = re.findall(pattern, voice_text)
 
         if matches:
             for match in matches:
                 number = match[0]
                 item = match[1].strip()
-                if number.isalpha():
-                    # If number is written
-                    number = w2n.word_to_num(number)
-                if item in coffee_types_temp:
-                    if remove_and in item:
-                        # Remove the and previously added to separate coffees
-                        item = item.replace(remove_and, "")
-                    dict_coffee.update({item: number})
+                if remove_and in item:
+                    # Remove the and previously added to separate coffees
+                    item = item.replace(remove_and, "")
+                if item in coffee_types:
+                    if item in coffee_types_temp:
+                        dict_coffee.update({item: number})
                     if item in coffee_types_temp:
                         coffee_types_temp.remove(item)
             for coffee in coffee_types_temp:
@@ -195,7 +200,8 @@ def handle_coffee_order(voice_text):
         else:
             for coffee in coffee_types:
                 if coffee in voice_text:
-                    dict_coffee.update({coffee: 1})
+                    if coffee not in coffee_types_temp:
+                        dict_coffee.update({coffee: 1})
 
         if dict_coffee:
             turn = 1
@@ -217,7 +223,7 @@ def handle_coffee_order(voice_text):
             turn = 0
             response = f"What coffee would you like instead?"
             current_coffee = None
-            dict_coffee = []
+            dict_coffee = {}
             return response
         else:
             return f"I'm sorry, I could not understand you. Would you like {current_order()}? Please say Yes or No"
