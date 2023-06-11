@@ -8,6 +8,7 @@ import speech_recognition as sr
 from voice_paths import *
 import re
 from word2number import w2n
+import inflect
 
 app = Flask(__name__)
 turn = 0
@@ -20,6 +21,9 @@ coffee_types = ["coffee", "koffie", "expresso", "espresso", "milk coffee", "koff
 positive_response = ["yes", "sounds good", "sure"]
 negative_response = ["no", "nope", "cancel", "nee", "nou"]
 coffee_types_temp = coffee_types.copy()
+# Add more mappings as needed
+dutch_to_english = {"een": "one", "twee": "two", "drie": "three", "vier": "four", "vijf": "five", "zes": "six",
+                    "zeven": "seven", "acht": "eight", "negen": "nine"}
 
 
 @app.route('/')
@@ -150,26 +154,29 @@ def handle_coffee_order(voice_text):
     global current_coffee
     global dict_coffee
     global coffee_types_temp
+    global dutch_to_english
     remove_and = " and"
     # TESTING ONLY REMOVE OR FOREVER WILL GET four hot water and 4 espresso and 8 coffee
     # Number written to digit, Dutch support
-    voice_text = "I want four hot water and 4 espresso coffee"
+    voice_text = "I want vier hot water and 4 espresso coffee"
 
     if turn == 0:
+        for word in voice_text.split():
+            if word in dutch_to_english:
+                number = dutch_to_english.get(word)
+                voice_text = voice_text.replace(word, number)
         for coffee in coffee_types:
             if coffee in voice_text:
                 voice_text = voice_text.replace(coffee, coffee + " and")
+
         # Pattern to match numbers their associated items
         pattern = r"\b(\d+|one|two|three|four|five|six|seven|eight|nine)\b\s+(\w+(?:\s+\w+)?)"
         matches = re.findall(pattern, voice_text)
-        print(voice_text)
 
         if matches:
             for match in matches:
                 number = match[0]
                 item = match[1].strip()
-                print(item)
-                print(number)
                 if number.isalpha():
                     number = w2n.word_to_num(number)
                     print(item)

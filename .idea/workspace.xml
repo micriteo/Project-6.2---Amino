@@ -5,49 +5,6 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="c42c5621-53bd-4d78-a267-e73894a13cad" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/ffmpeg-6.0/LICENSE" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/ffmpeg-6.0/README.txt" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/ffmpeg-6.0/bin/ffmpeg.exe" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/ffmpeg-6.0/bin/ffplay.exe" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/ffmpeg-6.0/bin/ffprobe.exe" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/ffmpeg-6.0/doc/bootstrap.min.css" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/ffmpeg-6.0/doc/default.css" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/ffmpeg-6.0/doc/developer.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/ffmpeg-6.0/doc/faq.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/ffmpeg-6.0/doc/fate.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/ffmpeg-6.0/doc/ffmpeg-all.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/ffmpeg-6.0/doc/ffmpeg-bitstream-filters.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/ffmpeg-6.0/doc/ffmpeg-codecs.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/ffmpeg-6.0/doc/ffmpeg-devices.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/ffmpeg-6.0/doc/ffmpeg-filters.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/ffmpeg-6.0/doc/ffmpeg-formats.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/ffmpeg-6.0/doc/ffmpeg-protocols.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/ffmpeg-6.0/doc/ffmpeg-resampler.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/ffmpeg-6.0/doc/ffmpeg-scaler.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/ffmpeg-6.0/doc/ffmpeg-utils.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/ffmpeg-6.0/doc/ffmpeg.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/ffmpeg-6.0/doc/ffplay-all.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/ffmpeg-6.0/doc/ffplay.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/ffmpeg-6.0/doc/ffprobe-all.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/ffmpeg-6.0/doc/ffprobe.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/ffmpeg-6.0/doc/general.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/ffmpeg-6.0/doc/git-howto.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/ffmpeg-6.0/doc/libavcodec.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/ffmpeg-6.0/doc/libavdevice.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/ffmpeg-6.0/doc/libavfilter.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/ffmpeg-6.0/doc/libavformat.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/ffmpeg-6.0/doc/libavutil.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/ffmpeg-6.0/doc/libswresample.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/ffmpeg-6.0/doc/libswscale.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/ffmpeg-6.0/doc/mailing-list-faq.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/ffmpeg-6.0/doc/nut.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/ffmpeg-6.0/doc/platform.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/ffmpeg-6.0/doc/style.min.css" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/ffmpeg-6.0/presets/libvpx-1080p.ffpreset" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/ffmpeg-6.0/presets/libvpx-1080p50_60.ffpreset" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/ffmpeg-6.0/presets/libvpx-360p.ffpreset" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/ffmpeg-6.0/presets/libvpx-720p.ffpreset" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/ffmpeg-6.0/presets/libvpx-720p50_60.ffpreset" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/SirenSmth/app.py" beforeDir="false" afterPath="$PROJECT_DIR$/SirenSmth/app.py" afterDir="false" />
     </list>
@@ -110,7 +67,8 @@
       <workItem from="1686147150919" duration="1023000" />
       <workItem from="1686148484177" duration="18150000" />
       <workItem from="1686208323199" duration="810000" />
-      <workItem from="1686296540128" duration="2928000" />
+      <workItem from="1686296540128" duration="4014000" />
+      <workItem from="1686476697159" duration="3344000" />
     </task>
     <servers />
   </component>
@@ -129,6 +87,6 @@
     </option>
   </component>
   <component name="com.intellij.coverage.CoverageDataManagerImpl">
-    <SUITE FILE_PATH="coverage/Project_6_2___Amino$app.coverage" NAME="app Coverage Results" MODIFIED="1686298384346" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/SirenSmth" />
+    <SUITE FILE_PATH="coverage/Project_6_2___Amino$app.coverage" NAME="app Coverage Results" MODIFIED="1686479830263" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/SirenSmth" />
   </component>
 </project>
