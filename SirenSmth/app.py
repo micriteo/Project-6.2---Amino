@@ -146,9 +146,11 @@ def text_to_speech(text):
     engine.runAndWait()
 
 
-def current_order():
+def current_order(order_stage):
     coffee = ""
     for key, value in dict_coffee.items():
+        if order_stage == 0:
+            store_order(str(key))
         coffee += str(value) + " " + str(key)
         if int(value) > 1:
             coffee += "'s, "
@@ -208,7 +210,7 @@ def handle_coffee_order(voice_text):
         if dict_coffee:
             turn = 1
             print(dict_coffee)
-            return f"You have requested a {current_order()}. Is this correct?"
+            return f"You have requested a {current_order(turn)}. Is this correct?"
         else:
             current_coffee = None
             dict_coffee = {}
@@ -217,8 +219,7 @@ def handle_coffee_order(voice_text):
     elif turn == 1:
         if voice_text in positive_response:
             turn = 0
-            response = f"Brewing {current_order()} now!"
-            store_order(current_order())
+            response = f"Brewing {current_order(turn)} now!"
             current_coffee = None
             dict_coffee = {}
             return response
@@ -229,7 +230,7 @@ def handle_coffee_order(voice_text):
             dict_coffee = []
             return response
         else:
-            return f"I'm sorry, I could not understand you. Would you like a {current_order()}? Please say Yes or No"
+            return f"I'm sorry, I could not understand you. Would you like a {current_order(turn)}? Please say Yes or No"
 
 
 if __name__ == '__main__':
