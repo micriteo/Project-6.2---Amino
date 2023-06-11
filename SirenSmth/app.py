@@ -2,6 +2,9 @@ import json
 import os
 import socket
 import subprocess
+import re
+from word2number import w2n
+
 import pyttsx3
 from flask import Flask, request, render_template, send_from_directory
 import speech_recognition as sr
@@ -11,13 +14,17 @@ app = Flask(__name__)
 turn = 0
 orderNumber = 0
 current_coffee = None
-array_coffee = []
+dict_coffee = {}
 coffee_types = ["coffee", "koffie", "expresso", "espresso", "milk coffee", "koffie melk", "cappuccino",
                 "koffie chocolate", "chocolate coffee", "chocolate milk", "chocolade melk", "hot chocolate",
                 "hot water", "heet water", "double expresso", "dubbele espresso",
-                "latte macchiato", "wiener melange", "big balls"]  # coffees available
+                "latte macchiato", "wiener melange"]  # coffees available
 positive_response = ["yes", "sounds good", "sure"]
-negative_response = ["no", "nope", "cancel", "nee"]
+negative_response = ["no", "nope", "cancel", "nee", "nou"]
+coffee_types_temp = coffee_types.copy()
+# Add more mappings as needed
+dutch_to_english = {"een": "one", "twee": "two", "drie": "three", "vier": "four", "vijf": "five", "zes": "six",
+                    "zeven": "seven", "acht": "eight", "negen": "nine"}
 
 
 @app.route('/')
@@ -139,42 +146,90 @@ def text_to_speech(text):
     engine.runAndWait()
 
 
+def current_order():
+    coffee = ""
+    for key, value in dict_coffee.items():
+        coffee += str(value) + " " + str(key)
+        if int(value) > 1:
+            coffee += "'s, "
+        else:
+            coffee += ", "
+    coffee = coffee.rstrip(", ")
+    return coffee
+
+
 def handle_coffee_order(voice_text):
     voice_text = voice_text.lower()
-    print(voice_text)
     global turn
     global current_coffee
-    global array_coffee
+    global dict_coffee
+    global coffee_types_temp
+    global dutch_to_english
+    remove_and = " and"
+    # TESTING ONLY REMOVE OR FOREVER WILL GET four hot water and 4 espresso and 8 coffee
+    # Number written to digit, Dutch support
+    # voice_text = "I want vier hot water and 4 espresso coffee"
 
     if turn == 0:
+        for word in voice_text.split():
+            if word in dutch_to_english:
+                number = dutch_to_english.get(word)
+                voice_text = voice_text.replace(word, number)
         for coffee in coffee_types:
             if coffee in voice_text:
-                current_coffee = coffee
-                array_coffee.append(coffee)
-        if current_coffee:
+                voice_text = voice_text.replace(coffee, coffee + " and")
+
+        # Pattern to match numbers their associated items
+        pattern = r"\b(\d+|one|two|three|four|five|six|seven|eight|nine)\b\s+(\w+(?:\s+\w+)?)"
+        matches = re.findall(pattern, voice_text)
+
+        if matches:
+            for match in matches:
+                number = match[0]
+                item = match[1].strip()
+                if number.isalpha():
+                    number = w2n.word_to_num(number)
+                    print(item)
+                    print(number)
+                if any(part in coffee_types for part in coffee_types):
+                    if remove_and in item:
+                        item = item.replace(remove_and, "")
+                    dict_coffee.update({item: number})
+                    if item in coffee_types_temp:
+                        coffee_types_temp.remove(item)
+            for coffee in coffee_types_temp:
+                if coffee in voice_text:
+                    dict_coffee.update({coffee: 1})
+        else:
+            for coffee in coffee_types:
+                if coffee in voice_text:
+                    dict_coffee.update({coffee: 1})
+
+        if dict_coffee:
             turn = 1
-            return f"You have requested a {current_coffee}. Is this correct?"
+            print(dict_coffee)
+            return f"You have requested a {current_order()}. Is this correct?"
         else:
             current_coffee = None
-            array_coffee = []
+            dict_coffee = {}
             return "I'm sorry, I could not understand you. What coffee would you like?"
 
     elif turn == 1:
         if voice_text in positive_response:
             turn = 0
-            response = f"Brewing {current_coffee} now!"
-            store_order(current_coffee)
+            response = f"Brewing {current_order()} now!"
+            store_order(current_order())
             current_coffee = None
-            array_coffee = []
+            dict_coffee = {}
             return response
         elif voice_text in negative_response:
             turn = 0
             response = "What coffee would you like instead?"
             current_coffee = None
-            array_coffee = []
+            dict_coffee = []
             return response
         else:
-            return f"I'm sorry, I could not understand you. Would you like a {current_coffee}? Please say Yes or No"
+            return f"I'm sorry, I could not understand you. Would you like a {current_order()}? Please say Yes or No"
 
 
 if __name__ == '__main__':
