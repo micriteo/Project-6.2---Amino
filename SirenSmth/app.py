@@ -184,10 +184,10 @@ def handle_coffee_order(voice_text):
                 if remove_and in item:
                     # Remove the and previously added to separate coffees
                     item = item.replace(remove_and, "")
-                    if item in coffee_types_temp and item in coffee_types:
-                        # If coffee not already queued for brewing
-                        dict_coffee.update({item: number})
-                        coffee_types_temp.remove(item)
+                if item in coffee_types_temp and item in coffee_types:
+                     # If coffee not already queued for brewing
+                     dict_coffee.update({item: number})
+                     coffee_types_temp.remove(item)
             for coffee in coffee_types_temp:
                 if coffee in voice_text.split():
                     # If coffee is voice_text and its does not have a number before it defaults to 1
