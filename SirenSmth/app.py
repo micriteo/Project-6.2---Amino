@@ -159,9 +159,7 @@ def handle_coffee_order(voice_text):
     global dutch_to_number
     # remove_and used to ensure coffees are properly registered
     remove_and = " and"
-    # TESTING ONLY REMOVE OR FOREVER WILL GET four hot water and 4 espresso and 8 coffee
-    # Number written to digit, Dutch support
-    # voice_text = "I want five espresso"
+    # voice_text = "coffee"
 
     if turn == 0:
         for word in voice_text.split():
@@ -191,15 +189,14 @@ def handle_coffee_order(voice_text):
                         dict_coffee.update({item: number})
                         coffee_types_temp.remove(item)
             for coffee in coffee_types_temp:
-                if coffee in voice_text:
+                if coffee in voice_text.split():
                     # If coffee is voice_text and its does not have a number before it defaults to 1
                     dict_coffee.update({coffee: 1})
         else:
             # If no number present in voice_text but coffee requested
-            for coffee in coffee_types:
-                if coffee in voice_text:
-                    if coffee not in coffee_types_temp:
-                        dict_coffee.update({coffee: 1})
+            for coffee in voice_text.split():
+                if coffee in voice_text and coffee in coffee_types_temp:
+                    dict_coffee.update({coffee: 1})
 
         if dict_coffee:
             turn = 1
