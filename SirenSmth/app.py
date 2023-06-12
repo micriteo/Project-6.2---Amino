@@ -163,8 +163,6 @@ def handle_coffee_order(voice_text):
     # Number written to digit, Dutch support
     # voice_text = "I want five espresso"
 
-    print(voice_text)
-
     if turn == 0:
         for word in voice_text.split():
             if word in dutch_to_number:
@@ -188,8 +186,8 @@ def handle_coffee_order(voice_text):
                 if remove_and in item:
                     # Remove the and previously added to separate coffees
                     item = item.replace(remove_and, "")
-                if item in coffee_types:
-                    if item in coffee_types_temp:
+                    if item in coffee_types_temp and item in coffee_types:
+                        # If coffee not already queued for brewing
                         dict_coffee.update({item: number})
                         coffee_types_temp.remove(item)
             for coffee in coffee_types_temp:
@@ -197,6 +195,7 @@ def handle_coffee_order(voice_text):
                     # If coffee is voice_text and its does not have a number before it defaults to 1
                     dict_coffee.update({coffee: 1})
         else:
+            # If no number present in voice_text but coffee requested
             for coffee in coffee_types:
                 if coffee in voice_text:
                     if coffee not in coffee_types_temp:
@@ -204,7 +203,6 @@ def handle_coffee_order(voice_text):
 
         if dict_coffee:
             turn = 1
-            print(dict_coffee)
             return f"You have requested {current_order()}. Is this correct?"
         else:
             current_coffee = None

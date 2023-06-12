@@ -69,7 +69,8 @@
       <workItem from="1686208323199" duration="810000" />
       <workItem from="1686296540128" duration="4014000" />
       <workItem from="1686476697159" duration="3529000" />
-      <workItem from="1686512300053" duration="3734000" />
+      <workItem from="1686512300053" duration="3975000" />
+      <workItem from="1686554135170" duration="488000" />
     </task>
     <servers />
   </component>
@@ -92,12 +93,7 @@
       <breakpoints>
         <line-breakpoint enabled="true" suspend="THREAD" type="python-line">
           <url>file://$PROJECT_DIR$/SirenSmth/app.py</url>
-          <line>190</line>
-          <option name="timeStamp" value="1" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" suspend="THREAD" type="python-line">
-          <url>file://$PROJECT_DIR$/SirenSmth/app.py</url>
-          <line>183</line>
+          <line>181</line>
           <option name="timeStamp" value="3" />
         </line-breakpoint>
       </breakpoints>
