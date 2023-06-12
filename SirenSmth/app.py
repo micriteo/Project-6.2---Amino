@@ -68,11 +68,12 @@ def store_order(order):
     orderNumber += 1
     global send_order
     send_order = f"{order};{orderNumber}"
+    send_order_to_android_list(order)
 
 
 def send_order_to_android_list(order):
     # Define the IP address and port of the Android application running on the same server
-    android_ip = '141.252.159.141'  # this need to be change everytime the android device is connected to a new network
+    android_ip = '172.20.10.5'  # this need to be change everytime the android device is connected to a new network
     android_port = 9999  # Replace with the port number the Android application is listening on
 
     try:
