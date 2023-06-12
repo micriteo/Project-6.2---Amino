@@ -192,10 +192,11 @@ def handle_coffee_order(voice_text):
                 if coffee in voice_text.split():
                     # If coffee is voice_text and its does not have a number before it defaults to 1
                     dict_coffee.update({coffee: 1})
+                    coffee_types_temp.remove(item)
         else:
             # If no number present in voice_text but coffee requested
-            for coffee in voice_text.split():
-                if coffee in voice_text and coffee in coffee_types_temp:
+            for coffee in coffee_types_temp:
+                if coffee in voice_text.split():
                     dict_coffee.update({coffee: 1})
 
         if dict_coffee:
