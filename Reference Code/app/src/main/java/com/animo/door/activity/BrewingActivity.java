@@ -91,7 +91,7 @@ public class BrewingActivity extends Activity {
         brewIcon.setImageResource(imageResource);
         Log.i("BREW", "Starting brew of " + recipe);
 
-        updateUI();
+        //updateUI();
     }
 
 
@@ -108,7 +108,7 @@ public class BrewingActivity extends Activity {
                 SoundService.playReadySound();
                 brewingComplete = true; // Set brewingComplete to tru
                 setResult(Activity.RESULT_OK); // Set the result for the calling activity
-                updateUI();
+                //updateUI();
                 finish();
             } else {
                 doFakeBrewing();
@@ -116,16 +116,16 @@ public class BrewingActivity extends Activity {
         }, 200);
     }
 
-    private void updateUI() {
-        if (brewingComplete) {
-            textBrewName.setVisibility(View.GONE);
-            brewIcon.setVisibility(View.GONE);
-            progressCircle.setVisibility(View.GONE);
-            // Display the "Thank you" message
-            TextView thankYouMessage = findViewById(R.id.text_thank_you);
-            thankYouMessage.setVisibility(View.VISIBLE);
-        }
-    }
+//    private void updateUI() {
+//        if (brewingComplete) {
+//            textBrewName.setVisibility(View.GONE);
+//            brewIcon.setVisibility(View.GONE);
+//            progressCircle.setVisibility(View.GONE);
+//            // Display the "Thank you" message
+//            TextView thankYouMessage = findViewById(R.id.text_thank_you);
+//            thankYouMessage.setVisibility(View.VISIBLE);
+//        }
+//    }
 
 
 

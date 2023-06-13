@@ -22,6 +22,7 @@ import java.security.KeyManagementException;
 import java.security.NoSuchAlgorithmException;
 import java.security.SecureRandom;
 import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.HashMap;
 import java.util.concurrent.ThreadLocalRandom;
 
@@ -37,11 +38,12 @@ import okhttp3.Request;
 import okhttp3.Response;
 
 public class IdleActivity extends Activity {
-
     private static final int BREWING_CODE = 1;
     public int orderNumber = 0;
     Handler handler = new Handler();
     final int DELAY = 2000;
+    ArrayList<String> coffeeNamesOrder = new ArrayList<>();
+    boolean isBrewing = false;
 
 
     @Override
@@ -105,7 +107,7 @@ public class IdleActivity extends Activity {
 
             TextView thankYouMessage = findViewById(R.id.text_thank_you);
             thankYouMessage.setVisibility(View.VISIBLE);
-
+            isBrewing = false;
             return;
         }
         super.onActivityResult(requestCode, resultCode, data);
@@ -132,7 +134,7 @@ public class IdleActivity extends Activity {
 
         OkHttpClient client = clientBuilder.build();
 
-        Request request = new Request.Builder().url("https://192.168.0.240:122/drink_order").build();
+        Request request = new Request.Builder().url("https://141.252.159.228:122/drink_order").build();
 
         client.newCall(request).enqueue(new Callback() {
             @Override
@@ -144,21 +146,36 @@ public class IdleActivity extends Activity {
                 assert response.body() != null;
                 final String responseData = response.body().string();
                 int currOrderNumber = Character.getNumericValue(responseData.charAt(responseData.length() - 1));
-                String[] arr = responseData.split(";");
-                String coffeeName = arr[0].toUpperCase();
+                if(orderNumber != currOrderNumber) {
+                    String[] fullOrder = responseData.split(";");
+                    String coffeeNames = fullOrder[0].toUpperCase();
+                    String[] coffeeNamesArray = coffeeNames.split(",");
+                    coffeeNamesOrder.addAll(Arrays.asList(coffeeNamesArray));
+                }
+                Log.i("IdleActivity", "Coffee names: " + coffeeNamesOrder.toString());
+                for(String coffeeName : coffeeNamesOrder) {
+                    if(coffeeName.equals(" ")) {
+                        coffeeNamesOrder.remove(coffeeName);
+                    }
+                }
                 runOnUiThread(() -> {
-                    if (orderNumber != currOrderNumber && currOrderNumber != 0) {
+                    if ((!isBrewing && !coffeeNamesOrder.isEmpty())) {
+                        String coffeeName = coffeeNamesOrder.get(0).replaceAll("\\s+","");
                         orderNumber = currOrderNumber;
-                        TextView description = findViewById(R.id.customTextViewALSLight);
-                        description.setText(responseData);
-
+                        //TextView description = findViewById(R.id.customTextViewALSLight);
+                        //description.setText(responseData);
                         ImageView imageView = findViewById(R.id.coffee_image);
                         for (Recipe recipe : Recipe.VALUES) {
+                            Log.i("IdleActivity", "Coffee name: " + coffeeName);
+                            Log.i("IdleActivity", "Recipe name: " + recipe.getName());
                             if (recipe.getName().equals(coffeeName)) {
+                                Log.i("IdleActivity", "We are in");
                                 imageView.setImageResource(recipe.getDrawableID());
                                 Intent intent = new Intent(IdleActivity.this, BrewingActivity.class);
                                 intent.putExtra(BrewingActivity.RECIPE_KEY, coffeeName);
                                 intent.putExtra(BrewingActivity.IMAGE_KEY, recipe.getDrawableID());
+                                isBrewing = true;
+                                coffeeNamesOrder.remove(0);
                                 startActivityForResult(intent, BREWING_CODE);
                                 overridePendingTransition(0, 0);
                                 break;

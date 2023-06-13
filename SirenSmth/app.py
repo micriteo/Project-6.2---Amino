@@ -9,6 +9,7 @@ import pyttsx3
 from flask import Flask, request, render_template
 import speech_recognition as sr
 from voice_paths import *
+
 send_order = ""
 app = Flask(__name__)
 turn = 0
@@ -22,11 +23,16 @@ coffee_types = ["coffee", "koffie", "expresso", "espresso", "milk coffee", "koff
 positive_response = ["yes", "sounds good", "sure"]
 negative_response = ["no", "nope", "cancel", "nee", "nou"]
 coffee_types_temp = coffee_types.copy()
+
 # Add more mappings as needed
-dutch_to_number = {"een": "1", "twee": "2", "drie": "3", "vier": "4", "vijf": "5", "zes": "6",
-                   "zeven": "7", "acht": "8", "negen": "9"}
-english_to_number = {"one": "1", "two": "2", "three": "3", "four": "4", "five": "5", "six": "6",
-                     "seven": "7", "eight": "8", "nine": "9"}
+dutch_to_number = {
+    "een": "1", "twee": "2", "drie": "3", "vier": "4", "vijf": "5",
+    "zes": "6", "zeven": "7", "acht": "8", "negen": "9"
+}
+english_to_number = {
+    "one": "1", "two": "2", "three": "3", "four": "4", "five": "5",
+    "six": "6", "seven": "7", "eight": "8", "nine": "9"
+}
 
 
 @app.route('/')
@@ -151,15 +157,20 @@ def text_to_speech(text):
 
 def current_order(order_stage):
     coffee = ""
+    full_order = ""
     for key, value in dict_coffee.items():
         if order_stage == 0:
-            store_order(str(key))
+            for _ in range(int(value)):
+                full_order += str(key) + ", "
         coffee += str(value) + " " + str(key)
         if int(value) > 1:
             coffee += "'s, "
         else:
             coffee += ", "
     coffee = coffee.rstrip(", ")
+    if order_stage == 0:
+        store_order(full_order)
+        print(full_order)
     return coffee
 
 
@@ -174,7 +185,7 @@ def handle_coffee_order(voice_text):
     remove_and = " and"
     # TESTING ONLY REMOVE OR FOREVER WILL GET four hot water and 4 espresso and 8 coffee
     # Number written to digit, Dutch support
-    # voice_text = "I want five espresso"
+    # voice_text = "I want two coffee"
 
     print(voice_text)
 
@@ -201,20 +212,18 @@ def handle_coffee_order(voice_text):
                 if remove_and in item:
                     # Remove the and previously added to separate coffees
                     item = item.replace(remove_and, "")
-                if item in coffee_types:
-                    if item in coffee_types_temp:
-                        dict_coffee.update({item: number})
-                        coffee_types_temp.remove(item)
+                if item in coffee_types_temp and item in coffee_types:
+                    # if item in coffee_types_temp:
+                    dict_coffee.update({item: number})
+                    coffee_types_temp.remove(item)
             for coffee in coffee_types_temp:
-                if coffee in voice_text:
+                if coffee in voice_text.split():
                     # If coffee is voice_text and its does not have a number before it defaults to 1
                     dict_coffee.update({coffee: 1})
         else:
-            for coffee in coffee_types:
-                if coffee in voice_text:
-                    if coffee not in coffee_types_temp:
-                        dict_coffee.update({coffee: 1})
-
+            for coffee in voice_text.split():
+                if coffee in voice_text and coffee in coffee_types_temp:
+                    dict_coffee.update({coffee: 1})
         if dict_coffee:
             turn = 1
             print(dict_coffee)
