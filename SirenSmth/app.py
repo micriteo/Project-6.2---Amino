@@ -65,7 +65,7 @@ def process_order():
         sugar = order['sugar']
         milk = order['milk']
         store_order(coffee)
-        send_order_to_android_list(order)
+        # send_order_to_android_list(order)
         return send_order
 
 
@@ -74,7 +74,7 @@ def store_order(order):
     orderNumber += 1
     global send_order
     send_order = f"{order};{orderNumber}"
-    send_order_to_android_list(order)
+    # send_order_to_android_list(order)
 
 
 def send_order_to_android_list(order):

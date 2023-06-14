@@ -70,34 +70,17 @@ public class IdleActivity extends Activity {
             // You can handle the error more appropriately based on your application's requirements
         }
 
-
-
         // Make app full screen in case we haven't yet.
         getWindow().setFlags(WindowManager.LayoutParams.FLAG_FULLSCREEN, WindowManager.LayoutParams.FLAG_FULLSCREEN);
         getWindow().getDecorView().setSystemUiVisibility(View.SYSTEM_UI_FLAG_HIDE_NAVIGATION | View.SYSTEM_UI_FLAG_IMMERSIVE);
 
-        ImageView logo = findViewById(R.id.logo);
-
-       // Creating a list of keys (coffee names)
-           handler.postDelayed(new Runnable() {
-                public void run() {
-                    fetchOrder();
-                    handler.postDelayed(this, DELAY);
-                }
-            }, DELAY);
-
-        logo.setOnClickListener(v -> {
-            /*
-            int randomCoffeeIndex = ThreadLocalRandom.current().nextInt(coffeeNames.size());
-            String randomCoffee = coffeeNames.get(randomCoffeeIndex);
-            int imageResource = coffeeList.get(randomCoffee);
-            Intent i = new Intent(this, BrewingActivity.class);
-            i.putExtra(BrewingActivity.RECIPE_KEY, randomCoffee);
-            i.putExtra(BrewingActivity.IMAGE_KEY, imageResource);
-            startActivityForResult(i, BREWING_CODE);
-            overridePendingTransition(0, 0);*/
-            fetchOrder();
-        });
+        // Creating a list of keys (coffee names)
+        handler.postDelayed(new Runnable() {
+            public void run() {
+                fetchOrder();
+                handler.postDelayed(this, DELAY);
+            }
+        }, DELAY);
     }
 
 
@@ -154,7 +137,7 @@ public class IdleActivity extends Activity {
 
         OkHttpClient client = clientBuilder.build();
 
-        Request request = new Request.Builder().url("https://192.168.1.5:122/drink_order").build();
+        Request request = new Request.Builder().url("https://141.252.159.228:122/drink_order").build();
 
         client.newCall(request).enqueue(new Callback() {
             @Override
@@ -166,21 +149,21 @@ public class IdleActivity extends Activity {
                 assert response.body() != null;
                 final String responseData = response.body().string();
                 int currOrderNumber = Character.getNumericValue(responseData.charAt(responseData.length() - 1));
-                if(orderNumber != currOrderNumber) {
+                if (orderNumber != currOrderNumber) {
                     String[] fullOrder = responseData.split(";");
                     String coffeeNames = fullOrder[0].toUpperCase();
                     String[] coffeeNamesArray = coffeeNames.split(",");
                     coffeeNamesOrder.addAll(Arrays.asList(coffeeNamesArray));
                 }
                 Log.i("IdleActivity", "Coffee names: " + coffeeNamesOrder.toString());
-                for(String coffeeName : coffeeNamesOrder) {
-                    if(coffeeName.equals(" ")) {
+                for (String coffeeName : coffeeNamesOrder) {
+                    if (coffeeName.equals(" ")) {
                         coffeeNamesOrder.remove(coffeeName);
                     }
                 }
                 runOnUiThread(() -> {
                     if ((!isBrewing && !coffeeNamesOrder.isEmpty())) {
-                        String coffeeName = coffeeNamesOrder.get(0).replaceAll("\\s+","");
+                        String coffeeName = coffeeNamesOrder.get(0);//.replaceAll("\\s+","");
                         orderNumber = currOrderNumber;
                         //TextView description = findViewById(R.id.customTextViewALSLight);
                         //description.setText(responseData);
@@ -203,8 +186,7 @@ public class IdleActivity extends Activity {
                                 break;
                             }
                         }
-                    }
-                    else{
+                    } else {
                         drinkCounter.setVisibility(View.VISIBLE);
                     }
 
