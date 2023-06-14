@@ -45,12 +45,22 @@ public class IdleActivity extends Activity {
     ArrayList<String> coffeeNamesOrder = new ArrayList<>();
     boolean isBrewing = false;
 
+    TextView drinkCounter;
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
-        coffeeNamesOrder.add("COFFEE");
-        coffeeNamesOrder.add("COFFEE");
+
         super.onCreate(savedInstanceState);
+        // Set layout
+        setContentView(R.layout.activity_idle);
+
+        coffeeNamesOrder.add("COFFEE");
+        coffeeNamesOrder.add("COFFEE");
+
+        drinkCounter = findViewById(R.id.textViewDrinkCounter);
+        drinkCounter.setVisibility(View.GONE);
+
         try {
             RGBLight.setColor(100, 100, 100);
             BackLight.setBackLight(BackLight.BackLightBrightness.HUNDERD);
@@ -59,8 +69,7 @@ public class IdleActivity extends Activity {
             // You can handle the error more appropriately based on your application's requirements
         }
 
-        // Set layout
-        setContentView(R.layout.activity_idle);
+
 
         // Make app full screen in case we haven't yet.
         getWindow().setFlags(WindowManager.LayoutParams.FLAG_FULLSCREEN, WindowManager.LayoutParams.FLAG_FULLSCREEN);
@@ -68,13 +77,13 @@ public class IdleActivity extends Activity {
 
         ImageView logo = findViewById(R.id.logo);
 
-        // Creating a list of keys (coffee names)
-            handler.postDelayed(new Runnable() {
-                public void run() {
-                    fetchOrder();
-                    handler.postDelayed(this, DELAY);
-                }
-            }, DELAY);
+//        // Creating a list of keys (coffee names)
+//            handler.postDelayed(new Runnable() {
+//                public void run() {
+//                    fetchOrder();
+//                    handler.postDelayed(this, DELAY);
+//                }
+//            }, DELAY);
     }
 
     @Override
@@ -152,6 +161,8 @@ public class IdleActivity extends Activity {
                         orderNumber = currOrderNumber;
                         //TextView description = findViewById(R.id.customTextViewALSLight);
                         //description.setText(responseData);
+                        drinkCounter.setVisibility(View.VISIBLE);
+                        drinkCounter.setText("Drink left: " + coffeeNamesOrder.size());
                         ImageView imageView = findViewById(R.id.coffee_image);
                         for (Recipe recipe : Recipe.VALUES) {
                             Log.i("IdleActivity", "Coffee name: " + coffeeName);
@@ -171,6 +182,8 @@ public class IdleActivity extends Activity {
                         }
                     }
                     else{
+                        drinkCounter.setVisibility(View.VISIBLE);
+                        drinkCounter.setText("No drinks left");
                         TextView description = findViewById(R.id.customTextViewALSLight);
                         description.setText("No orders");
                     }

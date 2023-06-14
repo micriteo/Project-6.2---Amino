@@ -24,6 +24,15 @@
         android:textStyle="bold"
         android:textColor="#FFFFFF" />
 
+    <TextView
+        android:id="@+id/textViewDrinkCounter"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Drinks left: 0"
+        android:textSize="16sp" />
+
+
+
     <ImageView
         android:id="@+id/coffee_image"
         android:layout_width="wrap_content"
