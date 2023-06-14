@@ -59,7 +59,8 @@ public class IdleActivity extends Activity {
         coffeeNamesOrder.add("COFFEE");
 
         drinkCounter = findViewById(R.id.textViewDrinkCounter);
-        drinkCounter.setVisibility(View.GONE);
+        //drinkCounter.setVisibility(View.GONE);
+        updateDrinkCounter();
 
         try {
             RGBLight.setColor(100, 100, 100);
@@ -84,6 +85,14 @@ public class IdleActivity extends Activity {
 //                    handler.postDelayed(this, DELAY);
 //                }
 //            }, DELAY);
+    }
+
+    private void updateDrinkCounter() {
+        if (coffeeNamesOrder.isEmpty()) {
+            drinkCounter.setText("No drinks left");
+        } else {
+            drinkCounter.setText("Drink left: " + coffeeNamesOrder.size());
+        }
     }
 
     @Override
@@ -159,10 +168,10 @@ public class IdleActivity extends Activity {
                     if ((!isBrewing && !coffeeNamesOrder.isEmpty())) {
                         String coffeeName = coffeeNamesOrder.get(0).replaceAll("\\s+","");
                         orderNumber = currOrderNumber;
+                        runOnUiThread(this::updateDrinkCounter);
                         //TextView description = findViewById(R.id.customTextViewALSLight);
                         //description.setText(responseData);
                         drinkCounter.setVisibility(View.VISIBLE);
-                        drinkCounter.setText("Drink left: " + coffeeNamesOrder.size());
                         ImageView imageView = findViewById(R.id.coffee_image);
                         for (Recipe recipe : Recipe.VALUES) {
                             Log.i("IdleActivity", "Coffee name: " + coffeeName);
@@ -183,12 +192,17 @@ public class IdleActivity extends Activity {
                     }
                     else{
                         drinkCounter.setVisibility(View.VISIBLE);
-                        drinkCounter.setText("No drinks left");
-                        TextView description = findViewById(R.id.customTextViewALSLight);
-                        description.setText("No orders");
                     }
 
                 });
+            }
+
+            private void updateDrinkCounter() {
+                if (coffeeNamesOrder.isEmpty()) {
+                    drinkCounter.setText("No drinks left");
+                } else {
+                    drinkCounter.setText("Drink left: " + coffeeNamesOrder.size());
+                }
             }
         });
     }
