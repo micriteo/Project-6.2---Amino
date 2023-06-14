@@ -78,14 +78,28 @@ public class IdleActivity extends Activity {
 
         ImageView logo = findViewById(R.id.logo);
 
-//        // Creating a list of keys (coffee names)
-//            handler.postDelayed(new Runnable() {
-//                public void run() {
-//                    fetchOrder();
-//                    handler.postDelayed(this, DELAY);
-//                }
-//            }, DELAY);
+       // Creating a list of keys (coffee names)
+           handler.postDelayed(new Runnable() {
+                public void run() {
+                    fetchOrder();
+                    handler.postDelayed(this, DELAY);
+                }
+            }, DELAY);
+
+        logo.setOnClickListener(v -> {
+            /*
+            int randomCoffeeIndex = ThreadLocalRandom.current().nextInt(coffeeNames.size());
+            String randomCoffee = coffeeNames.get(randomCoffeeIndex);
+            int imageResource = coffeeList.get(randomCoffee);
+            Intent i = new Intent(this, BrewingActivity.class);
+            i.putExtra(BrewingActivity.RECIPE_KEY, randomCoffee);
+            i.putExtra(BrewingActivity.IMAGE_KEY, imageResource);
+            startActivityForResult(i, BREWING_CODE);
+            overridePendingTransition(0, 0);*/
+            fetchOrder();
+        });
     }
+
 
     private void updateDrinkCounter() {
         if (coffeeNamesOrder.isEmpty()) {
@@ -140,7 +154,7 @@ public class IdleActivity extends Activity {
 
         OkHttpClient client = clientBuilder.build();
 
-        Request request = new Request.Builder().url("https://141.252.159.228:122/drink_order").build();
+        Request request = new Request.Builder().url("https://192.168.1.5:122/drink_order").build();
 
         client.newCall(request).enqueue(new Callback() {
             @Override
@@ -168,7 +182,6 @@ public class IdleActivity extends Activity {
                     if ((!isBrewing && !coffeeNamesOrder.isEmpty())) {
                         String coffeeName = coffeeNamesOrder.get(0).replaceAll("\\s+","");
                         orderNumber = currOrderNumber;
-                        runOnUiThread(this::updateDrinkCounter);
                         //TextView description = findViewById(R.id.customTextViewALSLight);
                         //description.setText(responseData);
                         drinkCounter.setVisibility(View.VISIBLE);
@@ -186,6 +199,7 @@ public class IdleActivity extends Activity {
                                 coffeeNamesOrder.remove(0);
                                 startActivityForResult(intent, BREWING_CODE);
                                 overridePendingTransition(0, 0);
+                                runOnUiThread(this::updateDrinkCounter);
                                 break;
                             }
                         }
