@@ -19,7 +19,7 @@
         android:layout_below="@id/logo"
         android:layout_centerHorizontal="true"
         android:layout_marginTop="16dp"
-        android:text="Press Logo to Brew Random Drink"
+        android:text="Welcome to Animo"
         android:textSize="22sp"
         android:textStyle="bold"
         android:textColor="#FFFFFF" />
@@ -28,8 +28,11 @@
         android:id="@+id/textViewDrinkCounter"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Drinks left: 0"
-        android:textSize="16sp" />
+        android:layout_below="@id/customTextViewALSLight"
+        android:layout_centerHorizontal="true"
+        android:text="Drink left: "
+        android:textColor="#FFFFFF"
+        android:textSize="20sp"/>
 
 
 
