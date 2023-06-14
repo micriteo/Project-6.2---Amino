@@ -88,28 +88,29 @@ public class IdleActivity extends Activity {
         if (coffeeNamesOrder.isEmpty()) {
             drinkCounter.setText("No drinks left");
         } else {
-            drinkCounter.setText("Drink left: " + coffeeNamesOrder.size());
+            drinkCounter.setText("Drinks left: " + coffeeNamesOrder.size());
         }
     }
 
     @Override
     protected void onActivityResult(int requestCode, int resultCode, Intent data) {
         if (requestCode == BREWING_CODE) {
-            Log.i("Idle", "Completed brewing.");
-            try {
-                RGBLight.setColor(100, 100, 100);
-            } catch (NullPointerException e) {
-                Log.e("IdleActivity", "Error setting color on RGBLight", e);
+            if (coffeeNamesOrder.isEmpty()) {
+                Log.i("Idle", "Completed brewing.");
+                try {
+                    RGBLight.setColor(100, 100, 100);
+                } catch (NullPointerException e) {
+                    Log.e("IdleActivity", "Error setting color on RGBLight", e);
+                }
+                ImageView imageView = findViewById(R.id.coffee_image);
+                imageView.setVisibility(View.GONE); //hide the coffee image
+
+                TextView description = findViewById(R.id.customTextViewALSLight);
+                description.setVisibility(View.GONE); //hide the description
+
+                TextView thankYouMessage = findViewById(R.id.text_thank_you);
+                thankYouMessage.setVisibility(View.VISIBLE);
             }
-
-            ImageView imageView = findViewById(R.id.coffee_image);
-            imageView.setVisibility(View.GONE); //hide the coffee image
-
-            TextView description = findViewById(R.id.customTextViewALSLight);
-            description.setVisibility(View.GONE); //hide the description
-
-            TextView thankYouMessage = findViewById(R.id.text_thank_you);
-            thankYouMessage.setVisibility(View.VISIBLE);
             isBrewing = false;
             return;
         }
@@ -174,7 +175,7 @@ public class IdleActivity extends Activity {
                             Log.i("IdleActivity", "Recipe name: " + recipe.getName());
                             if (recipe.getName().equals(coffeeName)) {
                                 Log.i("IdleActivity", "We are in");
-                                imageView.setImageResource(recipe.getDrawableID());
+                                //imageView.setImageResource(recipe.getDrawableID());
                                 Intent intent = new Intent(IdleActivity.this, BrewingActivity.class);
                                 intent.putExtra(BrewingActivity.RECIPE_KEY, coffeeName);
                                 intent.putExtra(BrewingActivity.IMAGE_KEY, recipe.getDrawableID());
@@ -197,7 +198,7 @@ public class IdleActivity extends Activity {
                 if (coffeeNamesOrder.isEmpty()) {
                     drinkCounter.setText("No drinks left");
                 } else {
-                    drinkCounter.setText("Drink left: " + coffeeNamesOrder.size());
+                    drinkCounter.setText("Drinks left: " + coffeeNamesOrder.size());
                 }
             }
         });
