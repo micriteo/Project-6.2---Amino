@@ -5,9 +5,12 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="c42c5621-53bd-4d78-a267-e73894a13cad" name="Changes" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Reference Code/app/src/main/java/com/animo/door/service/Recipe.java" beforeDir="false" afterPath="$PROJECT_DIR$/Reference Code/app/src/main/java/com/animo/door/service/Recipe.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Reference Code/app/src/main/res/drawable-nodpi/chocolate_coffee.png" beforeDir="false" afterPath="$PROJECT_DIR$/Reference Code/app/src/main/res/drawable-nodpi/chocolate_coffee.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Reference Code/app/src/main/res/drawable-nodpi/chocolate_milk.png" beforeDir="false" afterPath="$PROJECT_DIR$/Reference Code/app/src/main/res/drawable-nodpi/chocolate_milk.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Reference Code/app/src/main/res/drawable-nodpi/milk_coffee.png" beforeDir="false" afterPath="$PROJECT_DIR$/Reference Code/app/src/main/res/drawable-nodpi/milk_coffee.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Reference Code/app/src/main/res/drawable-nodpi/wiener.png" beforeDir="false" afterPath="$PROJECT_DIR$/Reference Code/app/src/main/res/drawable-nodpi/wiener.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Reference Code/build.gradle" beforeDir="false" afterPath="$PROJECT_DIR$/Reference Code/build.gradle" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/SirenSmth/app.py" beforeDir="false" afterPath="$PROJECT_DIR$/SirenSmth/app.py" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -26,20 +29,20 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent"><![CDATA[{
-  "keyToString": {
-    "RunOnceActivity.OpenProjectViewOnStart": "true",
-    "RunOnceActivity.ShowReadmeOnStart": "true",
-    "RunOnceActivity.cidr.known.project.marker": "true",
-    "cidr.known.project.marker": "true",
-    "dart.analysis.tool.window.visible": "false",
-    "last_opened_file_path": "C:/Users/kaise/Documents/GitHub/Project-6.2---Amino/Reference Code",
-    "project.structure.last.edited": "Project",
-    "project.structure.proportion": "0.0",
-    "project.structure.side.proportion": "0.0",
-    "show.migrate.to.gradle.popup": "false"
+  <component name="PropertiesComponent">{
+  &quot;keyToString&quot;: {
+    &quot;RunOnceActivity.OpenProjectViewOnStart&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.cidr.known.project.marker&quot;: &quot;true&quot;,
+    &quot;cidr.known.project.marker&quot;: &quot;true&quot;,
+    &quot;dart.analysis.tool.window.visible&quot;: &quot;false&quot;,
+    &quot;last_opened_file_path&quot;: &quot;C:/Users/kaise/Documents/GitHub/Project-6.2---Amino/Reference Code&quot;,
+    &quot;project.structure.last.edited&quot;: &quot;Project&quot;,
+    &quot;project.structure.proportion&quot;: &quot;0.0&quot;,
+    &quot;project.structure.side.proportion&quot;: &quot;0.0&quot;,
+    &quot;show.migrate.to.gradle.popup&quot;: &quot;false&quot;
   }
-}]]></component>
+}</component>
   <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
   <component name="TaskManager">
     <task active="true" id="Default" summary="Default task">
