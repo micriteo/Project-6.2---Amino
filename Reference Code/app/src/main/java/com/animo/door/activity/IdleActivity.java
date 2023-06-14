@@ -48,6 +48,8 @@ public class IdleActivity extends Activity {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
+        coffeeNamesOrder.add("COFFEE");
+        coffeeNamesOrder.add("COFFEE");
         super.onCreate(savedInstanceState);
         try {
             RGBLight.setColor(100, 100, 100);
@@ -73,20 +75,6 @@ public class IdleActivity extends Activity {
                     handler.postDelayed(this, DELAY);
                 }
             }, DELAY);
-
-        logo.setOnClickListener(v -> {
-            /*
-            int randomCoffeeIndex = ThreadLocalRandom.current().nextInt(coffeeNames.size());
-            String randomCoffee = coffeeNames.get(randomCoffeeIndex);
-            int imageResource = coffeeList.get(randomCoffee);
-
-            Intent i = new Intent(this, BrewingActivity.class);
-            i.putExtra(BrewingActivity.RECIPE_KEY, randomCoffee);
-            i.putExtra(BrewingActivity.IMAGE_KEY, imageResource);
-            startActivityForResult(i, BREWING_CODE);
-            overridePendingTransition(0, 0);*/
-            fetchOrder();
-        });
     }
 
     @Override
