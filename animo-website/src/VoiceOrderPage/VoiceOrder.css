@@ -55,7 +55,11 @@
     width: 100px; /* adjust as needed */
     height: 100px; /* adjust as needed */
     margin-top: 30px;
-      cursor: pointer;
+    cursor: pointer;
+    -webkit-user-select: none;  /* Chrome all / Safari all */
+    -moz-user-select: none;     /* Firefox all */
+    -ms-user-select: none;      /* IE 10+ */
+    user-select: none;  
 
   }
   
@@ -72,6 +76,10 @@
       margin: 4px 2px;
       width: 300px; /* specify a fixed width */
       height: 20px; /* specify a fixed height */
+      -webkit-user-select: none;  /* Chrome all / Safari all */
+      -moz-user-select: none;     /* Firefox all */
+      -ms-user-select: none;      /* IE 10+ */
+      user-select: none;
     }
 
     .ellipse3

@@ -32,9 +32,14 @@ function VoiceOrder() {
                     }
                 };
             })
+
+        console.log("Button pressed, start recording...");
+
     }
     const stopRecording = () => {
         recorder.stop();
+        console.log("Button released, start recording...");
+
     }
 
     const makeLink = () => {
@@ -71,7 +76,7 @@ function VoiceOrder() {
         <div className="dialog-box">
           <p className={"button1"} id={"orderShow"}>Press and hold the logo to order</p>
         </div>
-        <div className="logo" onMouseDown={recordVoice} onMouseUp={stopRecording}/>
+        <div className="logo" onMouseDown={recordVoice} onMouseUp={stopRecording} onTouchStart={recordVoice} onTouchEnd={stopRecording}/>
       </div>
     );
   }
