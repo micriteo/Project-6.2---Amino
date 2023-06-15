@@ -5,11 +5,10 @@ import os
 import socket
 import subprocess
 import re
-from word2number import w2n
-
+import inflect
 import pyttsx3
-from flask import Flask, request, render_template
 import speech_recognition as sr
+from flask import Flask, request, render_template
 from voice_paths import *
 
 # Declaring global variables
@@ -19,10 +18,9 @@ turn = 0
 orderNumber = 0
 current_coffee = None
 dict_coffee = {}
-coffee_types = ["coffee", "koffie", "expresso", "espresso", "milk coffee", "koffie melk", "cappuccino",
-                "koffie chocolate", "chocolate coffee", "chocolate milk", "chocolade melk", "hot chocolate",
-                "hot water", "heet water", "double expresso", "dubbele espresso",
-                "latte macchiato", "wiener melange"]  # coffees available
+coffee_types = ["coffee", "koffie", "espresso", "milk coffee", "koffie melk", "cappuccino",  # coffees available
+                "koffie chocolate", "chocolate coffee", "chocolate milk", "chocolade melk",
+                "double espresso", "latte macchiato", "wiener melange"]
 positive_response = ["yes", "sounds good", "sure"]
 negative_response = ["no", "nope", "cancel", "nee", "nou"]
 coffee_types_temp = coffee_types.copy()
@@ -38,16 +36,19 @@ english_to_number = {
     "six": "6", "seven": "7", "eight": "8", "nine": "9"
 }
 
+
 # Route to the home page
 @app.route('/')
 def home():
     # subprocess.call("../animo-website npm start", shell=True)
     return render_template("bindex.html")
 
+
 # Route to display the drink order
 @app.route('/drink_order')
 def drink_order():
     return send_order
+
 
 # Route to convert the audio to text
 @app.route('/converter', methods=['POST'])
@@ -60,6 +61,7 @@ def converter():
         text = handle_coffee_order(text)
         return text
 
+
 # Route to process the order
 @app.route('/process_order', methods=['POST'])
 def process_order():
@@ -71,6 +73,7 @@ def process_order():
         store_order(coffee)
         # send_order_to_android_list(order)
         return send_order
+
 
 # Function to store order details
 def store_order(order):
@@ -112,6 +115,7 @@ def send_order_to_android_list(order):
     except Exception as e:
         return f"An error occurred while sending the order: {str(e)}"
 
+
 # Function to convert audio to text
 def convert_to_text():
     convert_to_wav()
@@ -119,19 +123,19 @@ def convert_to_text():
     with sr.AudioFile(path_wav) as source:
         audio_data = r.record(source)
         try:
-            # text = r.recognize_google(audio_data, language="nl-NL")
-            text = r.recognize_google(audio_data)
+            text = r.recognize_google(audio_data, language="en-EN")
         except sr.UnknownValueError:
             try:
-                text = r.recognize_google(audio_data, language="nl-NL")
-                # text = r.recognize_google(audio_data)
+                text = r.recognize_google(audio_data)
             except sr.UnknownValueError:
                 text = "I'm sorry, I could not understand you. Please try again."
         return text
 
+
 # Function to convert the audio file to .wav format
 def convert_to_wav():
     subprocess.call([ffmpeg_path, '-i', path_webm, path_wav])
+
 
 # Function to remove files
 def remove_files():
@@ -139,6 +143,7 @@ def remove_files():
     for ext in extensions:
         if os.path.exists(path_no_extension + ext):
             os.remove(path_no_extension + ext)
+
 
 # Function to convert text to speech
 def text_to_speech(text):
@@ -159,17 +164,17 @@ def text_to_speech(text):
     engine.say(text)
     engine.runAndWait()
 
-# Function to display the current order
+
 def current_order(order_stage):
     coffee = ""
     full_order = ""
     for key, value in dict_coffee.items():
         if order_stage == 0:
             for _ in range(int(value)):
-                full_order += str(key) + ", "
+                full_order += str(key) + ","
         coffee += str(value) + " " + str(key)
         if int(value) > 1:
-            coffee += "'s, "
+            coffee += "s, "
         else:
             coffee += ", "
     coffee = coffee.rstrip(", ")
@@ -178,7 +183,49 @@ def current_order(order_stage):
         print(full_order)
     return coffee
 
-# Function to handle the coffee order
+
+# Makes a new copy of all coffees available
+def coffee_copy():
+    global coffee_types_temp
+    coffee_types_temp = coffee_types.copy()
+
+
+# Empty current order
+def clear_dict():
+    global dict_coffee
+    dict_coffee = {}
+
+
+# Plural word to singular
+def make_singular(item):
+    p = inflect.engine()
+
+    if p.singular_noun(item):
+        singular_form = p.singular_noun(item)
+        return singular_form
+    else:
+        return item
+
+
+# Updates current list of coffees
+def update_dict(item, number):
+    dict_coffee.update({item: number})
+
+
+# Converts word to digit, adds an " and" to separate coffee orders
+def word_to_number(voice_text):
+    for word in voice_text.split():
+        if word in dutch_to_number:
+            number = dutch_to_number.get(word)
+            voice_text = voice_text.replace(word, number)
+        if word in english_to_number:
+            number = english_to_number.get(word)
+            voice_text = voice_text.replace(word, number)
+    for coffee in coffee_types:
+        if coffee in voice_text:
+            voice_text = voice_text.replace(coffee, coffee + " and")
+
+
 def handle_coffee_order(voice_text):
     voice_text = voice_text.lower()
     global turn
@@ -188,68 +235,54 @@ def handle_coffee_order(voice_text):
     global dutch_to_number
     # remove_and used to ensure coffees are properly registered
     remove_and = " and"
-    # TESTING ONLY REMOVE OR FOREVER WILL GET four hot water and 4 espresso and 8 coffee
-    # Number written to digit, Dutch support
-    # voice_text = "I want two coffee"
-
+    # voice_text = "i like one coffee one espresso and latte macchiato and cappuccino"
     print(voice_text)
 
     if turn == 0:
-        for word in voice_text.split():
-            if word in dutch_to_number:
-                number = dutch_to_number.get(word)
-                voice_text = voice_text.replace(word, number)
-            if word in english_to_number:
-                number = english_to_number.get(word)
-                voice_text = voice_text.replace(word, number)
-        for coffee in coffee_types:
-            if coffee in voice_text:
-                voice_text = voice_text.replace(coffee, coffee + " and")
+        # Copies array of coffees
+        coffee_copy()
+        word_to_number(voice_text)
 
         # Pattern to match numbers their associated items
         pattern = r"\b(\d+)\b\s+(\w+(?:\s+\w+)?)"
         matches = re.findall(pattern, voice_text)
-
+        # If number in voice_text
         if matches:
             for match in matches:
                 number = match[0]
                 item = match[1].strip()
+                # Remove the and previously added " and" to separate coffees
                 if remove_and in item:
-                    # Remove the and previously added to separate coffees
                     item = item.replace(remove_and, "")
-                if item in coffee_types_temp and item in coffee_types:
-                    # if item in coffee_types_temp:
-                    dict_coffee.update({item: number})
+                item = make_singular(item)
+                if item in coffee_types_temp:
+                    # If coffee not already queued for brewing
+                    update_dict(item, number)
                     coffee_types_temp.remove(item)
-            for coffee in coffee_types_temp:
-                if coffee in voice_text.split():
-                    # If coffee is voice_text and its does not have a number before it defaults to 1
-                    dict_coffee.update({coffee: 1})
-        else:
-            for coffee in voice_text.split():
-                if coffee in voice_text and coffee in coffee_types_temp:
-                    dict_coffee.update({coffee: 1})
+        # If no number present in voice_text but coffee requested
+        for coffee in coffee_types_temp:
+            if coffee in voice_text:
+                number = 1
+                update_dict(coffee, number)
+                coffee_types_temp.remove(coffee)
+
         if dict_coffee:
             turn = 1
-            print(dict_coffee)
             return f"You have requested {current_order(turn)}. Is this correct?"
         else:
-            current_coffee = None
-            dict_coffee = {}
+            clear_dict()
             return f"I'm sorry, I could not understand you. What coffee would you like?"
 
     elif turn == 1:
         if voice_text in positive_response:
             turn = 0
             response = f"Brewing {current_order(turn)} now!"
-            current_coffee = None
-            dict_coffee = {}
+            clear_dict()
             return response
         elif voice_text in negative_response:
             turn = 0
             response = f"What coffee would you like instead?"
-            current_coffee = None
-            dict_coffee = {}
+            clear_dict()
             return response
         else:
             return f"I'm sorry, I could not understand you. Would you like {current_order(turn)}? Please say Yes or No"
