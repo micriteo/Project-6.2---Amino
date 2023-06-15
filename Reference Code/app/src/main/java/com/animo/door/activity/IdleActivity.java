@@ -55,8 +55,8 @@ public class IdleActivity extends Activity {
         // Set layout
         setContentView(R.layout.activity_idle);
 
-        coffeeNamesOrder.add("ESPRESSO");
-        coffeeNamesOrder.add("COFFEE");
+//        coffeeNamesOrder.add("ESPRESSO");
+//        coffeeNamesOrder.add("COFFEE");
 
         drinkCounter = findViewById(R.id.textViewDrinkCounter);
         //drinkCounter.setVisibility(View.GONE);
@@ -138,7 +138,7 @@ public class IdleActivity extends Activity {
 
         OkHttpClient client = clientBuilder.build();
 
-        Request request = new Request.Builder().url("https://141.252.159.228:122/drink_order").build();
+        Request request = new Request.Builder().url("https://192.168.42.54:122/drink_order").build();
 
         client.newCall(request).enqueue(new Callback() {
             @Override
