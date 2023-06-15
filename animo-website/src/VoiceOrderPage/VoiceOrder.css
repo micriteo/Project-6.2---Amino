@@ -1,9 +1,9 @@
-.OrderCoffee {
+.OrderCoffee 
+{
     background-image: url('../Assets/Voice_Order_Assets/Background.jpg');
     background-position: center;
     background-repeat: no-repeat;
     background-size: cover;
-  
     display: flex;
     flex-direction: column;
     justify-content: center;
@@ -14,14 +14,16 @@
     font-style: normal;
   }
   
-  .button-container {
+  .button-container 
+  {
     display: flex;
     flex-direction: column; /* stacks the buttons vertically */
     gap: 10px;
     align-items: center; /* centers the buttons horizontally */
   }
   
-  .button {
+  .button 
+  {
     background-color: white;
     border: none;
     border-radius: 10px;
@@ -37,7 +39,8 @@
     height: 50px; /* specify a fixed height */
   }
   
-  .dialog-box {
+  .dialog-box 
+  {
     margin-top: 100px;
     padding: 20px;
     border: 2px solid black;
@@ -47,7 +50,8 @@
     background-color: black
   }
   
-  .logo {
+  .logo 
+  {
     background-image: url('../Assets/Voice_Order_Assets/logo.png');
     background-position: center;
     background-repeat: no-repeat;
@@ -60,29 +64,29 @@
     -moz-user-select: none;     /* Firefox all */
     -ms-user-select: none;      /* IE 10+ */
     user-select: none;  
-
   }
   
-  .button1{
-      background-color: black;
-      border: none;
-      border-radius: 10px;
-      color: white;
-      font-weight: bold;
-      text-align: center;
-      text-decoration: none;
-      display: inline-block;
-      font-size: 14px;
-      margin: 4px 2px;
-      width: 300px; /* specify a fixed width */
-      height: 20px; /* specify a fixed height */
-      -webkit-user-select: none;  /* Chrome all / Safari all */
-      -moz-user-select: none;     /* Firefox all */
-      -ms-user-select: none;      /* IE 10+ */
-      user-select: none;
-    }
+  .button1
+  {
+    background-color: black;
+    border: none;
+    border-radius: 10px;
+    color: white;
+    font-weight: bold;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 14px;
+    margin: 4px 2px;
+    width: 300px; /* specify a fixed width */
+    height: 20px; /* specify a fixed height */
+    -webkit-user-select: none;  /* Chrome all / Safari all */
+    -moz-user-select: none;     /* Firefox all */
+    -ms-user-select: none;      /* IE 10+ */
+    user-select: none;
+  }
 
-    .ellipse3
+  .ellipse3
   {
     position: relative;
     left:-40%;
@@ -94,11 +98,10 @@
     display: flex;
     align-items: center;
     justify-content: center;
-}
+  }
 
-
-  
-  .back3 {
+  .back3 
+  {
     position: relative;
     color: #ffffff;
     font-size: 24px;

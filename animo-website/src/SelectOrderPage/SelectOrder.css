@@ -1,4 +1,5 @@
-@media screen and (max-width: 699px) {
+@media screen and (max-width: 699px) 
+{
  
   body
   { 
@@ -18,15 +19,14 @@
 
   }
 
-.App {
-  text-align: center;
-  width: 100vw;
-  position: relative;
-  font-family: 'Lato';
-  font-style: normal;
-  
-  
-}
+  .App
+  {
+    text-align: center;
+    width: 100vw;
+    position: relative;
+    font-family: 'Lato';
+    font-style: normal;
+  }
 
 .ellipse4
   {
@@ -51,56 +51,54 @@
     right: 4%;
   }
 
-.Select_Order_Header 
-{
-  position: relative;
-  color: #CBCBD4;
-  height: 15%;
-  display: flex;
-  justify-content: space-between;
-  align-items: center;      /* Add this line */
-  top: 10px;
-}
+  .Select_Order_Header 
+  {
+    position: relative;
+    color: #CBCBD4;
+    height: 15%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;      /* Add this line */
+    top: 10px;
+  }
 
-.header-content
-{
-  display: flex;
-  justify-content: center;
-  align-items: center;
-}
+  .header-content
+  {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
 
-.logo-img
-{
-  position:relative;
-  border-radius: 50%;
-  width: 40px;
-  height: 40px;
-  margin-right: 20px;
-  top: 40px;
-}
+  .logo-img
+  {
+    position:relative;
+    border-radius: 50%;
+    width: 40px;
+    height: 40px;
+    margin-right: 20px;
+    top: 40px;
+  }
 
-.header_campaign
-{
-  position: relative;
-  height: 10vh;
-  top: 2vh;
-  font-family: 'Lato', sans-serif;
-  font-style: normal;
-  font-size: 18px;
-  text-align: center;
-  color: #CBCBD4;
-}
+  .header_campaign
+  {
+    position: relative;
+    height: 10vh;
+    top: 2vh;
+    font-family: 'Lato', sans-serif;
+    font-style: normal;
+    font-size: 18px;
+    text-align: center;
+    color: #CBCBD4;
+  }
 
-
-.main2
-{
-  position: relative;
-  width: 90%;
-  left:5% ;
-
-}
-.coffe_selection_container
-{
+  .main2
+  {
+    position: relative;
+    width: 90%;
+    left:5% ;
+  }
+  .coffe_selection_container
+  {
     display: flex;
     flex-direction: row;  /* Add this line */
     flex-wrap: wrap;
@@ -110,7 +108,7 @@
     background-color: rgba(255, 255, 255, 0.5); /* White background with 50% transparency */
     border-radius: 40px;
     width: 100%;
-}
+  }
 
 .coffee-item, .capucino-item,.espresso-item, .milk_coffee-item, .chocolate_milk-item, .chocolate_coffee-item, .double_espresso-item, .wiener_melange-item, .late_machiato-item
   {
@@ -159,32 +157,33 @@
     margin-left: 10%;
   }
 
-.ellipse2 {
-  position: relative;
-  width: 3.5vh;
-  height: 3.5vh;
-  left: 80%;
-  margin-top: -20% ;
-  margin-bottom: 5%;
-  background: #000000;
-  border-radius: 50%; /* Makes the div an ellipse */
-  display: flex;
-  align-items: center;
-  justify-content: center;
-}
+  .ellipse2 
+  {
+    position: relative;
+    width: 3.5vh;
+    height: 3.5vh;
+    left: 80%;
+    margin-top: -20% ;
+    margin-bottom: 5%;
+    background: #000000;
+    border-radius: 50%; /* Makes the div an ellipse */
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
 
-.plus {
-  position: relative;
-  color: #ffffff;
-  font-size: 24px;
-  line-height: 0; /* Adjusts the vertical alignment of the "+" */
+  .plus 
+  {
+    position: relative;
+    color: #ffffff;
+    font-size: 24px;
+    line-height: 0; /* Adjusts the vertical alignment of the "+" */
+  }
 }
-}
-
-
 
 /**************** Desktop version **************/
- @media screen and (min-width: 700px) {
+ @media screen and (min-width: 700px) 
+ {
 
   body
   { 
@@ -241,8 +240,8 @@
     right: 4%;
   }
 
-  .Select_Order_Header {
-  
+  .Select_Order_Header 
+  {
     padding: 20px;
     color: #CBCBD4;
     height: 200px;
@@ -250,7 +249,6 @@
     justify-content: center;
     align-items: center;      /* Add this line */
     margin-bottom: -10vh;
-  
   }
   
   .header-content
@@ -286,8 +284,6 @@
     margin: 0 auto;
   }
   
-  
-
   .coffe_selection_container
   {
     display: flex;
@@ -298,7 +294,6 @@
     background-color: rgba(255, 255, 255, 0.5); /* White background with 50% transparency */
     border-radius: 40px;
     width: 100%;
-    
   }
 
   .coffee-item, .capucino-item,.espresso-item, .milk_coffee-item, .chocolate_milk-item, .chocolate_coffee-item, .double_espresso-item, .wiener_melange-item, .late_machiato-item
@@ -313,8 +308,8 @@
     margin-top: 5%;
   }
 
-  
-  .item-image {
+  .item-image 
+  {
     position: relative;
     width: 90%;
     height: 50%;
@@ -325,7 +320,8 @@
     border-radius: 15px;
   }
   
-  .item-text {
+  .item-text 
+  {
     position: relative;
     top: 5%;
     width: 100%;
@@ -349,17 +345,15 @@
     display: flex;
     align-items: center;
     justify-content: center;
-}
+  }
 
-
-  
-  .plus {
+  .plus 
+  {
     position: relative;
     color: #ffffff;
     font-size: 24px;
     line-height: 0; /* Adjusts the vertical alignment of the "+" */
   } 
-  
   
   .item-price
   {
@@ -372,7 +366,4 @@
     text-align: left;
     color: #000000;
   }
-  
 } 
-
-
