@@ -106,7 +106,36 @@
     color: #ffffff;
     font-size: 24px;
     line-height: 0; /* Adjusts the vertical alignment of the "+" */
-  } 
+  }
+
+.language-button {
+  position: fixed;
+  bottom: 20px;
+  right: 20px;
+  width: 60px; /* width of the button */
+  height: 60px; /* height of the button */
+  border-radius: 50%; /* makes it circular */
+  background-color: #000000; /* button color */
+  color: #fff; /* text color */
+  border: none; /* remove default button border */
+  font-size: 20px; /* size of the text */
+  text-align: center; /* center the text */
+  line-height: 60px; /* vertically center the text */
+  transition: background-color 0.3s ease; /* smooth color change animation */
+  outline: none; /* remove default button outline */
+  cursor: pointer; /* change cursor to pointer on hover */
+}
+
+.language-button:hover {
+  background-color: #000000; /* darker color on hover */
+}
+
+.language-button:active {
+  transform: scale(0.9); /* scale down the button when clicked */
+  transition: transform 0.1s ease; /* smooth scale animation */
+}
+
+
 
   
   
