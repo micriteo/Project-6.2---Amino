@@ -10,12 +10,12 @@ import java.util.Locale;
 public enum Recipe {
     COFFEE(R.drawable.coffee),
     ESPRESSO(R.drawable.espresso),
-    MILK_COFEE(R.drawable.milk_coffee),
-    CAPUCINO(R.drawable.capucino),
+    MILK_COFFEE(R.drawable.milk_coffee),
+    CAPPUCCINO(R.drawable.capucino),
     CHOCOLATE_COFFEE(R.drawable.chocolate_coffee),
     CHOCOLATE_MILK(R.drawable.chocolate_milk),
     DOUBLE_ESPRESSO(R.drawable.espresso),
-    LATE_MACHIATO(R.drawable.late_machiato),
+    LATTE_MACCHIATO(R.drawable.late_machiato),
     WIENER_MELANGE(R.drawable.wiener),
     ;
 

@@ -84,7 +84,7 @@ def store_order(order):
 # Function to send the order to an android device
 def send_order_to_android_list(order):
     # Define the IP address and port of the Android application running on the same server
-    android_ip = '192.168.42.54'  # this need to be change everytime the android device is connected to a new network
+    android_ip = '10.110.110.119'  # this need to be change everytime the android device is connected to a new network
     android_port = 9999  # Replace with the port number the Android application is listening on
 
     try:

@@ -55,8 +55,8 @@ public class IdleActivity extends Activity {
         // Set layout
         setContentView(R.layout.activity_idle);
 
-        coffeeNamesOrder.add("ESPRESSO");
-        coffeeNamesOrder.add("COFFEE");
+//        coffeeNamesOrder.add("ESPRESSO");
+//        coffeeNamesOrder.add("COFFEE");
 
         drinkCounter = findViewById(R.id.textViewDrinkCounter);
         //drinkCounter.setVisibility(View.GONE);

@@ -23,8 +23,8 @@ function App() {
           <Route path="/brew_espresso" element={<BrewCoffee backgroundImg="Assets/espresso.png" name = "Espresso" info="Espresso text"/>} />
 
            {/* Add coffee milk page */}
-           <Route path="/brew_coffee_milk" element={<BrewCoffee backgroundImg="Assets/milk_coffee.png" name = "Milk Cofee" info="Coffee milk text"/>} />
-          <Route path="/brew_capucino" element={<BrewCoffee backgroundImg="Assets/capucino.png" name = "Capucino" info="Capuccino text"/>} />
+           <Route path="/brew_coffee_milk" element={<BrewCoffee backgroundImg="Assets/milk_coffee.png" name = "Milk Coffee" info="Coffee milk text"/>} />
+          <Route path="/brew_capucino" element={<BrewCoffee backgroundImg="Assets/capucino.png" name = "Cappuccino" info="Capuccino text"/>} />
 
            {/* Add Chocolate Coffee page */}
            <Route path="/brew_chocolate_coffee" element={<BrewCoffee backgroundImg="Assets/chocolate_coffee.png" name = "Chocolate Coffee" info="Chocolate Coffee text"/>} />
@@ -34,7 +34,7 @@ function App() {
 
            {/* Add double espresso page */}
            <Route path="/brew_double_espresso" element={<BrewCoffee backgroundImg="Assets/coffe.png" name = "Double espresso" info="Double espresso text"/>} />
-          <Route path="/brew_late" element={<BrewCoffee backgroundImg="Assets/late_machiato.png" name = "Late Machiato" info="Late Machiato text"/>} />
+          <Route path="/brew_late" element={<BrewCoffee backgroundImg="Assets/late_machiato.png" name = "Latte Macchiato" info="Late Machiato text"/>} />
 
            {/* Add Wiener Melange page */}
           <Route path="/brew_wiener_Melange" element={<BrewCoffee backgroundImg="Assets/wiener.png" name = "Wiener melange" info="Wiener Melange text"/>} />
