@@ -178,6 +178,20 @@ def update_dict(item, number):
     dict_coffee.update({item: number})
 
 
+# Converts word to digit, adds an " and" to separate coffee orders
+def word_to_number(voice_text):
+    for word in voice_text.split():
+        if word in dutch_to_number:
+            number = dutch_to_number.get(word)
+            voice_text = voice_text.replace(word, number)
+        if word in english_to_number:
+            number = english_to_number.get(word)
+            voice_text = voice_text.replace(word, number)
+    for coffee in coffee_types:
+        if coffee in voice_text:
+            voice_text = voice_text.replace(coffee, coffee + " and")
+
+
 def handle_coffee_order(voice_text):
     voice_text = voice_text.lower()
     global turn
@@ -193,27 +207,18 @@ def handle_coffee_order(voice_text):
     if turn == 0:
         # Copies array of coffees
         coffee_copy()
-        for word in voice_text.split():
-            if word in dutch_to_number:
-                number = dutch_to_number.get(word)
-                voice_text = voice_text.replace(word, number)
-            if word in english_to_number:
-                number = english_to_number.get(word)
-                voice_text = voice_text.replace(word, number)
-        for coffee in coffee_types:
-            if coffee in voice_text:
-                voice_text = voice_text.replace(coffee, coffee + " and")
+        word_to_number(voice_text)
 
         # Pattern to match numbers their associated items
         pattern = r"\b(\d+)\b\s+(\w+(?:\s+\w+)?)"
         matches = re.findall(pattern, voice_text)
-
+        # If number in voice_text
         if matches:
             for match in matches:
                 number = match[0]
                 item = match[1].strip()
+                # Remove the and previously added " and" to separate coffees
                 if remove_and in item:
-                    # Remove the and previously added to separate coffees
                     item = item.replace(remove_and, "")
                 item = make_singular(item)
                 if item in coffee_types_temp:
@@ -232,7 +237,6 @@ def handle_coffee_order(voice_text):
             return f"You have requested {current_order()}. Is this correct?"
         else:
             clear_dict()
-            coffee_copy()
             return f"I'm sorry, I could not understand you. What coffee would you like?"
 
     elif turn == 1:
@@ -240,13 +244,11 @@ def handle_coffee_order(voice_text):
             turn = 0
             response = f"Brewing {current_order()} now!"
             clear_dict()
-            coffee_copy()
             return response
         elif voice_text in negative_response:
             turn = 0
             response = f"What coffee would you like instead?"
             clear_dict()
-            coffee_copy()
             return response
         else:
             return f"I'm sorry, I could not understand you. Would you like {current_order()}? Please say Yes or No"
