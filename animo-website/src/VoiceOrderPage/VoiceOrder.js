@@ -1,6 +1,6 @@
-import React, {useState} from 'react'
+import React, {useEffect, useState} from 'react'
 import './VoiceOrder.css'
-import { useNavigate } from 'react-router-dom';
+import {useNavigate} from 'react-router-dom';
 
 // Component for handling voice orders
 function VoiceOrder() {
@@ -12,16 +12,32 @@ function VoiceOrder() {
 
     const [language, setLanguage] = useState('EN');
 
+    useEffect(() => {
+        fetch('/language', {
+            method: 'POST', body: language
+        }).then(async response => {
+            // Handle API response
+            if (response.ok) {
+                console.log('Language changed to ' + language);
+            } else {
+                console.log('HTTP-Error: ' + response.status);
+            }
+        });
+    }, [language]);
+
+    const toggleLanguage = () => {
+        setLanguage(prevLanguage => prevLanguage === 'EN' ? 'NL' : 'EN');
+    }
+
 
     // Function for handling back navigation
-    const handleBack = () =>
-    {
+    const handleBack = () => {
         navigate('/home_page');
     };
 
     // Function to start voice recording
     const recordVoice = () => {
-            // Define recording type
+        // Define recording type
         let recType = {
             audio: {
                 tag: 'audio', type: 'audio/wav', ext: '.wav', gUM: {audio: true}
@@ -36,7 +52,7 @@ function VoiceOrder() {
                 recorder = new MediaRecorder(stream);
                 chunks = [];
                 recorder.start();
-                 // Handle data available event
+                // Handle data available event
                 recorder.ondataavailable = (e) => {
                     chunks.push(e.data);
                     if (recorder.state === 'inactive') {
@@ -74,28 +90,26 @@ function VoiceOrder() {
             }
         });
     }
-
-    const toggleLanguage = () => {
-        setLanguage(prevLanguage => prevLanguage === 'EN' ? 'NL' : 'EN');
-    }
     // Render the component
     return (
-      <div className="OrderCoffee">
-        <button className="ellipse3" onClick={handleBack}>
-              <p className="back3">&lt;</p> {/* New "+" text inside the ellipse */}
-        </button>
-        <h2>Order a coffee or try one of these:</h2>
-        <div className="button-container">
-          <button className="button">Coffee</button>
-          <button className="button">Hot Water</button>
-          <button className="button">Hot Chocolate</button>
+        <div className="OrderCoffee">
+            <button className="ellipse3" onClick={handleBack}>
+                <p className="back3">&lt;</p> {/* New "+" text inside the ellipse */}
+            </button>
+            <h2>Order a coffee or try one of these:</h2>
+            <div className="button-container">
+                <button className="button">Coffee</button>
+                <button className="button">Hot Water</button>
+                <button className="button">Hot Chocolate</button>
+            </div>
+            <div className="dialog-box">
+                <p className={"button1"} id={"orderShow"}>Press and hold the logo to order</p>
+            </div>
+            <div className="logo" onMouseDown={recordVoice} onMouseUp={stopRecording} onTouchStart={recordVoice}
+                 onTouchEnd={stopRecording}/>
+            <button className="language-button" onClick={toggleLanguage}>{language}</button>
         </div>
-        <div className="dialog-box">
-          <p className={"button1"} id={"orderShow"}>Press and hold the logo to order</p>
-        </div>
-        <div className="logo" onMouseDown={recordVoice} onMouseUp={stopRecording} onTouchStart={recordVoice} onTouchEnd={stopRecording}/>
-          <button className="language-button" onClick={toggleLanguage}>{language}</button>
-      </div>
     );
-  }
+}
+
 export default VoiceOrder;

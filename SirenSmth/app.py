@@ -13,6 +13,7 @@ from voice_paths import *
 
 # Declaring global variables
 send_order = ""
+language = "en-EN"
 app = Flask(__name__)
 turn = 0
 orderNumber = 0
@@ -48,6 +49,15 @@ def home():
 @app.route('/drink_order')
 def drink_order():
     return send_order
+
+
+@app.route('/language', methods=['POST'])
+def get_language():
+    if request.method == 'POST':
+        global language
+        language = request.get_data().decode('utf-8')
+        print(language)
+        return "language achieved: "
 
 
 # Route to convert the audio to text
