@@ -1,3 +1,5 @@
+# Importing necessary modules
+
 import json
 import os
 import socket
@@ -10,6 +12,7 @@ from flask import Flask, request, render_template
 import speech_recognition as sr
 from voice_paths import *
 
+# Declaring global variables
 send_order = ""
 app = Flask(__name__)
 turn = 0
@@ -25,6 +28,7 @@ negative_response = ["no", "nope", "cancel", "nee", "nou"]
 coffee_types_temp = coffee_types.copy()
 
 # Add more mappings as needed
+# Translating Dutch numbers to English for processing
 dutch_to_number = {
     "een": "1", "twee": "2", "drie": "3", "vier": "4", "vijf": "5",
     "zes": "6", "zeven": "7", "acht": "8", "negen": "9"
@@ -34,18 +38,18 @@ english_to_number = {
     "six": "6", "seven": "7", "eight": "8", "nine": "9"
 }
 
-
+# Route to the home page
 @app.route('/')
 def home():
     # subprocess.call("../animo-website npm start", shell=True)
     return render_template("bindex.html")
 
-
+# Route to display the drink order
 @app.route('/drink_order')
 def drink_order():
     return send_order
 
-
+# Route to convert the audio to text
 @app.route('/converter', methods=['POST'])
 def converter():
     if request.method == 'POST':
@@ -56,7 +60,7 @@ def converter():
         text = handle_coffee_order(text)
         return text
 
-
+# Route to process the order
 @app.route('/process_order', methods=['POST'])
 def process_order():
     if request.method == 'POST':
@@ -68,7 +72,7 @@ def process_order():
         # send_order_to_android_list(order)
         return send_order
 
-
+# Function to store order details
 def store_order(order):
     global orderNumber
     orderNumber += 1
@@ -77,6 +81,7 @@ def store_order(order):
     # send_order_to_android_list(order)
 
 
+# Function to send the order to an android device
 def send_order_to_android_list(order):
     # Define the IP address and port of the Android application running on the same server
     android_ip = '192.168.42.54'  # this need to be change everytime the android device is connected to a new network
@@ -107,7 +112,7 @@ def send_order_to_android_list(order):
     except Exception as e:
         return f"An error occurred while sending the order: {str(e)}"
 
-
+# Function to convert audio to text
 def convert_to_text():
     convert_to_wav()
     r = sr.Recognizer()
@@ -124,18 +129,18 @@ def convert_to_text():
                 text = "I'm sorry, I could not understand you. Please try again."
         return text
 
-
+# Function to convert the audio file to .wav format
 def convert_to_wav():
     subprocess.call([ffmpeg_path, '-i', path_webm, path_wav])
 
-
+# Function to remove files
 def remove_files():
     extensions = ['.wav', '.webm']
     for ext in extensions:
         if os.path.exists(path_no_extension + ext):
             os.remove(path_no_extension + ext)
 
-
+# Function to convert text to speech
 def text_to_speech(text):
     voice_dict = {'Male': 0, 'Female': 1}
     code = voice_dict['Male']
@@ -154,7 +159,7 @@ def text_to_speech(text):
     engine.say(text)
     engine.runAndWait()
 
-
+# Function to display the current order
 def current_order(order_stage):
     coffee = ""
     full_order = ""
@@ -173,7 +178,7 @@ def current_order(order_stage):
         print(full_order)
     return coffee
 
-
+# Function to handle the coffee order
 def handle_coffee_order(voice_text):
     voice_text = voice_text.lower()
     global turn
