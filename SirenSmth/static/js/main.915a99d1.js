@@ -7074,7 +7074,7 @@
                                 className: "coffee-item",
                                 children: [(0, De.jsx)("div", {
                                     className: "item-image",
-                                    style: {backgroundImage: "url(Assets/coffee.png)"}
+                                    style: {backgroundImage: "url(static/media/coffee.png)"}
                                 }), " ", (0, De.jsx)("p", {
                                     className: "item-text",
                                     children: "Coffee"
@@ -7090,7 +7090,7 @@
                                 className: "espresso-item",
                                 children: [(0, De.jsx)("div", {
                                     className: "item-image",
-                                    style: {backgroundImage: "url(Assets/espresso.png)"}
+                                    style: {backgroundImage: "url(static/media/espresso.png)"}
                                 }), " ", (0, De.jsx)("p", {
                                     className: "item-text",
                                     children: "Espresso"
@@ -7106,7 +7106,7 @@
                                 className: "milk_coffee-item",
                                 children: [(0, De.jsx)("div", {
                                     className: "item-image",
-                                    style: {backgroundImage: "url(Assets/milk_coffee.png)"}
+                                    style: {backgroundImage: "url(static/media/milk_coffee.png)"}
                                 }), " ", (0, De.jsx)("p", {
                                     className: "item-text",
                                     children: "Milk Coffee"
@@ -7122,7 +7122,7 @@
                                 className: "capucino-item",
                                 children: [(0, De.jsx)("div", {
                                     className: "item-image",
-                                    style: {backgroundImage: "url(Assets/capucino.png)"}
+                                    style: {backgroundImage: "url(static/media/capucino.png)"}
                                 }), " ", (0, De.jsx)("p", {
                                     className: "item-text",
                                     children: "Capucino"
@@ -7138,7 +7138,7 @@
                                 className: "chocolate_milk-item",
                                 children: [(0, De.jsx)("div", {
                                     className: "item-image",
-                                    style: {backgroundImage: "url(Assets/chocolate_milk.png)"}
+                                    style: {backgroundImage: "url(static/media/chocolate_milk.png)"}
                                 }), " ", (0, De.jsx)("p", {
                                     className: "item-text",
                                     children: "Chocolate Milk"
@@ -7154,7 +7154,7 @@
                                 className: "chocolate_coffee-item",
                                 children: [(0, De.jsx)("div", {
                                     className: "item-image",
-                                    style: {backgroundImage: "url(Assets/chocolate_coffee.png)"}
+                                    style: {backgroundImage: "url(static/media/chocolate_coffee.png)"}
                                 }), " ", (0, De.jsx)("p", {
                                     className: "item-text",
                                     children: "Chocolate coffee"
@@ -7170,7 +7170,7 @@
                                 className: "double_espresso-item",
                                 children: [(0, De.jsx)("div", {
                                     className: "item-image",
-                                    style: {backgroundImage: "url(Assets/coffee.png)"}
+                                    style: {backgroundImage: "url(static/media/coffee.png)"}
                                 }), " ", (0, De.jsx)("p", {
                                     className: "item-text",
                                     children: "Double espresso"
@@ -7186,7 +7186,7 @@
                                 className: "late_machiato-item",
                                 children: [(0, De.jsx)("div", {
                                     className: "item-image",
-                                    style: {backgroundImage: "url(Assets/late_machiato.png)"}
+                                    style: {backgroundImage: "url(static/media/late_machiato.png)"}
                                 }), " ", (0, De.jsx)("p", {
                                     className: "item-text",
                                     children: "Late machiato"
@@ -7202,7 +7202,7 @@
                                 className: "wiener_melange-item",
                                 children: [(0, De.jsx)("div", {
                                     className: "item-image",
-                                    style: {backgroundImage: "url(Assets/wiener.png)"}
+                                    style: {backgroundImage: "url(static/media/wiener.png)"}
                                 }), " ", (0, De.jsx)("p", {
                                     className: "item-text",
                                     children: "Wiener melange"
@@ -7796,63 +7796,63 @@
                     }), (0, De.jsx)(Te, {
                         path: "/brew_coffee",
                         element: (0, De.jsx)(Ge, {
-                            backgroundImg: "Assets/coffee.png",
+                            backgroundImg: "static/media/coffee.png",
                             name: "Coffee",
                             info: "Coffee text"
                         })
                     }), (0, De.jsx)(Te, {
                         path: "/brew_espresso",
                         element: (0, De.jsx)(Ge, {
-                            backgroundImg: "Assets/espresso.png",
+                            backgroundImg: "static/media/espresso.png",
                             name: "Espresso",
                             info: "Espresso text"
                         })
                     }), (0, De.jsx)(Te, {
                         path: "/brew_coffee_milk",
                         element: (0, De.jsx)(Ge, {
-                            backgroundImg: "Assets/milk_coffee.png",
+                            backgroundImg: "static/media/milk_coffee.png",
                             name: "Milk Coffee",
                             info: "Coffee milk text"
                         })
                     }), (0, De.jsx)(Te, {
                         path: "/brew_capucino",
                         element: (0, De.jsx)(Ge, {
-                            backgroundImg: "Assets/capucino.png",
+                            backgroundImg: "static/media/capucino.png",
                             name: "Cappuccino",
                             info: "Capuccino text"
                         })
                     }), (0, De.jsx)(Te, {
                         path: "/brew_chocolate_coffee",
                         element: (0, De.jsx)(Ge, {
-                            backgroundImg: "Assets/chocolate_coffee.png",
+                            backgroundImg: "static/media/chocolate_coffee.png",
                             name: "Chocolate Coffee",
                             info: "Chocolate Coffee text"
                         })
                     }), (0, De.jsx)(Te, {
                         path: "/brew_chocolate_milk",
                         element: (0, De.jsx)(Ge, {
-                            backgroundImg: "Assets/chocolate_milk.png",
+                            backgroundImg: "static/media/chocolate_milk.png",
                             name: "Chocolate Milk",
                             info: "Chocolate milk text"
                         })
                     }), (0, De.jsx)(Te, {
                         path: "/brew_double_espresso",
                         element: (0, De.jsx)(Ge, {
-                            backgroundImg: "Assets/coffe.png",
+                            backgroundImg: "static/media/coffe.png",
                             name: "Double espresso",
                             info: "Double espresso text"
                         })
                     }), (0, De.jsx)(Te, {
                         path: "/brew_late",
                         element: (0, De.jsx)(Ge, {
-                            backgroundImg: "Assets/late_machiato.png",
+                            backgroundImg: "static/media/late_machiato.png",
                             name: "Latte Macchiatto",
                             info: "Late Machiato text"
                         })
                     }), (0, De.jsx)(Te, {
                         path: "/brew_wiener_Melange",
                         element: (0, De.jsx)(Ge, {
-                            backgroundImg: "Assets/wiener.png",
+                            backgroundImg: "static/media/wiener.png",
                             name: "Wiener melange",
                             info: "Wiener Melange text"
                         })
