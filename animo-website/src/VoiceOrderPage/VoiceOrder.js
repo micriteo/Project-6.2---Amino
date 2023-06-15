@@ -1,4 +1,4 @@
-import React from 'react'
+import React, {useState} from 'react'
 import './VoiceOrder.css'
 import { useNavigate } from 'react-router-dom';
 
@@ -9,6 +9,9 @@ function VoiceOrder() {
     let stream, recorder, chunks, media;
     // Use navigate from react-router-dom for routing
     const navigate = useNavigate();
+
+    const [language, setLanguage] = useState('EN');
+
 
     // Function for handling back navigation
     const handleBack = () =>
@@ -71,6 +74,10 @@ function VoiceOrder() {
             }
         });
     }
+
+    const toggleLanguage = () => {
+        setLanguage(prevLanguage => prevLanguage === 'EN' ? 'NL' : 'EN');
+    }
     // Render the component
     return (
       <div className="OrderCoffee">
@@ -87,6 +94,7 @@ function VoiceOrder() {
           <p className={"button1"} id={"orderShow"}>Press and hold the logo to order</p>
         </div>
         <div className="logo" onMouseDown={recordVoice} onMouseUp={stopRecording} onTouchStart={recordVoice} onTouchEnd={stopRecording}/>
+          <button className="language-button" onClick={toggleLanguage}>{language}</button>
       </div>
     );
   }
