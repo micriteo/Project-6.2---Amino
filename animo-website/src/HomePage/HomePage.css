@@ -1,11 +1,13 @@
 @import url('https://fonts.googleapis.com/css2?family=Lato&display=swap');
 
-.home-container {
+.home-container 
+{
     text-align: center;
     background-position: center;
 }
 
-.background-image {
+.background-image 
+{
     position: absolute;
     top: 0;
     left: 0;
@@ -32,7 +34,8 @@
     color: #CBCBD4;
 }
 
-.logo {
+.logo 
+{
     width: 50px;
     height: 50px;
     margin-right: 1rem;
@@ -41,7 +44,8 @@
 }
 
 
-.button-container {
+.button-container 
+{
     margin-top: 20px;
     display: flex;
     flex-direction: column;
@@ -49,7 +53,8 @@
 }
 
 .voice-button,
-.select-button {
+.select-button 
+{
     margin: 10px;
     padding: 10px 40px; /* Adjust the padding to make the buttons longer */
     font-size: 20px;
@@ -60,22 +65,27 @@
     font-family: 'Lato', sans-serif; /* Use Lato font */
 }
 
-.voice-button {
+.voice-button 
+{
     background-color: #FFFFFF;
     color: #000000;
 }
 
-.select-button {
+.select-button 
+{
     background-color: #000000;
     color: #FFFFFF;
 }
 
-@media screen and (min-width: 600px) {
-    .logo-title-container {
+@media screen and (min-width: 600px) 
+{
+    .logo-title-container 
+    {
         flex-direction: row;
         justify-content: center;
     }
-    .button-container {
+    .button-container 
+    {
         flex-direction: row;
         justify-content: center;
         gap: 20px;

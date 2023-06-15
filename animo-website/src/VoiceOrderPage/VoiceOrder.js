@@ -42,17 +42,13 @@ function VoiceOrder() {
                     }
                 };
             })
-
         console.log("Button pressed, start recording...");
-
     }
     // Function to stop voice recording
     const stopRecording = () => {
         recorder.stop();
         console.log("Button released, start recording...");
-
     }
-
     // Function to process recorded audio and call the API
     const makeLink = () => {
         // Create blob from the chunks
@@ -75,7 +71,6 @@ function VoiceOrder() {
             }
         });
     }
-
     // Render the component
     return (
       <div className="OrderCoffee">
@@ -95,5 +90,4 @@ function VoiceOrder() {
       </div>
     );
   }
-
-  export default VoiceOrder;
+export default VoiceOrder;
