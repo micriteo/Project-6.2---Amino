@@ -1,3 +1,4 @@
+// Import the necessary dependencies and assets
 import './SelectOrder.css';
 import animo_logo from '../Assets/Select_Order_Assets/animo_logo.jpg';
 import coffe_vector from '../Assets/Select_Order_Assets/capucino_vector.svg';
@@ -6,13 +7,14 @@ import hot_water_vector from '../Assets/Select_Order_Assets/hot_water_vector.svg
 import background from '../Assets/Select_Order_Assets/background_animo.jpeg';
 import { useNavigate } from 'react-router-dom';
 
-
+// Component definition
 function SelectOrder() 
 { 
-
+// Use the useNavigate hook to get the navigate function
   const navigate = useNavigate();
 
-
+ // Event handler functions
+  // Each function navigates to a different route when called
   const handleBrewCoffee = () => 
   {
       navigate('/brew_coffee');
@@ -63,7 +65,7 @@ function SelectOrder()
       navigate('/');
   };
 
-
+// Component return
   return (
     <div className='select-container'>
     <div className="App">
@@ -166,5 +168,5 @@ function SelectOrder()
   </div>
   );
 }
-
-export default SelectOrder;
+ 
+export default SelectOrder; // Export the component as default
