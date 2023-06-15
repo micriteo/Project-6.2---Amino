@@ -99,7 +99,7 @@ def convert_to_text():
     with sr.AudioFile(path_wav) as source:
         audio_data = r.record(source)
         try:
-            text = r.recognize_google(audio_data, language="nl-NL")
+            text = r.recognize_google(audio_data, language="en-EN")
         except sr.UnknownValueError:
             try:
                 text = r.recognize_google(audio_data)
@@ -143,11 +143,39 @@ def current_order():
     for key, value in dict_coffee.items():
         coffee += str(value) + " " + str(key)
         if int(value) > 1:
-            coffee += "'s, "
+            coffee += "s, "
         else:
             coffee += ", "
     coffee = coffee.rstrip(", ")
     return coffee
+
+
+# Makes a new copy of all coffees available
+def coffee_copy():
+    global coffee_types_temp
+    coffee_types_temp = coffee_types.copy()
+
+
+# Empty current order
+def clear_dict():
+    global dict_coffee
+    dict_coffee = {}
+
+
+# Plural word to singular
+def make_singular(item):
+    p = inflect.engine()
+
+    if p.singular_noun(item):
+        singular_form = p.singular_noun(item)
+        return singular_form
+    else:
+        return item
+
+
+# Updates current list of coffees
+def update_dict(item, number):
+    dict_coffee.update({item: number})
 
 
 def handle_coffee_order(voice_text):
@@ -159,9 +187,12 @@ def handle_coffee_order(voice_text):
     global dutch_to_number
     # remove_and used to ensure coffees are properly registered
     remove_and = " and"
-    # voice_text = "coffee"
+    # voice_text = "i like one coffee one espresso and latte macchiato and cappuccino"
+    print(voice_text)
 
     if turn == 0:
+        # Copies array of coffees
+        coffee_copy()
         for word in voice_text.split():
             if word in dutch_to_number:
                 number = dutch_to_number.get(word)
@@ -184,41 +215,38 @@ def handle_coffee_order(voice_text):
                 if remove_and in item:
                     # Remove the and previously added to separate coffees
                     item = item.replace(remove_and, "")
-                if item in coffee_types_temp and item in coffee_types:
-                     # If coffee not already queued for brewing
-                     dict_coffee.update({item: number})
-                     coffee_types_temp.remove(item)
-            for coffee in coffee_types_temp:
-                if coffee in voice_text.split():
-                    # If coffee is voice_text and its does not have a number before it defaults to 1
-                    dict_coffee.update({coffee: 1})
+                item = make_singular(item)
+                if item in coffee_types_temp:
+                    # If coffee not already queued for brewing
+                    update_dict(item, number)
                     coffee_types_temp.remove(item)
-        else:
-            # If no number present in voice_text but coffee requested
-            for coffee in coffee_types_temp:
-                if coffee in voice_text.split():
-                    dict_coffee.update({coffee: 1})
+        # If no number present in voice_text but coffee requested
+        for coffee in coffee_types_temp:
+            if coffee in voice_text:
+                number = 1
+                update_dict(coffee, number)
+                coffee_types_temp.remove(coffee)
 
         if dict_coffee:
             turn = 1
             return f"You have requested {current_order()}. Is this correct?"
         else:
-            current_coffee = None
-            dict_coffee = {}
+            clear_dict()
+            coffee_copy()
             return f"I'm sorry, I could not understand you. What coffee would you like?"
 
     elif turn == 1:
         if voice_text in positive_response:
             turn = 0
             response = f"Brewing {current_order()} now!"
-            current_coffee = None
-            dict_coffee = {}
+            clear_dict()
+            coffee_copy()
             return response
         elif voice_text in negative_response:
             turn = 0
             response = f"What coffee would you like instead?"
-            current_coffee = None
-            dict_coffee = {}
+            clear_dict()
+            coffee_copy()
             return response
         else:
             return f"I'm sorry, I could not understand you. Would you like {current_order()}? Please say Yes or No"
