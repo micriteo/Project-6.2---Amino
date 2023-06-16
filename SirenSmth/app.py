@@ -19,11 +19,11 @@ turn = 0
 orderNumber = 0
 current_coffee = None
 dict_coffee = {}
-coffee_types = ["coffee", "koffie", "espresso", "milk coffee", "koffie melk", "cappuccino",  # coffees available
-                "koffie chocolate", "chocolate coffee", "chocolate milk", "chocolade melk",
+coffee_types = ["coffee", "koffie", "espresso", "milk coffee", "melk koffie", "cappuccino",  # coffees available
+                "chocolade koffie", "chocolate coffee", "chocolate milk", "chocolademelk",
                 "double espresso", "latte macchiato", "wiener melange"]
-positive_response = ["yes", "sounds good", "sure", "ja"]
-negative_response = ["no", "nope", "cancel", "nee", "nou", "annuleren"]
+positive_response = ["yes", "sounds good", "sure", "ja", "lekker"]
+negative_response = ["no", "nope", "cancel", "nee", "nou", "annuleren", "stop"]
 coffee_types_temp = coffee_types.copy()
 
 # Add more mappings as needed
@@ -35,6 +35,11 @@ dutch_to_number = {
 english_to_number = {
     "one": "1", "two": "2", "three": "3", "four": "4", "five": "5",
     "six": "6", "seven": "7", "eight": "8", "nine": "9"
+}
+# Used to translate orders to process
+coffee_translation = {
+    "koffie": "coffee", "melk koffie": "milk coffee", "choclade koffie": "chocolate coffee",
+    "chocolademelk": "chocolate milk"
 }
 
 
@@ -189,7 +194,9 @@ def current_order(order_stage):
         else:
             coffee += ", "
     coffee = coffee.rstrip(", ")
+
     if order_stage == 0:
+        full_order = order_to_english(full_order)
         store_order(full_order)
         print(full_order)
     return coffee
@@ -237,6 +244,12 @@ def word_to_number(voice_text):
             voice_text = voice_text.replace(coffee, coffee + " and")
 
 
+def order_to_english(full_order):
+    for key, value in coffee_translation.items():
+        if key in full_order:
+            full_order = full_order.replace(key, value)
+    return full_order
+
 def handle_coffee_order(voice_text):
     voice_text = voice_text.lower()
     global turn
@@ -244,6 +257,7 @@ def handle_coffee_order(voice_text):
     global dict_coffee
     global coffee_types_temp
     global dutch_to_number
+    global local_language
     # remove_and used to ensure coffees are properly registered
     remove_and = " and"
     # voice_text = "i like one coffee one espresso and latte macchiato and cappuccino"
@@ -280,40 +294,42 @@ def handle_coffee_order(voice_text):
         if dict_coffee:
             turn = 1
             if local_language == "NL":
-                response = f"Jij heb voor {current_order(turn)}, geraagd, is dat korekt?"
+                response = f"Jij hebt gevraagd om een {current_order(turn)}, klopt dat?"
             else:
                 response = f"You have requested {current_order(turn)}, is this correct?"
             return response
         else:
             clear_dict()
             if local_language == "NL":
-                response = f"Sorry ik kon je niet verstaan. Wat voor koffie wil je"
+                response = f"Sorry, ik kon je niet verstaan. Wat voor koffie wil je?"
             else:
                 response = f"I'm sorry, I could not understand you. What coffee would you like?"
         return response
 
     elif turn == 1:
-        if voice_text in positive_response:
-            turn = 0
-            if local_language == "NL":
-                response = f"Nu {current_order(turn)} aan het brouwen!"
-            else:
-                response = f"Brewing {current_order(turn)} now!"
-            clear_dict()
-            return response
-        elif voice_text in negative_response:
-            turn = 0
-            if local_language == "NL":
-                response = f"Welk ander koffie wil je?"
-            else:
-                response = f"What coffee would you like instead?"
-            clear_dict()
-            return response
-        elif local_language == "NL":
-            response = f"Sorry, ik kon je niet verstaan, wil je  {current_order(turn)}? Zeg alsjeblieft Ja, Nee of Annuleren"
-        else:
-            response = f"I'm sorry, I could not understand you. Would you like {current_order(turn)}? Please say Yes, No or Cancel"
-        return response
+        for word in positive_response:
+            if word in voice_text:
+                turn = 0
+                if local_language == "NL":
+                    response = f"{current_order(turn)} aan het maken!"
+                else:
+                    response = f"Brewing {current_order(turn)} now!"
+                clear_dict()
+                return response
+        for word in negative_response:
+            if word in voice_text:
+                turn = 0
+                if local_language == "NL":
+                    response = f"Welke koffie zou je willen hebben?"
+                else:
+                    response = f"What coffee would you like instead?"
+                clear_dict()
+                return response
+    if local_language == "NL" and turn == 1:
+        response = f"Sorry, ik kon je niet verstaan, wil je {current_order(turn)}? Zeg Ja, Nee of Annuleren"
+    elif turn == 1:
+        response = f"I'm sorry, I could not understand you. Would you like {current_order(turn)}? Please say Yes, No or Cancel"
+    return response
 
 
 if __name__ == '__main__':
