@@ -84,6 +84,8 @@ function VoiceOrder() {
                 label.innerHTML = order;
                 let msg = new SpeechSynthesisUtterance();
                 msg.text = order;
+                if(language === 'NL') msg.lang = 'nl-NL';
+                else msg.lang = 'en-US';
                 window.speechSynthesis.speak(msg);
             } else {
                 console.log('HTTP-Error: ' + response.status);

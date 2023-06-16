@@ -1,4 +1,4 @@
-/*! For license information please see main.915a99d1.js.LICENSE.txt */
+/*! For license information please see main.73cfd154.js.LICENSE.txt */
 !function () {
     "use strict";
     var e = {
@@ -7074,7 +7074,7 @@
                                 className: "coffee-item",
                                 children: [(0, De.jsx)("div", {
                                     className: "item-image",
-                                    style: {backgroundImage: "url(static/media/coffee.png)"}
+                                    style: {backgroundImage: "url(Assets/coffee.png)"}
                                 }), " ", (0, De.jsx)("p", {
                                     className: "item-text",
                                     children: "Coffee"
@@ -7090,7 +7090,7 @@
                                 className: "espresso-item",
                                 children: [(0, De.jsx)("div", {
                                     className: "item-image",
-                                    style: {backgroundImage: "url(static/media/espresso.png)"}
+                                    style: {backgroundImage: "url(Assets/espresso.png)"}
                                 }), " ", (0, De.jsx)("p", {
                                     className: "item-text",
                                     children: "Espresso"
@@ -7106,7 +7106,7 @@
                                 className: "milk_coffee-item",
                                 children: [(0, De.jsx)("div", {
                                     className: "item-image",
-                                    style: {backgroundImage: "url(static/media/milk_coffee.png)"}
+                                    style: {backgroundImage: "url(Assets/milk_coffee.png)"}
                                 }), " ", (0, De.jsx)("p", {
                                     className: "item-text",
                                     children: "Milk Coffee"
@@ -7122,7 +7122,7 @@
                                 className: "capucino-item",
                                 children: [(0, De.jsx)("div", {
                                     className: "item-image",
-                                    style: {backgroundImage: "url(static/media/capucino.png)"}
+                                    style: {backgroundImage: "url(Assets/capucino.png)"}
                                 }), " ", (0, De.jsx)("p", {
                                     className: "item-text",
                                     children: "Capucino"
@@ -7138,7 +7138,7 @@
                                 className: "chocolate_milk-item",
                                 children: [(0, De.jsx)("div", {
                                     className: "item-image",
-                                    style: {backgroundImage: "url(static/media/chocolate_milk.png)"}
+                                    style: {backgroundImage: "url(Assets/chocolate_milk.png)"}
                                 }), " ", (0, De.jsx)("p", {
                                     className: "item-text",
                                     children: "Chocolate Milk"
@@ -7154,7 +7154,7 @@
                                 className: "chocolate_coffee-item",
                                 children: [(0, De.jsx)("div", {
                                     className: "item-image",
-                                    style: {backgroundImage: "url(static/media/chocolate_coffee.png)"}
+                                    style: {backgroundImage: "url(Assets/chocolate_coffee.png)"}
                                 }), " ", (0, De.jsx)("p", {
                                     className: "item-text",
                                     children: "Chocolate coffee"
@@ -7170,7 +7170,7 @@
                                 className: "double_espresso-item",
                                 children: [(0, De.jsx)("div", {
                                     className: "item-image",
-                                    style: {backgroundImage: "url(static/media/coffee.png)"}
+                                    style: {backgroundImage: "url(Assets/coffee.png)"}
                                 }), " ", (0, De.jsx)("p", {
                                     className: "item-text",
                                     children: "Double espresso"
@@ -7186,7 +7186,7 @@
                                 className: "late_machiato-item",
                                 children: [(0, De.jsx)("div", {
                                     className: "item-image",
-                                    style: {backgroundImage: "url(static/media/late_machiato.png)"}
+                                    style: {backgroundImage: "url(Assets/late_machiato.png)"}
                                 }), " ", (0, De.jsx)("p", {
                                     className: "item-text",
                                     children: "Late machiato"
@@ -7202,7 +7202,7 @@
                                 className: "wiener_melange-item",
                                 children: [(0, De.jsx)("div", {
                                     className: "item-image",
-                                    style: {backgroundImage: "url(static/media/wiener.png)"}
+                                    style: {backgroundImage: "url(Assets/wiener.png)"}
                                 }), " ", (0, De.jsx)("p", {
                                     className: "item-text",
                                     children: "Wiener melange"
@@ -7569,16 +7569,16 @@
                             for (; ;) switch (e.prev = e.next) {
                                 case 0:
                                     if (!t.ok) {
-                                        e.next = 11;
+                                        e.next = 12;
                                         break
                                     }
                                     return n = document.getElementById("orderShow"), e.next = 4, t.text();
                                 case 4:
-                                    r = e.sent, n.innerHTML = r, (a = new SpeechSynthesisUtterance).text = r, window.speechSynthesis.speak(a), e.next = 12;
+                                    r = e.sent, n.innerHTML = r, (a = new SpeechSynthesisUtterance).text = r, a.lang = "NL" === o ? "nl-NL" : "en-US", window.speechSynthesis.speak(a), e.next = 13;
                                     break;
-                                case 11:
-                                    console.log("HTTP-Error: " + t.status);
                                 case 12:
+                                    console.log("HTTP-Error: " + t.status);
+                                case 13:
                                 case"end":
                                     return e.stop()
                             }
@@ -7796,63 +7796,63 @@
                     }), (0, De.jsx)(Te, {
                         path: "/brew_coffee",
                         element: (0, De.jsx)(Ge, {
-                            backgroundImg: "static/media/coffee.png",
+                            backgroundImg: "Assets/coffee.png",
                             name: "Coffee",
                             info: "Coffee text"
                         })
                     }), (0, De.jsx)(Te, {
                         path: "/brew_espresso",
                         element: (0, De.jsx)(Ge, {
-                            backgroundImg: "static/media/espresso.png",
+                            backgroundImg: "Assets/espresso.png",
                             name: "Espresso",
                             info: "Espresso text"
                         })
                     }), (0, De.jsx)(Te, {
                         path: "/brew_coffee_milk",
                         element: (0, De.jsx)(Ge, {
-                            backgroundImg: "static/media/milk_coffee.png",
+                            backgroundImg: "Assets/milk_coffee.png",
                             name: "Milk Coffee",
                             info: "Coffee milk text"
                         })
                     }), (0, De.jsx)(Te, {
                         path: "/brew_capucino",
                         element: (0, De.jsx)(Ge, {
-                            backgroundImg: "static/media/capucino.png",
+                            backgroundImg: "Assets/capucino.png",
                             name: "Cappuccino",
                             info: "Capuccino text"
                         })
                     }), (0, De.jsx)(Te, {
                         path: "/brew_chocolate_coffee",
                         element: (0, De.jsx)(Ge, {
-                            backgroundImg: "static/media/chocolate_coffee.png",
+                            backgroundImg: "Assets/chocolate_coffee.png",
                             name: "Chocolate Coffee",
                             info: "Chocolate Coffee text"
                         })
                     }), (0, De.jsx)(Te, {
                         path: "/brew_chocolate_milk",
                         element: (0, De.jsx)(Ge, {
-                            backgroundImg: "static/media/chocolate_milk.png",
+                            backgroundImg: "Assets/chocolate_milk.png",
                             name: "Chocolate Milk",
                             info: "Chocolate milk text"
                         })
                     }), (0, De.jsx)(Te, {
                         path: "/brew_double_espresso",
                         element: (0, De.jsx)(Ge, {
-                            backgroundImg: "static/media/coffe.png",
+                            backgroundImg: "Assets/coffe.png",
                             name: "Double espresso",
                             info: "Double espresso text"
                         })
                     }), (0, De.jsx)(Te, {
                         path: "/brew_late",
                         element: (0, De.jsx)(Ge, {
-                            backgroundImg: "static/media/late_machiato.png",
+                            backgroundImg: "Assets/late_machiato.png",
                             name: "Latte Macchiatto",
                             info: "Late Machiato text"
                         })
                     }), (0, De.jsx)(Te, {
                         path: "/brew_wiener_Melange",
                         element: (0, De.jsx)(Ge, {
-                            backgroundImg: "static/media/wiener.png",
+                            backgroundImg: "Assets/wiener.png",
                             name: "Wiener melange",
                             info: "Wiener Melange text"
                         })
@@ -7863,4 +7863,4 @@
         r.createRoot(document.getElementById("root")).render((0, De.jsx)(t.StrictMode, {children: (0, De.jsx)(Ze, {})}))
     }()
 }();
-//# sourceMappingURL=main.915a99d1.js.map
+//# sourceMappingURL=main.73cfd154.js.map
