@@ -34,7 +34,7 @@ dutch_to_number = {
 }
 english_to_number = {
     "one": "1", "two": "2", "three": "3", "four": "4", "five": "5",
-    "six": "6", "seven": "7", "eight": "8", "nine": "9"
+    "six": "6", "seven": "7", "eight": "8", "nine": "9", "for": "4", "to": "2"
 }
 # Used to translate orders to process
 coffee_translation = {
@@ -242,6 +242,7 @@ def word_to_number(voice_text):
     for coffee in coffee_types:
         if coffee in voice_text:
             voice_text = voice_text.replace(coffee, coffee + " and")
+    return voice_text
 
 
 def order_to_english(full_order):
@@ -249,6 +250,7 @@ def order_to_english(full_order):
         if key in full_order:
             full_order = full_order.replace(key, value)
     return full_order
+
 
 def handle_coffee_order(voice_text):
     voice_text = voice_text.lower()
@@ -260,13 +262,13 @@ def handle_coffee_order(voice_text):
     global local_language
     # remove_and used to ensure coffees are properly registered
     remove_and = " and"
-    # voice_text = "i like one coffee one espresso and latte macchiato and cappuccino"
+    # voice_text = "6 espressos four coffees and two hot chocolate"
     print(voice_text)
 
     if turn == 0:
         # Copies array of coffees
         coffee_copy()
-        word_to_number(voice_text)
+        voice_text = word_to_number(voice_text)
 
         # Pattern to match numbers their associated items
         pattern = r"\b(\d+)\b\s+(\w+(?:\s+\w+)?)"
