@@ -47,7 +47,7 @@ coffee_translation = {
 @app.route('/')
 def home():
     # subprocess.call("../animo-website npm start", shell=True)
-    return render_template("bindex.html")
+    return render_template("index.html")
 
 
 # Route to display the drink order
