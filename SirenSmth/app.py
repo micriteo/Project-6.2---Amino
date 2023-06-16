@@ -13,7 +13,7 @@ from voice_paths import *
 
 # Declaring global variables
 send_order = ""
-language = "en-EN"
+local_language = "en-EN"
 app = Flask(__name__)
 turn = 0
 orderNumber = 0
@@ -22,8 +22,8 @@ dict_coffee = {}
 coffee_types = ["coffee", "koffie", "espresso", "milk coffee", "koffie melk", "cappuccino",  # coffees available
                 "koffie chocolate", "chocolate coffee", "chocolate milk", "chocolade melk",
                 "double espresso", "latte macchiato", "wiener melange"]
-positive_response = ["yes", "sounds good", "sure"]
-negative_response = ["no", "nope", "cancel", "nee", "nou"]
+positive_response = ["yes", "sounds good", "sure", "ja"]
+negative_response = ["no", "nope", "cancel", "nee", "nou", "annuleren"]
 coffee_types_temp = coffee_types.copy()
 
 # Add more mappings as needed
@@ -54,9 +54,9 @@ def drink_order():
 @app.route('/language', methods=['POST'])
 def get_language():
     if request.method == 'POST':
-        global language
-        language = request.get_data().decode('utf-8')
-        print(language)
+        global local_language
+        local_language = request.get_data().decode('utf-8')
+        print(local_language)
         return "language achieved: "
 
 
@@ -133,7 +133,7 @@ def convert_to_text():
     with sr.AudioFile(path_wav) as source:
         audio_data = r.record(source)
         try:
-            text = r.recognize_google(audio_data, language="en-EN")
+            text = r.recognize_google(audio_data, language=local_language)
         except sr.UnknownValueError:
             try:
                 text = r.recognize_google(audio_data)
@@ -175,6 +175,7 @@ def text_to_speech(text):
     engine.runAndWait()
 
 
+# Prints order
 def current_order(order_stage):
     coffee = ""
     full_order = ""
@@ -278,24 +279,41 @@ def handle_coffee_order(voice_text):
 
         if dict_coffee:
             turn = 1
-            return f"You have requested {current_order(turn)}. Is this correct?"
+            if local_language == "NL":
+                response = f"Jij heb voor {current_order(turn)}, geraagd, is dat korekt?"
+            else:
+                response = f"You have requested {current_order(turn)}, is this correct?"
+            return response
         else:
             clear_dict()
-            return f"I'm sorry, I could not understand you. What coffee would you like?"
+            if local_language == "NL":
+                response = f"Sorry ik kon je niet verstaan. Wat voor koffie wil je"
+            else:
+                response = f"I'm sorry, I could not understand you. What coffee would you like?"
+        return response
 
     elif turn == 1:
         if voice_text in positive_response:
             turn = 0
-            response = f"Brewing {current_order(turn)} now!"
+            if local_language == "NL":
+                response = f"Nu {current_order(turn)} aan het brouwen!"
+            else:
+                response = f"Brewing {current_order(turn)} now!"
             clear_dict()
             return response
         elif voice_text in negative_response:
             turn = 0
-            response = f"What coffee would you like instead?"
+            if local_language == "NL":
+                response = f"Welk ander koffie wil je?"
+            else:
+                response = f"What coffee would you like instead?"
             clear_dict()
             return response
+        elif local_language == "NL":
+            response = f"Sorry, ik kon je niet verstaan, wil je  {current_order(turn)}? Zeg alsjeblieft Ja, Nee of Annuleren"
         else:
-            return f"I'm sorry, I could not understand you. Would you like {current_order(turn)}? Please say Yes or No"
+            response = f"I'm sorry, I could not understand you. Would you like {current_order(turn)}? Please say Yes, No or Cancel"
+        return response
 
 
 if __name__ == '__main__':
